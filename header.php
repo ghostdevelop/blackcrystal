@@ -38,7 +38,6 @@
 
 </script>
 </head>
-<?php var_dump("asdasd") ?>
 <body <?php body_class()?>>
 	<div class="wrapper">
 		<div class="page">

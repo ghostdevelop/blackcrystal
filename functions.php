@@ -50,9 +50,9 @@ if(!class_exists('ThemeFramework')) {
 		}	
 
 		public function nav_menus_setup() {
-			register_nav_menu( 'top-menu', __( 'Top menu', theme_textdomain() ) );
-			register_nav_menu( 'header-menu', __( 'Header menu', theme_textdomain() ) );
-			register_nav_menu( 'header-nav-menu', __( 'Header nav menu', theme_textdomain() ) );
+			register_nav_menu( 'top-menu', __( 'Top menu', 'blackcrystal' ) );
+			register_nav_menu( 'header-menu', __( 'Header menu', 'blackcrystal' ) );
+			register_nav_menu( 'header-nav-menu', __( 'Header nav menu', 'blackcrystal' ) );
 		}
 		
 
