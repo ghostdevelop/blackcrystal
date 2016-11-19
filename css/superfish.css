@@ -1,0 +1,249 @@
+.nav-container {
+  position: relative;
+  z-index: 2;
+}
+.sf-menu {
+	background: url(../images/nav-bg.png) 0 0 repeat;
+	font-size: 13px;
+	line-height: 17px;
+	  display: -webkit-box;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: -webkit-flex;
+	  display: flex;
+	margin: 0 -30px;
+	border-top: 1px solid #5d5d5e;
+	border-bottom: 1px solid #444444;
+}
+.sf-menu li {
+	/* float: left; */
+	flex: 1;
+	/* text-align: center; */
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	border-right: 1px solid #454545;
+	z-index: 99;
+}
+.sf-menu li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  padding: 0;
+}
+.sf-menu > li > a  {
+	padding: 14px 20px;
+	font-size: 16px;
+	line-height: 18px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	z-index: -1;
+}
+.sf-menu > li:before {
+  content: ".";
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  height: 3px;
+  width: 0;
+  background: #9b7853;
+  font-size: 0;
+}
+.sf-menu li ul a  {  white-space: normal;}
+.sf-menu > li.parent > a  {  background: url(../images/marker-8.gif) center -46px no-repeat;}
+
+.sf-menu > li.sfHover > a:before,
+.sf-menu> li:hover:before,
+.sf-menu > li.active > a:before {width: 100%; left: 0;} 
+
+.sf-menu > li.sfHover > a,
+.sf-menu> li > a:hover,
+.sf-menu > li.active > a {  color: #c6a889;}
+
+.sf-menu li a:hover {  text-decoration: none;}
+
+.sf-menu ul {
+  position: absolute;
+  top: -999em;
+  z-index: 99;
+  width: 192px;
+  display: none;
+  background: #242424;
+}
+.sf-menu li li { border-bottom: 1px solid #3a3a3a;}
+.sf-menu li li.last {  border-bottom: none;}
+.sf-menu li li.sfHover,
+.sf-menu li li,
+.sf-menu li li:hover {
+  float: none;
+  border-right: none;
+  position: relative;
+}
+.sf-menu li li a,
+.sf-menu li.sfHover li a,
+.sf-menu li.active li a {
+  display:block;
+  background: none;
+  font-size: 14px;
+  line-height: 16px;
+  color: #aaa;
+  padding: 7px 15px;
+}
+.sf-menu li li > a:hover,
+.sf-menu li li.sfHover > a,
+.sf-menu li li.active > a {  color: #fff;}
+
+.sf-menu ul ul {
+  position: absolute;
+  top: -999em;
+  z-index: 99;
+  width: 192px;
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+  left: 0px;
+  top: 65px;
+  /* match top ul list item height */
+}
+
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+  top: -999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+  left: 193px;
+  /* match ul width */
+  top: 0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+  top: -999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+  left: 193px;
+  /* match ul width */
+  top: 0;
+}
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+  .sf-menu {margin: 0 -10px;}
+}
+@media only screen and (min-width: 980px) {
+    #menu-icon,
+    .sf-menu-phone {  display: none !important;}
+}
+@media only screen and (max-width: 979px) {
+  .sf-menu,
+  .sf-menu-phone {display: none;}
+  /* menu icon */
+  #menu-icon {
+    display: block;
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d6c1ac', endColorstr='#b1885d');
+	/* IE6-9 */
+	background: -webkit-gradient(linear, left top, left bottom, from(#d6c1ac), to(#b1885d));
+	background: -moz-linear-gradient(top, #d6c1ac, #b1885d);
+	/* firefox 3.6+ */
+	background: -o-linear-gradient(top, #d6c1ac, #b1885d);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #d6c1ac, #b1885d);
+	color: black;
+    border-top: 1px solid #444444;
+    border-bottom: 1px solid #444444;
+    font-size: 23px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding:0 15px;
+    height: 50px;
+    margin: 0;
+    position: relative;
+  }
+
+  #menu-icon:before {width: 100%; left: auto; }
+  #menu-icon.active:before { background-position: 94% -40px;  }
+
+  .sf-menu-phone {
+    background: #242424;
+    position: relative;
+    padding:0;
+    z-index: 2;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .sf-menu-phone li { padding: 0;  position: relative; font-size: 18px;  text-align: left; border-bottom: 1px solid #333}
+  .sf-menu-phone > li {  border-bottom: 1px solid #3a3a3a; }
+  .sf-menu-phone li a { display: inline-block; color: #aaa; padding: 10px 2%; width: 96%; position: relative;}
+  .sf-menu-phone li.menu-item-has-children > a:after{
+	content: "\F055";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	/*--adjust as necessary--*/
+	color: #aaa;
+	font-size: 16px;
+	padding-right: 0.5em;
+	position: absolute;
+	top: 10px;
+	right: 0;	  
+  }
+  .sf-menu-phone li a:hover { color: #fff; }
+  .sf-menu-phone li li {font-size: 18px; padding: 0 0; }
+  .sf-menu-phone li li.last { padding-bottom: 0;  }
+  .sf-menu-phone li strong {
+    position: absolute;
+    display: block;
+    background: url(../images/toogle-button2.png) center -54px no-repeat;
+    top: 4px;
+    right: 0;
+    height: 24px;
+    width: 24px;
+  }
+	.sf-menu-phone ul > li > a{
+		padding-left: 6%;
+		width: 92%
+	}
+	.sf-menu-phone ul > li li > a{
+		padding-left: 8%;
+		width: 90%
+
+	}
+  .sf-menu-phone > li > strong {top: 10px; right: 5px;}
+  .sf-menu-phone li strong:hover { cursor: pointer; }
+  .sf-menu-phone li strong.opened { background-position: center 7px; }
+
+  /* dropdown */
+  .sf-menu-phone ul {  width: auto;  padding: 0; width: 100%; display: none; text-align: left; }
+  .sf-menu-phone ul{
+	  background: #444;
+  }
+  
+  .sf-menu-phone ul li a{
+	  color: #ccc;
+  }
+  
+  .sf-menu-phone  ul ul{
+	  background: #555;
+  }
+  .sf-menu-phone > li.active > a  {color: inherit;}
+  .sf-menu-phone > li.active > a,
+  .sf-menu-phone > li > a:hover { color: #fff;  }
+
+  .sf-menu-phone li li.active > a,
+  .sf-menu-phone li li a:hover {color: #fff;}
+}
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+   #menu-icon,
+   .sf-menu-phone {margin: 0 -11px;}
+}
