@@ -25,9 +25,19 @@
 								                   <?php //the_excerpt()?>
 								                </div><!-- .entry-content -->
 								                <br clear="all">
-								                <a href="<?php the_permalink()?>" class="read-more"><?php _e("Megnézem", theme_textdomain())?></a>
+								                <a href="<?php the_permalink()?>" class="read-more"><?php _e("Megnézem", 'blackcrystal')?></a>
 								            </article><!-- end .entry -->
 							            <?php endwhile;?>
+										<div class="pagination clearfix">				
+											<?php $args = array(
+												'base'               => '%_%',
+												'format'             => '?paged=%#%',
+												'prev_next'          => true,
+												'prev_text'          => __('«'),
+												'next_text'          => __('»'),
+											); ?>
+											<?php echo paginate_links($args)?>
+										</div>							            
 									<?php endif; ?>
 								</div>
 							</div>

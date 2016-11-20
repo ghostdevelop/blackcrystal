@@ -39,7 +39,10 @@ if(!class_exists('ThemeFramework')) {
 		
 		public function register_settings(){
 			register_setting('theme-group', 'page_video'); 
-			register_setting('theme-group', 'page_kontakt'); 	
+			register_setting('theme-group', 'page_kontakt'); 		
+			register_setting('theme-group', 'page_sale'); 		
+			register_setting('theme-group', 'page_gift'); 
+			register_setting('theme-group', 'page_actuality'); 	
 		}	
 		
 		public function images_setup(){		

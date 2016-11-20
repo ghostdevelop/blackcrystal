@@ -8,7 +8,7 @@
 						<div class="col-main">
 							<div class="padding-s">
 								<div class="std">
-									<?php $actually = new WP_Query(array('p' => 4124, 'post_type' => 'any'))?>
+									<?php $actually = new WP_Query(array('p' => get_option('page_actuality'), 'post_type' => 'any'))?>
 									<?php if ($actually->have_posts()): $actually->the_post()?>
 										<?php if (get_the_content() != ""):?>
 											<div class="container">
@@ -62,7 +62,7 @@
 												<img src="<?php bloginfo('template_url')?>/images/banners-1.jpg" alt=""/>
 												<div class="banner-block-center">
 													<div>
-														<h1><?php _e('Dekorok', theme_textdomain())?></h1>
+														<h1><?php _e('Dekorok', 'blackcrystal')?></h1>
 														<!--<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmo.</p>-->
 													</div>
 												</div>
@@ -73,7 +73,7 @@
 												<img src="<?php bloginfo('template_url')?>/images/banners-1.jpg" alt=""/>
 												<div class="banner-block-center">
 													<div>
-														<h1><?php _e('Videók', theme_textdomain())?></h1>
+														<h1><?php _e('Videók', 'blackcrystal')?></h1>
 													</div>
 												</div>
 											</a>
@@ -83,7 +83,7 @@
 												<img src="<?php bloginfo('template_url')?>/images/banners-1.jpg" alt=""/><?php echo get_option('page_contact')?>
 												<div class="banner-block-center">
 													<div>
-														<h1><?php _e('Kapcsolat', theme_textdomain())?></h1>
+														<h1><?php _e('Kapcsolat', 'blackcrystal')?></h1>
 													</div>
 												</div>
 											</a>

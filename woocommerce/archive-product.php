@@ -29,15 +29,21 @@ get_header( 'shop' ); ?>
 			</div>
 		<?php endif; ?>
 
-		<?php
-			/**
-			 * woocommerce_archive_description hook.
-			 *
-			 * @hooked woocommerce_taxonomy_archive_description - 10
-			 * @hooked woocommerce_product_archive_description - 10
-			 */
-			do_action( 'woocommerce_archive_description' );
-		?>
+		<?php if (is_tax('product_tag')):?>
+			<div class="entry-content">
+				<?php echo get_the_post_thumbnail(get_woocommerce_term_meta(get_queried_object()->term_id, 'thumbnail_id'), 'large', array('class' => 'size-full'))?>
+				<?php
+					/**
+					 * woocommerce_archive_description hook.
+					 *
+					 * @hooked woocommerce_taxonomy_archive_description - 10
+					 * @hooked woocommerce_product_archive_description - 10
+					 */
+					do_action( 'woocommerce_archive_description' );
+				?>
+				<h3 class="slogen"><?php echo get_woocommerce_term_meta(get_queried_object()->term_id, 'slogan')?></h3>
+			</div>
+		<?php endif; ?>
 
 		<?php if ( have_posts() ) : ?>
 
@@ -58,7 +64,11 @@ get_header( 'shop' ); ?>
 				<?php endwhile; // end of the loop. ?>
 
 			<?php woocommerce_product_loop_end(); ?>
-
+			
+			<?php if (is_tax('product_tag')):?>
+				<a href="<?php echo home_url()?>" class="button back_to_gifts"><?php _e('További termékeink', 'blackcrystal')?></a>
+			<?php endif; ?>		
+			
 			<?php
 				/**
 				 * woocommerce_after_shop_loop hook.

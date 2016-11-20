@@ -55,6 +55,7 @@ ins .amount{
 	text-decoration: none !important;
 }
 
+.product-view .summary .woocommerce-Price-amount.amount,
 li.product .price .woocommerce-Price-amount.amount{
 	font-size: 32px;
 	line-height: 40px;
