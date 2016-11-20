@@ -1,3 +1,6 @@
+<?php 
+	//if (SIMPLE_SHOP);
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes()?>>
 <head>
@@ -94,18 +97,18 @@
 										))?>
 									</div>
 									<?php if ( defined( 'POLYLANG_VERSION' ) ):?>
-									<div class="header-button lang-list">
-										<?php $languages = pll_the_languages(array('raw' => 1));?>
-										<a href="#"></a>
-										<ul>
-											<?php foreach ($languages as $lang):?>
-												<li class="<?php echo ($lang['current_lang'] == 1 ? 'current-lang' : '')?>">
-													<a href="<?=$lang['url']?>" title="<?=$lang['locale']?>"><?=$lang['name']?></a>
-													<span><img src="<?=$lang['flag']?>" /></span>
-												</li>
-											<?php endforeach;?>
-										</ul>
-									</div>
+										<div class="header-button lang-list">
+											<?php $languages = pll_the_languages(array('raw' => 1));?>
+											<a href="#"></a>
+											<ul>
+												<?php foreach ($languages as $lang):?>
+													<li class="<?php echo ($lang['current_lang'] == 1 ? 'current-lang' : '')?>">
+														<a href="<?=$lang['url']?>" title="<?=$lang['locale']?>"><?=$lang['name']?></a>
+														<span><img src="<?=$lang['flag']?>" /></span>
+													</li>
+												<?php endforeach;?>
+											</ul>
+										</div>
 									<?php endif?>
 								</div>
 								<h1 class="logo mobile"><a href="<?php echo home_url()?>" title="<?php bloginfo('name')?>" class="logo"><img width="200px" src="<?php bloginfo('template_url')?>/images/logo2.png" alt="<?php bloginfo('name')?>"/></a></h1>
@@ -129,33 +132,11 @@
 				<div class="clear"></div>
 			</div>
 		</div>
-		<div class="header-container">
-			<div class="container">
-				<div class="row">
-					<div class="span12">
-						<div class="header">
-							<h1 class="logo"><a href="<?php echo home_url()?>" title="<?php bloginfo('name')?>" class="logo"><img width="200px" src="<?php bloginfo('template_url')?>/images/logo2.png" alt="<?php bloginfo('name')?>"/></a></h1>
-							<div class="header-info">
-								<?php if (is_user_logged_in()):?>
-									<?php $current_user = wp_get_current_user();?>
-									<?php $myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' );?>
-									<p class="welcome-msg">Üdvözlünk az oldalon,</p>
-									<em><a  href="<?php echo get_permalink( $myaccount_page_id )?>"><i class="fa fa-user"></i><?=$current_user->display_name?></a></em>
-								<?php else:?>
-									<?php $current_user = wp_get_current_user();?>
-									<?php $myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' );?>
-									<p class="welcome-msg">Viszonteladók részére</p>
-									<em><a  href="mailto:blackcrystal.office@gmail.com"><i class="fa fa-envelope"></i>Érdeklődjön itt</a></em>						
-								<?php endif;?>
-							</div> 
-							<?php get_search_form()?>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</div>
+		<?php if (SIMPLE_SHOP):?>
+			<?php get_template_part('header-simple')?>
+		<?php else:?>
+			<?php get_template_part('header-wholesale')?>
+		<?php endif;?>
 		<div class="nav-container">
 			<div class="container">
 				<div class="row">
