@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+
 wc_print_notices(); ?>
 
 <p class="myaccount_user">
@@ -34,11 +35,10 @@ wc_print_notices(); ?>
 	);
 	?>
 </p>
-<script type="text/javascript" src="http://xn--kristlynagyker-zgb.hu/wp-content/themes/blackcrystal/js/on-off-switch.js?ver=1.0.0"></script>
-<script type="text/javascript" src="http://xn--kristlynagyker-zgb.hu/wp-content/themes/blackcrystal/js/on-off-switch-onload.js?ver=1.0.0"></script>
-
-<style>
-</style>
+<?php if (SIMPLE_SHOP == false):?>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/on-off-switch.js'?>"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/on-off-switch-onload.js'?>"></script>
+<?php endif?>
 <div class="show_price_switch_checkbox_container">
 
     <span class="show_price_switch_label">Eladási árak megjelenítése? </span><input type="hidden" id="on-off-switch-custom" value="1">

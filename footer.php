@@ -16,8 +16,7 @@
 					<div class="row">
 						<div class="span12">
 							<div class="footer">
-								<address>&copy; <script type="text/javascript">var mdate = new Date(); document.write(mdate.getFullYear());</script> <?php bloginfo('name')?> <?php _e('Minden jog fentartva.', 'theme-phrases')?></address>
-								<a class="webcreatives" href="http://webcreatives.hu" title="webceatives - weboldal készítés" alt="webceatives - weboldal készítés">webcreatives</a>
+								<address>&copy; <script type="text/javascript">var mdate = new Date(); document.write(mdate.getFullYear());</script> <?php bloginfo('name')?> <?php _e('Minden jog fentartva.', 'blackcrystal')?></address>
 								<div class="clear"></div>
 							</div>
 						</div>
