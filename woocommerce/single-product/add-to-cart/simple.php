@@ -71,7 +71,7 @@ if ( ! $product->is_purchasable() ) {
 						</a>
 					</div>
 					<div class="button-box">
-						<input id="_package_price" class="input-checkbox addiotional-check" type="checkbox" name="_package_price" value="<?php echo get_add_price_net($product)?>" />
+						<input id="_package_price" class="input-checkbox addiotional-check" type="checkbox" name="_package_price" value="0" />
 					</div>
 					<?php if (is_user_logged_in()):?>
 						<div class="price-box">

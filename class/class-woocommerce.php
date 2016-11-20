@@ -11,19 +11,16 @@ if(!class_exists('CustomWoo')) {
 			add_filter('loop_shop_columns', array(&$this, 'loop_columns'));
 			add_filter( 'woocommerce_product_tabs', array(&$this, 'shipping_tab' ));	
 			add_filter( 'woocommerce_checkout_fields' , array(&$this, 'override_checkout_fields' ));				
-			add_filter( 'woocommerce_general_settings', array(&$this, 'add_pricing_option_fields' ), 10, 1);			
-			add_filter(	'woocommerce_add_cart_item', array(&$this, 'add_cart_item'), 10, 1);			
-			add_filter( 'woocommerce_get_cart_item_from_session', array(&$this, 'get_cart_item_from_session'), 5, 2 );
-			add_filter( 'woocommerce_get_cart_item_from_session', array(&$this, 'get_cart_items_from_session'), 1, 3 );
-			add_filter( 'woocommerce_add_cart_item_data', array(&$this, 'add_cart_item_custom_data'), 10, 2 );			
+			add_filter( 'woocommerce_general_settings', array(&$this, 'add_pricing_option_fields' ), 10, 1);	
 			
-			add_action( 'woocommerce_thankyou', array(&$this, 'send_order'));
+			add_action(	'woocommerce_add_to_cart', array(&$this, 'add_cart_item'), 10, 6);		
+			add_filter( 'woocommerce_add_cart_item', array(&$this, 'filter_woocommerce_add_cart_item'), 10, 1 ); 				
 			add_action( 'woocommerce_add_order_item_meta', array(&$this, 'save_order_itemmeta'), 10, 3 );	
-			add_filter( 'wc_add_to_cart_message', array(&$this, 'custom_add_to_cart_message' ), 10, 2);
+			
 			
 			add_filter( 'woocommerce_payment_gateways', array(&$this, 'add_card_gateway' ));
+			add_action( 'woocommerce_thankyou', array(&$this, 'send_order'));
 			
-			//add_filter( 'woocommerce_taxonomy_args_product_cat', array(&$this, 'product_category_slug') );
 			/*		
 			add_action( 'woocommerce_before_checkout_form', array(&$this, 'apply_matched_coupons' ));
 			add_action( 'woocommerce_before_cart', array(&$this, 'apply_matched_coupons' ));		
@@ -34,35 +31,9 @@ if(!class_exists('CustomWoo')) {
 		
 		function woocommerce_support() {
 		    add_theme_support( 'woocommerce' );
-		}
+		}			
 		
-		function product_category_slug( $args ) {
-			$args['rewrite']['hierarchical'] = false;
-			return $args;
-		}				
-		
-		function hide_shipping_name_on_cart($label, $method){
 
-			$label = "";
-			
-			if ( $method->cost > 0 ) {
-			    if ( WC()->cart->tax_display_cart == 'excl' ) {
-			        $label .= wc_price( $method->cost );
-			        if ( $method->get_shipping_tax() > 0 && WC()->cart->prices_include_tax ) {
-			            $label .= ' <small class="tax_label">' . WC()->countries->ex_tax_or_vat() . '</small>';
-			        }
-			    } else {
-			        $label .= wc_price( $method->cost + $method->get_shipping_tax() );
-			        if ( $method->get_shipping_tax() > 0 && ! WC()->cart->prices_include_tax ) {
-			            $label .= ' <small class="tax_label">' . WC()->countries->inc_tax_or_vat() . '</small>';
-			        }
-			    }
-			} elseif ( $method->id !== 'free_shipping' ) {
-			    $label .= ' (' . __( 'Free', 'woocommerce' ) . ')';
-			}
-			
-			return $label;
-		}
 
 		function loop_columns() {
 			return 3; // 3 products per row
@@ -107,175 +78,146 @@ if(!class_exists('CustomWoo')) {
 		     unset($fields['shipping']['shipping_state']);
 		
 		     return $fields;
-		}		
-		
-		public function add_cart_item($cart_item) {
-			
-
-		    if ($cart_item['package'] > 0){
-		    	$cart_item['data']->adjust_price( $cart_item['package'] );	
-		    	$title = $cart_item['data']->post->post_title;
-		    	$cart_item['data']->post->post_title = $title .' - díszdobozzal';    
-		    } 
-
-		    return $cart_item;
-		}
-		
-		
-		public function get_cart_item_from_session( $cart_item, $values ) {
-		    $cart_item = $this->add_cart_item( $cart_item);
-		    
-		    return $cart_item;
-		}
-		
+		}	
 				
-		//Store the custom field
-		
-		public function add_cart_item_custom_data( $cart_item_meta, $product_id ) {
-		  global $woocommerce;
-
-		  $cart_item_meta['package'] = (int) ($_POST['_package_price']);
-		  
-		  return $cart_item_meta; 
+		function filter_woocommerce_add_cart_item( $cart_item) { 
+		    // make filter magic happen here... 
+		    	if (isset($cart_item['package'])){
+				    $cart_item['data']->post->post_title = sprintf(__("Díszdoboz a %d kódszámú termékhez", 'blackcrystal'), $cart_item['prod_id']);	    	
+					$cart_item['data']->set_price( $cart_item['package'] );	
+		    	}
+		    
+		    return $cart_item; 
 		}
 		
-		
-		//Get it from the session and add it to the cart variable
-		
-		public function get_cart_items_from_session( $item, $values, $key ) {
-		    if ( array_key_exists( 'package', $values ) )
-		        $item[ 'package' ] = $values['package'];	        	         		        		        
-		        
-		    return $item;
-		}	
-		
-		function custom_add_to_cart_message($message, $product_id ) {
-		    global $woocommerce;
-		    
-		    $add_title = "";
-		    
-		    if ($_POST['_package_price'] > 0){    
-		   		$add_title = __(' díszdoboz', 'theme-phrases');
-		    }
-		    
-			$titles = array();
-			
-			    if ( is_array( $product_id ) ) {
-			        foreach ( $product_id as $id ) {
-			            $titles[] = get_the_title( $id );
-			        }
-			    } else {
-			        $titles[] = get_the_title( $product_id );
-			        $titles[] = $add_title;
-			    }
-			
-			    $titles     = array_filter( $titles );
-			    $added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', sizeof( $titles ), 'woocommerce' ), wc_format_list_of_items( $titles ) );
-			
-			    // Output success messages
-			    if ( 'yes' === get_option( 'woocommerce_cart_redirect_after_add' ) ) {
-			        $return_to = apply_filters( 'woocommerce_continue_shopping_redirect', wp_get_referer() ? wp_get_referer() : home_url() );
-			        $message   = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( $return_to ), esc_html__( 'Continue Shopping', 'woocommerce' ), esc_html( $added_text ) );
-			    } else {
-			        $message   = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View Cart', 'woocommerce' ), esc_html( $added_text ) );
-			    }	
-			    
-		    return $message;
-		}		
-		
-		
-		function add_pricing_option_fields( $settings ) {
-		
-		
-		
-		  $updated_settings = array();
+		public function add_cart_item($cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data) {
+			if (isset($_POST['_package_price'])){	
+				$ap = $_POST['_package_price'];			
+				unset($_POST['_package_price']);
+								
+				WC()->cart->add_to_cart(get_option('pack_id'), 1, "", "", array('package' => $ap, 'prod_id' => get_post_meta($product_id, '_sku', true)));	
 
-		
-		  foreach ( $settings as $section ) {
-		
-		
-		
-		    // at the bottom of the General Options section
-		
-		    if ( isset( $section['id'] ) && 'pricing_options' == $section['id'] &&
-		
-		       isset( $section['type'] ) && 'sectionend' == $section['type'] ) {
-		
-		
-		
-		      $updated_settings[] = array(		
-		        'name'     => __( 'Árfolyam', 'woocommerce' ),		
-		        'desc_tip' => __( 'Aktuális árfolyam', 'woocommerce' ),		
-		        'id'       => 'exchange_rate',
-		        'type'     => 'text',
-		        'css'      => 'min-width:300px;',		
-		        'std'      => '1',  // WC < 2.0
-		        'default'  => '1',  // WC >= 2.0
-		        'desc'     => __( 'Aktuális árfolyam beállítása forintról a bolt pénznemére', 'woocommerce' ),
-		      );
-		      
-		      $updated_settings[] = array(
-		        'name'     => __( 'Árszorzó', 'woocommerce' ),
-		        'desc_tip' => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
-		        'id'       => 'adjust_price',
-		        'type'     => 'text',
-		        'css'      => 'min-width:300px;',
-		        'std'      => '1',  // WC < 2.0
-		        'default'  => '1',  // WC >= 2.0
-		        'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
-		      );	
-		      
-		      $updated_settings[] = array(
-		        'name'     => __( 'Kedvezmény', 'woocommerce' ),
-		        'desc_tip' => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
-		        'id'       => 'sale_percent',
-		        'type'     => 'text',
-		        'css'      => 'min-width:300px;',
-		        'std'      => '1',  // WC < 2.0
-		        'default'  => '1',  // WC >= 2.0
-		        'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
-		      );
-		      
-		      $updated_settings[] = array(
-		        'name'     => __( 'Díszdoboz kedvezmény', 'woocommerce' ),
-		        'desc_tip' => __( 'A mindenkori nettó díszdoboz árat módosítja a megadott értékkel.', 'woocommerce' ),
-		        'id'       => 'pack_sale_percent',
-		        'type'     => 'text',
-		        'css'      => 'min-width:300px;',
-		        'std'      => '1',  // WC < 2.0
-		        'default'  => '1',  // WC >= 2.0
-		        'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
-		      );	
-		      
-		      $updated_settings[] = array(
-		        'name'     => __( 'Mennyiségi kedvezmények', 'woocommerce' ),
-		        'desc_tip' => __( 'Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik.', 'woocommerce' ),
-		        'id'       => 'sale_limits',
-		        'type'     => 'textarea',
-		        'css'      => 'min-width:300px;',
-		        'std'      => '',  // WC < 2.0
-		        'default'  => '',  // WC >= 2.0
-		        'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
-		      );		      	      			      	      
-		
-		    }
-		
-		
-		
-		    $updated_settings[] = $section;
-		
-		  }
+			}
 
-		  return $updated_settings;
+		    return $cart_item;
+		}
 		
-		}	
-		
+
 		function save_order_itemmeta( $item_id, $values, $cart_item_key ) {		 
 			if ( isset( $values['package'] ) ) {
 				wc_add_order_item_meta( $item_id, 'package', $values['package'] );
 			}
 		 
-		}		
+		}
+		
+		function hide_shipping_name_on_cart($label, $method){
+
+			$label = "";
+			
+			if ( $method->cost > 0 ) {
+			    if ( WC()->cart->tax_display_cart == 'excl' ) {
+			        $label .= wc_price( $method->cost );
+			        if ( $method->get_shipping_tax() > 0 && WC()->cart->prices_include_tax ) {
+			            $label .= ' <small class="tax_label">' . WC()->countries->ex_tax_or_vat() . '</small>';
+			        }
+			    } else {
+			        $label .= wc_price( $method->cost + $method->get_shipping_tax() );
+			        if ( $method->get_shipping_tax() > 0 && ! WC()->cart->prices_include_tax ) {
+			            $label .= ' <small class="tax_label">' . WC()->countries->inc_tax_or_vat() . '</small>';
+			        }
+			    }
+			} elseif ( $method->id !== 'free_shipping' ) {
+			    $label .= ' (' . __( 'Free', 'woocommerce' ) . ')';
+			}
+			
+			return $label;
+		}					
+		
+		function add_pricing_option_fields( $settings ) {
+		
+			$updated_settings = array();
+		
+			foreach ( $settings as $section ) {
+				
+		   		// at the bottom of the General Options section
+		
+			   	if ( isset( $section['id'] ) && 'pricing_options' == $section['id'] && isset( $section['type'] ) && 'sectionend' == $section['type'] ) {
+					
+					$updated_settings[] = array(		
+						'name'     => __( 'Árfolyam', 'woocommerce' ),		
+						'desc_tip' => __( 'Aktuális árfolyam', 'woocommerce' ),		
+						'id'       => 'exchange_rate',
+						'type'     => 'text',
+						'css'      => 'min-width:300px;',		
+						'std'      => '1',  // WC < 2.0
+						'default'  => '1',  // WC >= 2.0
+						'desc'     => __( 'Aktuális árfolyam beállítása forintról a bolt pénznemére', 'woocommerce' ),
+					);
+					
+					$updated_settings[] = array(
+						'name'     => __( 'Árszorzó', 'woocommerce' ),
+						'desc_tip' => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'id'       => 'adjust_price',
+						'type'     => 'text',
+						'css'      => 'min-width:300px;',
+						'std'      => '1',  // WC < 2.0
+						'default'  => '1',  // WC >= 2.0
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+					);	
+					
+					$updated_settings[] = array(
+						'name'     => __( 'Kedvezmény', 'woocommerce' ),
+						'desc_tip' => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'id'       => 'sale_percent',
+						'type'     => 'text',
+						'css'      => 'min-width:300px;',
+						'std'      => '1',  // WC < 2.0
+						'default'  => '1',  // WC >= 2.0
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+					);
+					
+					$updated_settings[] = array(
+						'name'     => __( 'Díszdoboz azonosító', 'woocommerce' ),
+						'desc_tip' => __( 'A díszdoboz termék azonosítója.', 'woocommerce' ),
+						'id'       => 'pack_id',
+						'type'     => 'text',
+						'css'      => 'min-width:300px;',
+						'std'      => '',  // WC < 2.0
+						'default'  => '',  // WC >= 2.0
+						'desc'     => __( 'A díszdoboz termék azonosítója.', 'woocommerce' ),
+					);						
+					
+					$updated_settings[] = array(
+						'name'     => __( 'Díszdoboz kedvezmény', 'woocommerce' ),
+						'desc_tip' => __( 'A mindenkori nettó díszdoboz árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'id'       => 'pack_sale_percent',
+						'type'     => 'text',
+						'css'      => 'min-width:300px;',
+						'std'      => '1',  // WC < 2.0
+						'default'  => '1',  // WC >= 2.0
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+					);	
+					
+					$updated_settings[] = array(
+						'name'     => __( 'Mennyiségi kedvezmények', 'woocommerce' ),
+						'desc_tip' => __( 'Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik.', 'woocommerce' ),
+						'id'       => 'sale_limits',
+						'type'     => 'textarea',
+						'css'      => 'min-width:300px;',
+						'std'      => '',  // WC < 2.0
+						'default'  => '',  // WC >= 2.0
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+					);		      	      			      	      
+				
+				}
+		
+				$updated_settings[] = $section;
+			
+			}
+
+			return $updated_settings;
+		
+		}				
 		
 		function send_order( $order_id ){	
 			global $wpdb;

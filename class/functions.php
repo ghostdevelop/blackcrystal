@@ -1,113 +1,56 @@
 <?php
-
-function get_add_price_single_net($product, $force = false){
-	$price = get_post_meta($product->id, '_add_prod_price', true);
-	if ("" === $price){
-		$height = $product->height;
-		$swidth = $product->width;
-		$width = $product->length;
-		$item_per_pack = get_post_meta($product->id, '_item_per_pack', true);
-		$exchange_rate = (int)get_option( 'exchange_rate', 1 );
-		$sale = (int)get_option( 'pack_sale_percent', 1 );
-		
-		$pack_price = (((($height + 50) * 1.05 * ($width * $item_per_pack + ($item_per_pack + 2) * 10) * ($swidth + 20)) / 1000000) * 100 + 600);
-		if ($sale > 0 && $force == false){
-			$pack_price = $pack_price * (1 - ($sale / 100));
-		}	
+function get_add_price_net($prod_id){
+	$price = get_post_meta($prod_id->id, '_add_product_price', true);
 	
-		$pack_price = round(($pack_price * 2) / $item_per_pack);
-	} else {
-		$pack_price = $price;
-	}
-	
-	if ($exchange_rate != 0){
-		$pack_price = $pack_price / $exchange_rate;
-	}
-	/*
-	if (get_user_meta(get_current_user_id(), '_show_customer_price', true) == true){
-		$pref = get_user_meta(get_current_user_id(), '_preference', true);
-		$cp = get_user_meta(get_current_user_id(), '_customer_price', true);
-        //give user 10% of	
-        if ($pref > 0){
-			$pack_price = $pack_price * ((100 - $pref) / 100);
-			$pack_price = $pack_price * ((100 + $cp) / 100);
-        }	
-	} else {
-		$pref = get_user_meta(get_current_user_id(), '_preference', true);
-        //give user 10% of
-        if ($pref > 0) $pack_price = $pack_price * ((100 - $pref) / 100);		
-	}
-		*/
-	return $pack_price;
-}
-
-function get_add_price_net($product, $force = false){
-	$price = get_post_meta($product->id, '_add_prod_price', true);
-
-	if ("" === $price){
-		$item_per_pack = get_post_meta($product->id, '_item_per_pack', true);
-		$single = get_add_price_single_net($product);
-		if ($force == true){
-			$single = get_add_price_single_net($product, true);	
-			
+	if (!SIMPLE_SHOP){
+		if (get_user_meta(get_current_user_id(), '_show_customer_price', true) == true){
+			$pref = get_user_meta(get_current_user_id(), '_preference', true);
+			$cp = get_user_meta(get_current_user_id(), '_customer_price', true);
+	        //give user 10% of	
+	        if ($pref > 0){
+				$price = $price * ((100 - $pref) / 100);
+				$price = $price * ((100 + $cp) / 100);
+	        }	
+		} else {
+			$pref = get_user_meta(get_current_user_id(), '_preference', true);
+	        //give user 10% of
+	        if ($pref > 0) $price = $price * ((100 - $pref) / 100);		
 		}
-		
-		$price = $item_per_pack * $single;
 	}
-		
+	
+	
 	return $price;
 }
 
 function get_add_price($product){
-	$sale = (int)get_option( 'pack_sale_percent', 1 );
-	$def_price = get_post_meta($product->id, '_add_prod_price', true);
-	$net_price = get_add_price_net($product);
-	$tax_rates = WC_Tax::get_rates( $tax_class );
-	$tax = (100 + $tax_rates[1]['rate']) / 100;
-	$price = $net_price * $tax;
+	$sale = (int) get_option( 'pack_sale_percent', 1 );
+	$add_price = get_add_price_net($product);
 	
-	if ($sale > 0 && $net_price > 0 && $def_price === ""){
-		$old_price = get_add_price_net($product, true);	
-		$old_price = $old_price * $tax;
-		$prices['sale'] = $price;
-		$prices['old'] = $old_price;
-		
-		return $prices;
+	$prices['normal'] = $add_price;
+	
+	if ($sale > 1 && $add_price > 0){
+		$prices['sale'] = $add_price * ((100 + $sale) / 100);
 
 	}
 	
-	return $price;
-}
-
-function get_add_price_net_show($product){
-	$sale = (int)get_option( 'pack_sale_percent', 1 );
-	$def_price = get_post_meta($product->id, '_add_prod_price', true);
-	$net_price = get_add_price_net($product);
-	$tax_rates = WC_Tax::get_rates( $tax_class );
-	$tax = (100 + $tax_rates[1]['rate']) / 100;
-	$price = $net_price;
-	
-	if ($sale > 0 && $net_price > 0 && $def_price === ""){
-		$old_price = get_add_price_net($product, true);	
-		$old_price = $old_price * $tax;
-		$prices['sale'] = $price;
-		$prices['old'] = $old_price;
-		
-		return $prices;
-
+	if (SIMPLE_SHOP){
+		$tax_rates = WC_Tax::get_rates( $tax_class );
+		$tax = (100 + $tax_rates[1]['rate']) / 100;	
+		$prices['normal'] = $prices['normal'] * $tax;
+		if (isset($prices['sale'] )) $prices['sale'] = $prices['sale'] * $tax;
 	}
 	
-	return $price;
+	return $prices;
 }
 
 function show_add_price($product){
 	$price = get_add_price($product);
 	
-	if (!is_array($price)){
-		echo wc_price($price);	
+	if (!isset($price['sale'])){
+		echo wc_price($price['normal']);	
 	} else {
 		echo '<del>';
-		echo wc_price($price['old']);
+		echo wc_price($price['normal']);
 		echo '</del>';
 		echo '<ins>';
 		echo wc_price($price['sale']);
