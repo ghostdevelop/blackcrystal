@@ -142,27 +142,22 @@
 				<div class="row">
 					<div class="span12">
 						<div id="menu-icon"><div><?php _e('Products', 'woocommerce')?></div></div>
-<?php 
-			include_once( WC()->plugin_path() . '/includes/walkers/class-product-cat-list-walker.php' );
-
-			$list_args['walker']                     = new WC_Product_Cat_List_Walker;
-			$list_args['title_li']                   = '';
-			$list_args['depth']                 = 3;
-			$list_args['taxonomy']                 = 'product_cat';
-			$list_args['show_option_none']           = __('No product categories exist.', 'woocommerce' );
-
-			echo '<ul id="nav" class="menu sf-menu">';
-
-			wp_list_categories( $list_args );	
-			echo '</ul>';
-?>
-						<?php wp_nav_menu(array( 
-							'menu' => '', 
-							'container' => '', 
-							'items_wrap' => '<ul class="%2$s sf-menu-phone">%3$s</ul>',
-							'theme_location' => 'top-menu',
-							'walker'        => new MobileMenuWalker
-						))?>
+						<?php 
+							include_once( WC()->plugin_path() . '/includes/walkers/class-product-cat-list-walker.php' );
+						
+							$list_args['walker']                     = new WC_Product_Cat_List_Walker;
+							$list_args['title_li']                   = '';
+							$list_args['depth']                 = 3;
+							$list_args['taxonomy']                 = 'product_cat';
+							$list_args['show_option_none']           = __('No product categories exist.', 'woocommerce' );
+						
+							echo '<ul id="nav" class="menu sf-menu">';
+								wp_list_categories( $list_args );	
+							echo '</ul>';			
+						?>
+						<ul class="sf-menu-phone">
+							<?php wp_list_categories( $list_args );	?>						
+						</ul>
 					</div>
 				</div>
 				<div class="clear"></div>

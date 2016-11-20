@@ -58,7 +58,7 @@
   background: #9b7853;
   font-size: 0;
 }
-.sf-menu li ul a  {  white-space: normal;}
+.sf-menu li ul a  {  white-space: normal; text-align: center;}
 .sf-menu > li.parent > a  {  background: url(../images/marker-8.gif) center -46px no-repeat;}
 
 .sf-menu > li.sfHover > a:before,
@@ -70,6 +70,24 @@
 .sf-menu > li.active > a {  color: #c6a889;}
 
 .sf-menu li a:hover {  text-decoration: none;}
+
+ul#nav.sf-menu  > li.cat-parent > ul > li.cat-parent > a:after{
+   font-family: FontAwesome;
+   content: "\f101";
+   display: inline-block;
+   position: absolute;
+   padding-right: 3px;
+   vertical-align: middle;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;   
+  margin-left: 5px;
+}
+
+ul#nav.sf-menu  > li.cat-parent > ul > li.cat-parent:hover > a:after{
+	margin-left: 15px;
+}
 
 .sf-menu ul {
   position: absolute;
@@ -184,20 +202,36 @@ ul.sf-menu li li li.sfHover ul {
   .sf-menu-phone li { padding: 0;  position: relative; font-size: 18px;  text-align: left; border-bottom: 1px solid #333}
   .sf-menu-phone > li {  border-bottom: 1px solid #3a3a3a; }
   .sf-menu-phone li a { display: inline-block; color: #aaa; padding: 10px 2%; width: 96%; position: relative;}
+  
+  .sf-menu-phone li.cat-parent > a:after,
   .sf-menu-phone li.menu-item-has-children > a:after{
-	content: "\F055";
+	content: "\f103";
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: inherit;
 	/*--adjust as necessary--*/
 	color: #aaa;
-	font-size: 16px;
-	padding-right: 0.5em;
+	font-size: 20px;
+	right: 20px;
 	position: absolute;
 	top: 10px;
-	right: 0;	  
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;   	
+ 
   }
+  
+  .sf-menu-phone li.cat-parent > a.active:after,
+  .sf-menu-phone li.menu-item-has-children > a.active:after{
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+    	      
+  }
+  
+  
   .sf-menu-phone li a:hover { color: #fff; }
   .sf-menu-phone li li {font-size: 18px; padding: 0 0; }
   .sf-menu-phone li li.last { padding-bottom: 0;  }
@@ -247,3 +281,4 @@ ul.sf-menu li li li.sfHover ul {
    #menu-icon,
    .sf-menu-phone {margin: 0 -11px;}
 }
+

@@ -6,10 +6,11 @@ jQuery(document).ready(function($){
 		$(this).next().slideToggle();
 	});
 	
-	$('.menu-item-has-children.menu-item-depth-0 > a').live('click', function(){
+	$('.sf-menu-phone .cat-parent > a').live('click', function(){
 		event.preventDefault();
-		$('.menu-item-depth-0 > a').not($(this)).each(function(){
-			$(this).next().slideUp();
+		$(this).toggleClass('active');
+		$('.cat-parent > a').not($(this)).each(function(){
+			//$(this).next().slideUp();
 		});
 		$(this).next().slideToggle();
 	});
@@ -110,7 +111,7 @@ jQuery(document).ready(function($){
 
 	/*********************************************************************************************************** Header Buttons *********************************************************************/
 
-		jQuery('.header-button').not('.top-login').on("click", function(e){
+		jQuery('.header-button').not('.top-sale').on("click", function(e){
 		    var ul=jQuery(this).find('ul')
 		    if(ul.is(':hidden'))
 		     ul.slideDown()
