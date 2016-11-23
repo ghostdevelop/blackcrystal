@@ -175,15 +175,17 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 	}
 	
 	function thankyou_page($order_id){
-		if ( !$order && $txid = (int) $_GET['txid']){
-			$order = new WC_Order($txid);
-		}
+		global $woocommerce;
 		
+		$txid = (int) $_GET['txid'];
+
+		$order = new WC_Order($txid);
+
 		$bank_result = file_get_contents($this->result_url . "mid=" . $this->mid . "&txid=" . $order->id);
-		$status_key = substr($result, 0, 3);
+		$status_key = substr($bank_result, 0, 3);
 		$woocommerce->cart->empty_cart();	
-		$arr = explode(' ', $result);
 		
+		$arr = explode(' ', $bank_result);
 		if ($status_key  == "ACK"){
 			wc_add_order_item_meta($order->id, 'b_accept', substr($arr[2], -6).$arr[3]);
 			$order->update_status( 'completed' );

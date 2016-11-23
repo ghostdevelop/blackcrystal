@@ -237,7 +237,7 @@ if(!class_exists('CustomWoo')) {
 					
 			$order = new WC_Order( $order_id );
 			
-			if (!$order->has_status( 'failed' )){
+			if (!$order->has_status( 'failed' ) && !$order->has_status( 'cancelled' )){
 				
 				$customer = new WC_Customer($order_id);
 				$shop_id = get_option('shop_id');
@@ -345,14 +345,7 @@ if(!class_exists('CustomWoo')) {
 					$ipp = (int) get_post_meta($order_item['product_id'], '_item_per_pack', true);
 					$price = (int) $product->get_price();
 					if ($ipp > 0) $price = round($price / $ipp);
-					
-					
-					if (!empty($order_item['item_meta']['package']) && $order_item['item_meta']['package'][0] != 0){
-						$package_per_item = get_add_price_single_net($product);
-						$price = $price + $package_per_item;
 						
-					}
-	
 					$grossvalue = $order_item['line_subtotal'] + $order_item['line_subtotal_tax'];
 					$quantity = $order_item['qty'] * $ipp;
 					$product_code = get_post_meta($order_item['product_id'], '_sku', true);

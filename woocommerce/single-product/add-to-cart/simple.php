@@ -53,10 +53,9 @@ if ( ! $product->is_purchasable() ) {
 	 	?>
 
 	 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
-	<?php $shp = get_user_meta(get_current_user_id(), '_show_customer_price', true );?>
-	<?php if (is_user_logged_in() and !$shp):?>
-	 		<button type="submit" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
-	 	<?php endif;?>
+
+	 	<button type="submit" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+
 	 </div>
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 		<ul class="additional-products clearfix">
@@ -73,17 +72,10 @@ if ( ! $product->is_purchasable() ) {
 					<div class="button-box">
 						<input id="_package_price" class="input-checkbox addiotional-check" type="checkbox" name="_package_price" value="<?php echo get_add_price_net($product)?>" />
 					</div>
-					<?php if (is_user_logged_in()):?>
-						<div class="price-box">
-							<?php show_add_price($product);?>
-						</div>
-						<h4><?php _e('Díszdoboz', theme_textdomain())?></h4>
-					<?php else:?>
-						<div class="price-box" style="margin-right: 20px;">
-							<?php _e('<a class="havetologin" href="' . get_permalink(woocommerce_get_page_id('myaccount')) . '">'.__('Jelentkezz be az árak megtekintéséhez', 'blackcrystal').'</a>')?>
-						</div>					
-						<h4 style="margin-right: 20px"><?php _e('Díszdoboz', theme_textdomain())?></h4>
-					<?php endif;?>
+					<div class="price-box">
+						<?php show_add_price($product);?>
+					</div>
+					<h4><?php _e('Díszdoboz', 'blackcrystal')?></h4>
 				</div>
 				<div class="additional-product-info">
 					<p><?php _e('Kézzel készített bordó díszdoboz, kívül velúr, belül szaténnal bélelve. Kiemeli a kristály szépségét, ajándékozáshoz kiváló. (a kép illusztráció)', 'theme-phrases')?></p>
