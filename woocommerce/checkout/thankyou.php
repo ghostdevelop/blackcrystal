@@ -82,13 +82,15 @@ if ( !$order && $txid = (int) $_GET['txid']){
 			</li>
 			<?php endif; ?>
 		</ul>
-		<div class="clear"></div>				
+		<div class="clear"></div>		
+				
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
 	<?php do_action( 'woocommerce_thankyou', $order->id ); ?>
 
 <?php else : ?>
+
 	<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
 
 <?php endif; ?>

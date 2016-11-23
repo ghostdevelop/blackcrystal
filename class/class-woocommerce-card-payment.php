@@ -46,7 +46,9 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 			// we have not defined 'process_admin_options' in this class so the method in the parent
 			// class will be used instead
 			add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-		}		
+		} else {
+			add_action( 'woocommerce_thankyou_webcreatives_card_payment',  array( $this, 'thankyou_page' ), 10, 1 );			
+		}	
 	} // End __construct()
 
 	// Build the administration fields for this specific Gateway
@@ -71,6 +73,42 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 				'default'	=> __( 'Pay securely using your credit card.', 'webcreatives-core' ),
 				'css'		=> 'max-width:350px;'
 			),
+			'mid' => array(
+				'title'		=> __( 'Bolt azonosító', 'webcreatives-core' ),
+				'type'		=> 'number',
+				'desc_tip'	=> __( 'Bank ID', 'webcreatives-core' ),
+				'default'	=> __( '', 'webcreatives-core' ),
+			),	
+			'key_pass' => array(
+				'title'		=> __( 'Privát kulcs jelszó', 'webcreatives-core' ),
+				'type'		=> 'password',
+				'desc_tip'	=> __( 'Privát kulcs jelszó', 'webcreatives-core' ),
+				'default'	=> __( '', 'webcreatives-core' ),
+			),				
+			'action_url' => array(
+				'title'		=> __( 'API url', 'webcreatives-core' ),
+				'type'		=> 'text',
+				'desc_tip'	=> __( 'API url', 'webcreatives-core' ),
+				'default'	=> __( '', 'webcreatives-core' ),
+			),	
+			'action_test_url' => array(
+				'title'		=> __( 'API test url', 'webcreatives-core' ),
+				'type'		=> 'text',
+				'desc_tip'	=> __( 'API test url', 'webcreatives-core' ),
+				'default'	=> __( '', 'webcreatives-core' ),
+			),	
+			'result_url' => array(
+				'title'		=> __( 'API visszatérési url', 'webcreatives-core' ),
+				'type'		=> 'text',
+				'desc_tip'	=> __( 'API visszatérési url', 'webcreatives-core' ),
+				'default'	=> __( '', 'webcreatives-core' ),
+			),	
+			'result_test_url' => array(
+				'title'		=> __( 'API visszatérési tesz url', 'webcreatives-core' ),
+				'type'		=> 'text',
+				'desc_tip'	=> __( 'API visszatérési teszt url', 'webcreatives-core' ),
+				'default'	=> __( '', 'webcreatives-core' ),
+			),												
 			'environment' => array(
 				'title'		=> __( 'Test Mode', 'webcreatives-core' ),
 				'label'		=> __( 'Enable Test Mode', 'webcreatives-core' ),
@@ -96,12 +134,12 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		//https://ebank.khb.hu/PaymentGatewayTest/PGPayment?txid=3141592653&type=PU&mid=10234506&amount=1234000&ccy=HUF&sign=a1154ffeb7…535cfc88cfd784&lang=HU
 
 		$environment_url = ( "FALSE" == $environment ) 
-						   ? 'https://ebank.khb.hu/PaymentGatewayTest/PGPayment?'
-						   : 'https://ebank.khb.hu/PaymentGatewayTest/PGPayment?';
+						   ? $this->action_url
+						   : $this->action_test_url;
 						   
 		   
 		$payload = array(
-			"mid"		=> 1274,
+			"mid"		=>  $this->mid,
 			"txid" 	 	=> $customer_order->get_order_number(),
 			"type"		=> "PU",
 			"amount" 	=> number_format($customer_order->order_total, 2,  '', ''),
@@ -109,12 +147,12 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		);
 		
 		$data =  http_build_query( $payload );
-		$file =  dirname(dirname(__FILE__)) . "/private_key.pem";
+		$file =  ABSPATH . "/private_key.pem";
 		$fp = fopen($file, "r");
 		
 		$priv_key = fread($fp, 8192);
 		fclose($fp);
-		$pkeyid = openssl_get_privatekey($priv_key, "6xqrqs4N");
+		$pkeyid = openssl_get_privatekey($priv_key, $this->key_pass);
 		
 		
 		// compute signature
@@ -135,6 +173,42 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		);		
 			
 	}
+	
+	function thankyou_page($order_id){
+		if ( !$order && $txid = (int) $_GET['txid']){
+			$order = new WC_Order($txid);
+		}
+		
+		$bank_result = file_get_contents($this->result_url . "mid=" . $this->mid . "&txid=" . $order->id);
+		$status_key = substr($result, 0, 3);
+		$woocommerce->cart->empty_cart();	
+		$arr = explode(' ', $result);
+		
+		if ($status_key  == "ACK"){
+			wc_add_order_item_meta($order->id, 'b_accept', substr($arr[2], -6).$arr[3]);
+			$order->update_status( 'completed' );
+			
+			echo '<p class="woocommerce-thankyou-order-received">';
+			_e( 'Sikeres fizetés!', 'blackcrystal' );
+			echo '</p>';
+			echo '<p class="woocommerce-thankyou-order-received">';
+			echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order );
+			echo '</p>';
+		} elseif ($status_key == "CAN"){
+			$order->update_status( 'cancelled' );
+			
+			echo '<p class="woocommerce-thankyou-order-received">';
+			_e( 'Sikertelen tranzakció. Rendelése megszakadt kérjük próbálkozzon újra.', 'woocommerce' );
+			echo '</p>';
+		} elseif ($status_key == "NAK"){
+			$order->update_status( 'cancelled' );
+			
+			echo '<p class="woocommerce-thankyou-order-received">';
+			_e( 'Sikertelen tranzakció. Hibás adatokat adott meg.', 'blackcrystal' );
+			echo '</p>';
+		}
+
+	}	
 	
 	// Validate fields
 	public function validate_fields() {

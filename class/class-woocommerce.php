@@ -50,7 +50,7 @@ if(!class_exists('CustomWoo')) {
 			);
 		
 			$tabs['subtitle-tab'] = array(
-				'title' 	=> __( 'Felirat', 'theme-phrases' ),
+				'title' 	=> __( 'Felirat', 'blackcrystal'),
 				'priority' 	=> 50,
 				'callback' 	=> array(&$this, 'subtitle_tab_content')
 			);		
@@ -107,6 +107,9 @@ if(!class_exists('CustomWoo')) {
 			if ( isset( $values['package'] ) ) {
 				wc_add_order_item_meta( $item_id, 'package', $values['package'] );
 			}
+			if ( isset( $values['prod_id'] ) ) {
+				wc_add_order_item_meta( $item_id, 'prod_id', $values['prod_id'] );
+			}
 		 
 		}
 		
@@ -142,6 +145,16 @@ if(!class_exists('CustomWoo')) {
 		   		// at the bottom of the General Options section
 		
 			   	if ( isset( $section['id'] ) && 'pricing_options' == $section['id'] && isset( $section['type'] ) && 'sectionend' == $section['type'] ) {
+					$updated_settings[] = array(		
+						'name'     => __( 'Bolt azonosító', 'woocommerce' ),		
+						'desc_tip' => __( 'Bolt azonosító', 'woocommerce' ),		
+						'id'       => 'shop_id',
+						'type'     => 'text',
+						'css'      => 'min-width:300px;',		
+						'std'      => '',  // WC < 2.0
+						'default'  => '',  // WC >= 2.0
+						'desc'     => __( 'Bolt azonosízó beállítása a raktárkezelőben történő azonosításhoz', 'woocommerce' ),
+					);
 					
 					$updated_settings[] = array(		
 						'name'     => __( 'Árfolyam', 'woocommerce' ),		
@@ -223,138 +236,167 @@ if(!class_exists('CustomWoo')) {
 			global $wpdb;
 					
 			$order = new WC_Order( $order_id );
-			$customer = new WC_Customer($order_id);
-			$shop_id = 'HU-NA-';
-			$test = false;
 			
-			if ($order->get_user_id() != 0){
-				$user_id = $shop_id . $order->get_user_id();
-			} else {
-				$user_id = $shop_id . 'NOREG-' . $order_id;
-			}
-			
-
-			$user = array(
-				'userID' => $user_id,
-				'name'	=>	$order->billing_first_name . ' ' . $order->billing_last_name,
-				'country' => $customer->get_country(),
-				'region' => $customer->get_state(),
-				'zip' => $customer->get_postcode(),
-				'city' => $customer->get_city(),
-				'street' => $customer->get_address() . $customer->get_address_2(),
-				'mailcountry' => $customer->get_shipping_country(),
-				'mailregion' => $customer->get_shipping_state(),
-				'mailzip' => $customer->get_shipping_postcode(),
-				'mailcity' => $customer->get_shipping_city(),
-				'mailstreet' => $customer->get_shipping_address() . $customer->get_shipping_address_2(),
-				'email' => $order->billing_email,
-				'phone' => $order->billing_phone,
-			);   
-			if ($test != true){
-				$wpdb->insert( 
-					'customers', 
-					array( 
-						'userID' => $user['userID'],
-						'name' => $user['name'],
-						'country' => $user['country'],
-						'region' => $user['region'],
-						'zip' => $user['zip'],
-						'city' => $user['city'],
-						'street' => $user['street'],
-						'mailcountry' => $user['mailcountry'],
-						'mailregion' => $user['mailregion'],
-						'mailzip' => $user['mailzip'],
-						'mailcity' => $user['mailcity'],
-						'mailstreet' => $user['mailstreet'],
-						'email' => $user['email'],
-						'phone' => $user['phone'],
-					),
-					array( 
-						'%s', 
-						'%s', 
-						'%s', 
-						'%s', 
-						'%d', 
-						'%s', 
-						'%s', 
-						'%s', 
-						'%s', 
-						'%d', 
-						'%s', 
-						'%s', 
-						'%s', 
-						'%s'
-					) 				
-					
-				);	
+			if (!$order->has_status( 'failed' )){
 				
-				$wpdb->insert( 
-					'orders', 
-					array( 
-						'date' => $order->order_date,
-						'orderid' => $order->id,
-						'customerid' => $user['userID'],
-						'country' => $user['country'],
-						'region' => $user['region'],
-						'zip' => $user['zip'],
-						'city' => $user['city'],
-						'street' => $user['street'],				
-						'currency' => $order->get_order_currency(),
-						'transportmode' => $order->get_shipping_method(),
-						'paymentmethod' => $order->payment_method_title,
-						'comment' => $order->customer_message,
-						),
-					array( 
-						'%s', 
-						'%d', 
-						'%s', 
-						'%s', 
-						'%s', 
-						'%d', 
-						'%s', 
-						'%s', 
-						'%s', 
-						'%d', 
-						'%s', 
-						'%s'
-					) 				
-					
-				);	
-			}
-	   
-		    $order_items = $order->get_items();		
-		    
-			foreach ($order_items as $order_item){
-				$product = new WC_Product( $order_item['product_id'] );
-				$ipp = (int) get_post_meta($order_item['product_id'], '_item_per_pack', true);
-				$price = (int) $product->get_price();
-				$price = round($price / $ipp);
+				$customer = new WC_Customer($order_id);
+				$shop_id = get_option('shop_id');
+				$test = false;
 				
-				
-				if (!empty($order_item['item_meta']['package']) && $order_item['item_meta']['package'][0] != 0){
-					$package_per_item = get_add_price_single_net($product);
-					$price = $price + $package_per_item;
-					
+				if ($order->get_user_id() != 0){
+					$user_id = $shop_id . "-" .  $order->get_user_id();
+				} else {
+					$user_id = $shop_id . '-NOREG-' . $order_id;
 				}
-
-				$grossvalue = $order_item['line_subtotal'] + $order_item['line_subtotal_tax'];
-				$quantity = $order_item['qty'] * $ipp;
-				$product_code = get_post_meta($order_item['product_id'], '_sku', true);
+				
+	
+				$user = array(
+					'userID' => $user_id,
+					'name'	=>	$order->billing_first_name . ' ' . $order->billing_last_name,
+					'country' => $customer->get_country(),
+					'region' => $customer->get_state(),
+					'zip' => $customer->get_postcode(),
+					'city' => $customer->get_city(),
+					'street' => $customer->get_address() . $customer->get_address_2(),
+					'mailcountry' => $customer->get_shipping_country(),
+					'mailregion' => $customer->get_shipping_state(),
+					'mailzip' => $customer->get_shipping_postcode(),
+					'mailcity' => $customer->get_shipping_city(),
+					'mailstreet' => $customer->get_shipping_address() . $customer->get_shipping_address_2(),
+					'email' => $order->billing_email,
+					'phone' => $order->billing_phone,
+				);   
 				if ($test != true){
+					$wpdb->insert( 
+						'customers', 
+						array( 
+							'userID' => $user['userID'],
+							'name' => $user['name'],
+							'country' => $user['country'],
+							'region' => $user['region'],
+							'zip' => $user['zip'],
+							'city' => $user['city'],
+							'street' => $user['street'],
+							'mailcountry' => $user['mailcountry'],
+							'mailregion' => $user['mailregion'],
+							'mailzip' => $user['mailzip'],
+							'mailcity' => $user['mailcity'],
+							'mailstreet' => $user['mailstreet'],
+							'email' => $user['email'],
+							'phone' => $user['phone'],
+						),
+						array( 
+							'%s', 
+							'%s', 
+							'%s', 
+							'%s', 
+							'%d', 
+							'%s', 
+							'%s', 
+							'%s', 
+							'%s', 
+							'%d', 
+							'%s', 
+							'%s', 
+							'%s', 
+							'%s'
+						) 				
+						
+					);	
+					
+					$wpdb->insert( 
+						'orders', 
+						array( 
+							'date' => $order->order_date,
+							'orderid' => $order->id,
+							'customerid' => $user['userID'],
+							'country' => $user['country'],
+							'region' => $user['region'],
+							'zip' => $user['zip'],
+							'city' => $user['city'],
+							'street' => $user['street'],				
+							'currency' => $order->get_order_currency(),
+							'transportmode' => $order->get_shipping_method(),
+							'paymentmethod' => $order->payment_method_title,
+							'comment' => $order->customer_message,
+							),
+						array( 
+							'%s', 
+							'%d', 
+							'%s', 
+							'%s', 
+							'%s', 
+							'%d', 
+							'%s', 
+							'%s', 
+							'%s', 
+							'%d', 
+							'%s', 
+							'%s'
+						) 				
+						
+					);	
+				}
+		   
+			    $order_items = $order->get_items();		
+			    
+				foreach ($order_items as $order_item){
+					$product = new WC_Product( $order_item['product_id'] );
+					$ipp = (int) get_post_meta($order_item['product_id'], '_item_per_pack', true);
+					$price = (int) $product->get_price();
+					if ($ipp > 0) $price = round($price / $ipp);
+					
+					
+					if (!empty($order_item['item_meta']['package']) && $order_item['item_meta']['package'][0] != 0){
+						$package_per_item = get_add_price_single_net($product);
+						$price = $price + $package_per_item;
+						
+					}
+	
+					$grossvalue = $order_item['line_subtotal'] + $order_item['line_subtotal_tax'];
+					$quantity = $order_item['qty'] * $ipp;
+					$product_code = get_post_meta($order_item['product_id'], '_sku', true);
+					if ($test != true){
+						$wpdb->insert( 
+							'order_items', 
+							array( 
+								'orderid' => $order->id,
+								'productcode' => $product_code,
+								'productname' => $order_item['name'],
+								'quantity' => $quantity,
+								'unipricenet' => round($price),
+								'netvalue' => round($order_item['line_subtotal']),
+								'grossvalue' => round($grossvalue),
+								),
+							array(  
+								'%d', 
+								'%s', 
+								'%s', 
+								'%d', 
+								'%f',
+								'%f',
+								'%f',
+							) 				
+							
+						);
+					}
+					
+					
+				}	
+				
+				if ($order->get_total_shipping() > 0 && $test != true){
 					$wpdb->insert( 
 						'order_items', 
 						array( 
 							'orderid' => $order->id,
-							'productcode' => $product_code,
-							'productname' => $order_item['name'],
-							'quantity' => $quantity,
-							'unipricenet' => round($price),
-							'netvalue' => round($order_item['line_subtotal']),
-							'grossvalue' => round($grossvalue),
+							'productcode' => '0001',
+							'quantity' => 1,
+							'unipricenet' =>$order->get_total_shipping(),
+							'netvalue' => $order->get_total_shipping(),
+							'grossvalue' => $order->get_total_shipping(),
 							),
 						array(  
 							'%d', 
-							'%s', 
 							'%s', 
 							'%d', 
 							'%f',
@@ -362,35 +404,10 @@ if(!class_exists('CustomWoo')) {
 							'%f',
 						) 				
 						
-					);
+					);		
+								
 				}
-				
-				
-			}	
-			
-			if ($order->get_total_shipping() > 0 && $test != true){
-				$wpdb->insert( 
-					'order_items', 
-					array( 
-						'orderid' => $order->id,
-						'productcode' => '0001',
-						'quantity' => 1,
-						'unipricenet' =>$order->get_total_shipping(),
-						'netvalue' => $order->get_total_shipping(),
-						'grossvalue' => $order->get_total_shipping(),
-						),
-					array(  
-						'%d', 
-						'%s', 
-						'%d', 
-						'%f',
-						'%f',
-						'%f',
-					) 				
-					
-				);		
-							
-			}
+			}		
 
 		}				
 

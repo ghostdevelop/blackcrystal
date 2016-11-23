@@ -22,7 +22,9 @@
 						</div>
 					</div>
 				</div>
-				<img src="http://blackcrystal.hu/wp-content/themes/blackcrystal/images/kkh_cimke_300x86.png" class="khlogo"/>
+				<?php if (SIMPLE_SHOP):?>
+					<img src="http://blackcrystal.hu/wp-content/themes/blackcrystal/images/kkh_cimke_300x86.png" class="khlogo"/>
+				<?php endif;?>
 			</div>
 		</div>
 	</div>

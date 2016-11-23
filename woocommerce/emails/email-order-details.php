@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text, $email ); ?>
 
 <?php if ( ! $sent_to_admin ) : ?>
-	<h2 style="color: #aaa;"><?php printf( __( 'Order #%s', 'woocommerce' ), $order->get_order_number() ); ?><span style="font-size: 14px;"><?php _e(' (tranzakicó azonosító)', theme_textdomain())?></span></h2>
+	<h2 style="color: #aaa;"><?php printf( __( 'Order #%s', 'woocommerce' ), $order->get_order_number() ); ?><span style="font-size: 14px;"><?php _e(' (tranzakicó azonosító)', 'blackcrystal')?></span></h2>
 <?php else : ?>
 	<h2 style="color: #aaa;"><a class="link" href="<?php echo esc_url( admin_url( 'post.php?post=' . $order->id . '&action=edit' ) ); ?>" style="color: #aaa;"><?php printf( __( 'Order #%s', 'woocommerce'), $order->get_order_number() ); ?></a> (<?php printf( '<time datetime="%s">%s</time>', date_i18n( 'c', strtotime( $order->order_date ) ), date_i18n( wc_date_format(), strtotime( $order->order_date ) ) ); ?>)</h2>
 <?php endif; ?>

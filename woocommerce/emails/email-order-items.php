@@ -58,7 +58,7 @@ foreach ( $items as $item_id => $item ) : $c++;
 				do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order );
 
 			?></td>
-			<td class="td" style="text-align:left; vertical-align:middle; border: 0; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; <?=$color?>; padding: 4px 8px !important;"><?php echo apply_filters( 'woocommerce_email_order_item_quantity', $item['qty'], $item ); ?> <?php _e('készlet', 'theme-phrases')?> <p style="margin:0;">(<?php echo $item['qty'] * get_post_meta($item['product_id'], '_item_per_pack', true)?> <?php _e('db', 'theme-phrases')?>)</p></td>
+			<td class="td" style="text-align:left; vertical-align:middle; border: 0; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; <?=$color?>; padding: 4px 8px !important;"><?php echo apply_filters( 'woocommerce_email_order_item_quantity', $item['qty'], $item ); ?> <?php _e('készlet', 'blackcrystal')?> <p style="margin:0;">(<?php echo $item['qty'] * get_post_meta($item['product_id'], '_item_per_pack', true)?> <?php _e('db', 'blackcrystal')?>)</p></td>
 			<td class="td" style="text-align:left; vertical-align:middle; border: 0; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; <?=$color?>;padding: 4px 8px !important;"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td>
 		</tr>
 		<?php
