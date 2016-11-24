@@ -201,8 +201,8 @@ if(!class_exists('CustomWoo')) {
 						'id'       => 'sale_percent',
 						'type'     => 'text',
 						'css'      => 'min-width:300px;',
-						'std'      => '1',  // WC < 2.0
-						'default'  => '1',  // WC >= 2.0
+						'std'      => '0',  // WC < 2.0
+						'default'  => '0',  // WC >= 2.0
 						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
 					);
 					
@@ -223,10 +223,21 @@ if(!class_exists('CustomWoo')) {
 						'id'       => 'pack_sale_percent',
 						'type'     => 'text',
 						'css'      => 'min-width:300px;',
+						'std'      => '0',  // WC < 2.0
+						'default'  => '0',  // WC >= 2.0
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+					);	
+					
+					$updated_settings[] = array(
+						'name'     => __( 'Díszdoboz árszorzó', 'woocommerce' ),
+						'desc_tip' => __( 'A mindenkori nettó díszdoboz árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'id'       => 'adjust_add_price',
+						'type'     => 'text',
+						'css'      => 'min-width:300px;',
 						'std'      => '1',  // WC < 2.0
 						'default'  => '1',  // WC >= 2.0
 						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
-					);	
+					);						
 					
 					$updated_settings[] = array(
 						'name'     => __( 'Mennyiségi kedvezmények', 'woocommerce' ),

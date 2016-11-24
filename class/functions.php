@@ -23,13 +23,16 @@ function get_add_price_net($prod_id){
 }
 
 function get_add_price($product){
-	$sale = (int) get_option( 'pack_sale_percent', 1 );
+	$sale = (int) get_option( 'pack_sale_percent');
+	$adjust_add_price = get_option( 'adjust_add_price' );
 	$add_price = get_add_price_net($product);
+
+	$add_price = round($add_price * $adjust_add_price);
 	
 	$prices['normal'] = $add_price;
 	
 	if ($sale > 1 && $add_price > 0){
-		$prices['sale'] = $add_price * ((100 + $sale) / 100);
+		$prices['sale'] = $add_price * ((100 - $sale) / 100);
 
 	}
 	
@@ -90,11 +93,10 @@ function import_get_price($price, $db){
 	global $wpdb;
 	
 	$exchange_rate = (int) get_option( 'exchange_rate');
-	$adjust_price = (int) 1;
+	$adjust_price =  get_option('adjust_price');
 	
 	$return_price = $price / $exchange_rate;
 	$return_price = round($return_price * $adjust_price);
-	$return_price = $return_price;
 	
 	return $return_price;	
 }
@@ -102,14 +104,11 @@ function import_get_price($price, $db){
 function import_get_sale_price($price, $db){
 	global $wpdb;
 	
-	$exchange_rate = (int) get_option( 'exchange_rate');
-	$adjust_price = (int) 1;
-	$sale_percent = (int) 20;
+	$sale_percent = (int) get_option('sale_percent');
 	
-	$return_price = $price / $exchange_rate;
-	$return_price = ($return_price * $adjust_price);
-	$return_price = round($return_price - ($return_price * ($sale_percent / 100)));
-	$return_price = $return_price;	
+	$return_price = import_get_price($price, $db);	
+	
+	$return_price = round($return_price * ((100 - $sale_percent) / 100));	
 	
 	return $return_price;	
 }
