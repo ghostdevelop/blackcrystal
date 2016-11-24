@@ -38,8 +38,9 @@ if ( $order ) : ?>
 		</p>
 
 	<?php else : ?>
-
-		<!--<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>-->
+		<?php if (!isset($txid)):?>
+			<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
+		<?php endif;?>
 
 		<ul class="woocommerce-thankyou-order-details order_details">
 			<li class="order">
