@@ -43,6 +43,7 @@ if(!class_exists('ThemeFramework')) {
 			register_setting('theme-group', 'page_sale'); 		
 			register_setting('theme-group', 'page_gift'); 
 			register_setting('theme-group', 'page_actuality'); 	
+			register_setting('theme-group', 'callback_form'); 	
 		}	
 		
 		public function images_setup(){		

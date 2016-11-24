@@ -3,7 +3,6 @@
 if (!current_user_can('manage_options')) {
     wp_die('You do not have sufficient permissions to access this page.');
 }
-
 ?>
 <div class="wrap">
 	<h2><?php  echo wp_get_theme()?> <?php _e('beállítások', 'blackcrystal')?></h2>
@@ -75,6 +74,15 @@ if (!current_user_can('manage_options')) {
 				        )
 				    );?>
 				</td>										
+			</tr>
+			<tr>
+				<th><?php _e('Űrlapok', 'blackcrystal')?></th>
+			</tr>
+			<tr>
+				<td>
+					<label for="register"><?php _e('Visszahívás kérése', 'blackcrystal')?></label>
+					<input type="text" name="callback_form" value="<?php echo get_option('callback_form') ?>" />
+				</td>
 			</tr>
 		</table> 						
 		<?php @submit_button(); ?>

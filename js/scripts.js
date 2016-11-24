@@ -25,12 +25,12 @@ jQuery(document).ready(function($){
 	
 	$('.woocommerce-info a').click(function(){	
 		$('.woocommerce-info a').not($(this)).each(function(){
-			console.log($(this).parent().next());
 			$(this).parent().next().slideUp();
 		});
 	});
 		
 	$('#callback-btn').click(function(){
+		console.log("run")
 		  $( "#callback_wrapper" ).show();
 		  $( "#callback_wrapper" ).toggleClass("hidden", 1000, "swing" );
 	});

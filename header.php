@@ -38,6 +38,11 @@
 
 </script>
 </head>
+<div id="callback_wrapper" class="hidden">
+	<span id="close_callback">x</span>
+	<p><?php _e('Kérjük adja meg nevét és telefonszámát, hogy visszahívhassuk Önt.','blackcrystal')?></p>
+	<?php echo do_shortcode(get_option('callback_form'));?>
+</div>
 <body <?php body_class()?>>
 	<div class="wrapper">
 		<div class="page">
