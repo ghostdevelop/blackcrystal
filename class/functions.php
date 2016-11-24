@@ -94,7 +94,7 @@ function import_get_price($price, $db){
 	
 	$return_price = $price / $exchange_rate;
 	$return_price = round($return_price * $adjust_price);
-	$return_price = $db * $return_price;
+	$return_price = $return_price;
 	
 	return $return_price;	
 }
@@ -109,7 +109,7 @@ function import_get_sale_price($price, $db){
 	$return_price = $price / $exchange_rate;
 	$return_price = ($return_price * $adjust_price);
 	$return_price = round($return_price - ($return_price * ($sale_percent / 100)));
-	$return_price = $db * $return_price;	
+	$return_price = $return_price;	
 	
 	return $return_price;	
 }
