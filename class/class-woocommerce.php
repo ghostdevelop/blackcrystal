@@ -104,7 +104,7 @@ if(!class_exists('CustomWoo')) {
 				$ap = $_POST['_package_price'];			
 				unset($_POST['_package_price']);
 								
-				WC()->cart->add_to_cart(get_option('pack_id'), 1, "", "", array('package' => $ap, 'prod_id' => get_post_meta($product_id, '_sku', true)));	
+				WC()->cart->add_to_cart(get_product_by_sku('0000'), 1, "", "", array('package' => $ap, 'prod_id' => get_post_meta($product_id, '_sku', true)));	
 
 			}
 
@@ -113,7 +113,7 @@ if(!class_exists('CustomWoo')) {
 		
 		public function get_cart_items_from_session( $item, $values, $key ) {		
 
-			if ($item['data']->id == get_option('pack_id')){	
+			if ($item['data']->id == get_product_by_sku('0000')){	
 				$item['data']->set_price( $item['package'] );
 			}
 			

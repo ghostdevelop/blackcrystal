@@ -109,3 +109,17 @@ function import_get_sale_price($price, $sale_price){
 	
 	return $return_price;	
 }
+
+
+function get_product_by_sku( $sku ) {
+
+  global $wpdb;
+  
+  $product_id = $wpdb->get_results( "SELECT * FROM $wpdb->postmeta WHERE meta_key='_sku' AND meta_value IN ( $sku) LIMIT 1" );
+
+
+  if ( $product_id ) return $product_id;
+
+  return null;
+
+}	
