@@ -1100,3 +1100,6 @@ a.havetologin{
 	color: rgb(217, 56, 68) !important;
 }
 
+.cart_item .product-thumbnail a{
+	float: left;
+}
