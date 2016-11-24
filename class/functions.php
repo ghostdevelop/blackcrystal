@@ -62,13 +62,6 @@ function show_add_price($product){
 	
 }
 
-
-
-
-
-
-
-
 /******** IMPORT Functions **********/
 function image_list($tag = '0000'){
 	for ($i = 1; $i <= 2; $i++) {
@@ -89,50 +82,30 @@ function image_list($tag = '0000'){
 	}
 }
 
-function import_get_price($price, $db){
+function import_get_price($price){
 	global $wpdb;
 	
 	$exchange_rate = (int) get_option( 'exchange_rate');
 	$adjust_price =  get_option('adjust_price');
 	
 	$return_price = $price / $exchange_rate;
+	
 	$return_price = round($return_price * $adjust_price);
 	
 	return $return_price;	
 }
 
-function import_get_sale_price($price, $db){
+function import_get_sale_price($price, $sale_price){
 	global $wpdb;
 	
-	$sale_percent = (int) get_option('sale_percent');
+	if ($sale_price > 0){
+		$return_price = $sale_price;		
+	} else{
+		$sale_percent = (int) get_option('sale_percent');
+		$return_price = import_get_price($price, $db);	
+		$return_price = round($return_price * ((100 - $sale_percent) / 100));	
+	}
 	
-	$return_price = import_get_price($price, $db);	
-	
-	$return_price = round($return_price * ((100 - $sale_percent) / 100));	
 	
 	return $return_price;	
 }
-
-function import_set_stock($id, $amount){
-
-	$product = get_product_by_sku($id);
-	$items_per_pack = get_post_meta($product[0]->post_id, '_item_per_pack', true);
-	$return = $amount;
-	
-	if ($items_per_pack > 0) $return = $amount / $items_per_pack;
-	
-	return (int) $return;
-}
-
-function get_product_by_sku( $sku ) {
-
-  global $wpdb;
-  
-  $product_id = $wpdb->get_results( "SELECT * FROM $wpdb->postmeta WHERE meta_key='_sku' AND meta_value IN ( $sku) LIMIT 1" );
-
-
-  if ( $product_id ) return $product_id;
-
-  return null;
-
-}	
