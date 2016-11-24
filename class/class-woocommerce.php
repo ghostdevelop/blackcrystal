@@ -14,7 +14,7 @@ if(!class_exists('CustomWoo')) {
 			add_filter( 'woocommerce_general_settings', array(&$this, 'add_pricing_option_fields' ), 10, 1);	
 			add_filter( 'woocommerce_payment_gateways', array(&$this, 'add_card_gateway' ));
 			add_action( 'woocommerce_thankyou', array(&$this, 'send_order'));
-			
+			add_filter( 'the_title', array($this, 'thankyou_title'), 10, 2 );			
 			
 			
 			
@@ -22,7 +22,7 @@ if(!class_exists('CustomWoo')) {
 			add_action(	'woocommerce_add_to_cart', array(&$this, 'add_cart_item'), 10, 6);		
 			add_filter( 'woocommerce_add_cart_item', array(&$this, 'filter_woocommerce_add_cart_item'), 10, 1 ); 				
 			add_action( 'woocommerce_add_order_item_meta', array(&$this, 'save_order_itemmeta'), 10, 3 );	
-			
+						
 			
 			
 			/*		
@@ -37,7 +37,12 @@ if(!class_exists('CustomWoo')) {
 		    add_theme_support( 'woocommerce' );
 		}			
 		
-
+		function thankyou_title( $title, $id ) {
+			if ( is_order_received_page()) {
+				$title = __('Rendelés állapota','blackcrystal');
+			}
+			return $title;
+		}
 
 		function loop_columns() {
 			return 3; // 3 products per row
