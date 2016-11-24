@@ -12,14 +12,18 @@ if(!class_exists('CustomWoo')) {
 			add_filter( 'woocommerce_product_tabs', array(&$this, 'shipping_tab' ));	
 			add_filter( 'woocommerce_checkout_fields' , array(&$this, 'override_checkout_fields' ));				
 			add_filter( 'woocommerce_general_settings', array(&$this, 'add_pricing_option_fields' ), 10, 1);	
+			add_filter( 'woocommerce_payment_gateways', array(&$this, 'add_card_gateway' ));
+			add_action( 'woocommerce_thankyou', array(&$this, 'send_order'));
 			
+			
+			
+			
+			add_filter( 'woocommerce_get_cart_item_from_session', array(&$this, 'get_cart_items_from_session'), 1, 3 );			
 			add_action(	'woocommerce_add_to_cart', array(&$this, 'add_cart_item'), 10, 6);		
 			add_filter( 'woocommerce_add_cart_item', array(&$this, 'filter_woocommerce_add_cart_item'), 10, 1 ); 				
 			add_action( 'woocommerce_add_order_item_meta', array(&$this, 'save_order_itemmeta'), 10, 3 );	
 			
 			
-			add_filter( 'woocommerce_payment_gateways', array(&$this, 'add_card_gateway' ));
-			add_action( 'woocommerce_thankyou', array(&$this, 'send_order'));
 			
 			/*		
 			add_action( 'woocommerce_before_checkout_form', array(&$this, 'apply_matched_coupons' ));
@@ -102,7 +106,15 @@ if(!class_exists('CustomWoo')) {
 		    return $cart_item;
 		}
 		
+		public function get_cart_items_from_session( $item, $values, $key ) {		
 
+			if ($item['data']->id == get_option('pack_id')){	
+				$item['data']->set_price( $item['package'] );
+			}
+			
+		    return $item;
+		}
+		
 		function save_order_itemmeta( $item_id, $values, $cart_item_key ) {		 
 			if ( isset( $values['package'] ) ) {
 				wc_add_order_item_meta( $item_id, 'package', $values['package'] );
