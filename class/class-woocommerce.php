@@ -38,7 +38,7 @@ if(!class_exists('CustomWoo')) {
 		}			
 		
 		function thankyou_title( $title, $id ) {
-			if ( is_order_received_page() &&  && get_the_ID() ===  woocommerce_get_page_id( 'checkout' ) ) {
+			if ( is_order_received_page() && get_the_ID() ===  woocommerce_get_page_id( 'checkout' ) ) {
 				$title = __('Rendelés állapota','blackcrystal');
 			}
 			return $title;
