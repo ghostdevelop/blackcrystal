@@ -70,7 +70,7 @@ if ( ! $product->is_purchasable() ) {
 						</a>
 					</div>
 					<div class="button-box">
-						<input id="_package_price" class="input-checkbox addiotional-check" type="checkbox" name="_package_price" value="<?php echo get_add_price_net($product)?>" />
+						<input id="_package_price" class="input-checkbox addiotional-check" type="checkbox" name="_package_price" value="<?php echo show_add_price_net($product)?>" />
 					</div>
 					<div class="price-box">
 						<?php show_add_price($product);?>

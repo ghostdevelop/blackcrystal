@@ -114,7 +114,8 @@ if(!class_exists('CustomWoo')) {
 		public function get_cart_items_from_session( $item, $values, $key ) {		
 
 			if ($item['data']->id == get_product_by_sku('0000')){	
-				$item['data']->set_price( $item['package'] );
+			    $item['data']->post->post_title = sprintf(__("Díszdoboz a %d kódszámú termékhez", 'blackcrystal'), $item['prod_id']);	    	
+				$item['data']->set_price( $item['package'] );					
 			}
 			
 		    return $item;
