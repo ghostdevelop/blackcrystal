@@ -303,45 +303,6 @@ table.shop_table.woocommerce-checkout-review-order-table{
 	text-align: right;
 }
 
-/* COMMON RADIO AND CHECKBOX STYLES  */
-
-input[type=radio],
-input[type=checkbox]{
-  /* hide original inputs */
-  visibility: hidden;
-  position: absolute;
-}
-input[type=radio] + label,
-input[type=checkbox] + label{
-  cursor:pointer;
-}
-input[type=radio] + label:before,
-input[type=checkbox] + label:before{
-  height:16px;
-  margin-right: 4px;
-  content: " ";
-  display:inline-block;
-  vertical-align: baseline;
-  transition: 0.3s;
-  border-radius:10px;
-  box-shadow: inset 0 -3px 6px #e4e4e4;
-  transition: 0.3s;
-}
-
-/* CUSTOM RADIO AND CHECKBOX STYLES */
-/* DEFAULT */
-input[type=radio] + label:before,
-input[type=checkbox] + label:before{
-  border-radius:50%;
-  width:16px;
-}
-
-/* CHECKED */
-input[type=radio]:checked + label:before,
-input[type=checkbox]:checked + label:before{
-	background: #957c62;
-	box-shadow: 0px 0px 0px black;
-}
 
 div.block-title.clearfix{
 	display: block;
@@ -580,6 +541,10 @@ span.item-per-pack{
 .col2-set .col-2{
 	width: 46%;
 	float: left;
+}
+
+.col2-set.addresses .col-1.address,
+.col2-set.addresses .col-2.address{
 	padding: 2%;
 }
 
