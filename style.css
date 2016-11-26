@@ -579,7 +579,8 @@ span.item-per-pack{
 .col2-set .col-1,
 .col2-set .col-2{
 	width: 46%;
-	float: left
+	float: left;
+	padding: 2%;
 }
 
 .QapTcha{

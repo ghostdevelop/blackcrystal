@@ -25,12 +25,12 @@ wc_print_notices(); ?>
 <p class="myaccount_user">
 	<?php
 	printf(
-		__( 'Hello <strong>%1$s</strong> (not %1$s? <a href="%2$s">Sign out</a>).', 'woocommerce' ) . ' ',
+		__( 'Hello <strong>%1$s</strong> (not %1$s? <a href="%2$s">Sign out</a>).', 'blackcrystal' ) . ' ',
 		$current_user->display_name,
 		wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) )
 	);
 
-	printf( __( 'From your account dashboard you can view your recent orders, manage your shipping and billing addresses and <a href="%s">edit your password and account details</a>.', 'woocommerce' ),
+	printf( __( 'From your account dashboard you can view your recent orders, manage your shipping and billing addresses and <a href="%s">edit your password and account details</a>.', 'blackcrystal' ),
 		wc_customer_edit_account_url()
 	);
 	?>
@@ -38,11 +38,9 @@ wc_print_notices(); ?>
 <?php if (SIMPLE_SHOP == false):?>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/on-off-switch.js'?>"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/on-off-switch-onload.js'?>"></script>
-<?php endif?>
-<div class="show_price_switch_checkbox_container">
 
-    <span class="show_price_switch_label">Eladási árak megjelenítése? </span><input type="hidden" id="on-off-switch-custom" value="1">
-
+	<?php if (SIMPLE_SHOP == false):?>
+	    <span class="show_price_switch_label">Eladási árak megjelenítése? </span><input type="hidden" id="on-off-switch-custom" value="1">
     <script type="text/javascript">
         new DG.OnOffSwitch({
             el: '#on-off-switch-custom',
@@ -73,7 +71,7 @@ wc_print_notices(); ?>
         <?php endif;?>
     </script>
 </div>
-
+<?php endif?>
 
 <?php do_action( 'woocommerce_before_my_account' ); ?>
 
