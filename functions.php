@@ -1,6 +1,5 @@
 <?php 
 
-
 if(!class_exists('ThemeFramework')) {
 	
 	class ThemeFramework{
@@ -12,6 +11,7 @@ if(!class_exists('ThemeFramework')) {
 			add_action('admin_init', array(&$this, 'register_settings') );	
 			add_filter( 'wp_nav_menu_items', array(&$this, 'loginout_menu_link'), 10, 2 );		
 			add_action( 'pre_get_posts', array(&$this, 'polylang_search_normalize' ));	
+			add_action( 'after_setup_theme', array(&$this, 'set_languages' ));				
 
 			$this->init();					
 		}
@@ -23,8 +23,11 @@ if(!class_exists('ThemeFramework')) {
 				wCore::get_dir('widgets', false, dirname(__FILE__));							
 			}				
 			
-			load_theme_textdomain( 'blackcrystal', get_template_directory() . '/languages' );
-		}		
+		}	
+		
+		function set_languages(){
+		    load_theme_textdomain( 'blackcrystal', get_template_directory() . '/languages' );
+		}				
 		
 		public function logout_url(){
 		  wp_redirect( home_url() );
