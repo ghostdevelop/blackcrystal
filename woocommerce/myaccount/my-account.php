@@ -39,7 +39,6 @@ wc_print_notices(); ?>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/on-off-switch.js'?>"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/on-off-switch-onload.js'?>"></script>
 
-	<?php if (SIMPLE_SHOP == false):?>
 	    <span class="show_price_switch_label">Eladási árak megjelenítése? </span><input type="hidden" id="on-off-switch-custom" value="1">
     <script type="text/javascript">
         new DG.OnOffSwitch({
