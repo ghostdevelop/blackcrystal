@@ -22,6 +22,8 @@ if(!class_exists('ThemeFramework')) {
 				wCore::get_dir('post-types', false, dirname(__FILE__));
 				wCore::get_dir('widgets', false, dirname(__FILE__));							
 			}				
+			
+			load_theme_textdomain( 'blackcrystal', get_template_directory() . '/languages' );
 		}		
 		
 		public function logout_url(){
