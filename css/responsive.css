@@ -798,6 +798,24 @@ display: block; }
 		padding-top: 10px;		
 	}
 	
+	.additional-products li .additional-product .price-box{
+		line-height: 1;
+		margin-right: 0;
+		
+	}
+	
+	.additional-product .price-box del,
+	.additional-product .price-box ins{
+		
+		float: none;
+	}
+	
+	.additional-product .price-box ins span span,
+	.additional-product .price-box del span span{
+		display: inherit;
+		float: left;
+	}
+	
 	.woocommerce input.button,
 	input.button{
 		font-size: 14px;
