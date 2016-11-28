@@ -77,13 +77,18 @@ function show_add_price($product){
 }
 
 /******** IMPORT Functions **********/
-function image_list($tag = '0000'){
+function image_list($tag = '0000', $local = false){
 	for ($i = 1; $i <= 2; $i++) {
 		$formatted_value = sprintf("%02d", $i);
+		$url = 'http://blackcrystal.hu/images/';
+		if ($local){
+			$url = 'kepek/';
+		}
+		
 		if ($i == 1){
-			$url = "http://blackcrystal.hu/images/".$tag.".jpg";
+			$url = $url.$tag.".jpg";
 		} else {
-			$url = "http://blackcrystal.hu/images/".$tag."_".$i.".jpg";
+			$url = $url.$tag."_".$i.".jpg";
 		}
 		if (@getimagesize($url)){
 			if ($i == 1){
