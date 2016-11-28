@@ -423,6 +423,7 @@ if(!class_exists('CustomWoo')) {
 					$product = new WC_Product( $order_item['product_id'] );
 					$ipp = (int) get_post_meta($order_item['product_id'], '_item_per_pack', true);
 					$price = (int) $product->get_price();
+					if (get_post_meta($product->id, '_sku', true) == 1000) $price = $order_item['line_subtotal'];
 					if ($ipp > 0) $price = round($price / $ipp);
 						
 					$grossvalue = $order_item['line_subtotal'] + $order_item['line_subtotal_tax'];
