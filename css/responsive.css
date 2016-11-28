@@ -738,6 +738,7 @@ display: block; }
 		width: 180px;
 		margin: 0 auto;
 		float: none;
+		height: 180px;		
 	}
 	
 	div.woocommerce-billing-fields,
@@ -791,6 +792,37 @@ display: block; }
 	.header .welcome-msg {}
 }
 @media only screen and (max-width: 480px) { 
+	.additional-products li .additional-product h4{
+		max-width: 140px;
+		line-height: 1;
+		padding-top: 10px;		
+	}
+	
+	.woocommerce input.button,
+	input.button{
+		font-size: 14px;
+	}
+	
+	.product_list_widget del{
+		float: left;
+		line-height: 38px;
+		margin-right: 10px;		
+	}
+	
+	.product_list_widget ins{
+		float: left;
+		margin-right: 10px;
+	}
+	
+	.woocommerce div.product .woocommerce-tabs ul.tabs li,
+	.woocommerce div.product .woocommerce-tabs ul.tabs li a{
+		display: block;
+	}
+	
+	.product_list_widget .woocommerce-price-suffix{
+		line-height: 38px;
+	}	
+
 	.products-grid .product-name a,
 	.products-grid .price-box{
 		text-align: center;

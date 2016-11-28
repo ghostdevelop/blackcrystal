@@ -182,7 +182,7 @@ span.sku_wrapper{
 
 .additional-product-image,
 .additional-products li .additional-product h4{
-	margin-right: 60px;
+	margin-right: 20px;
 	float: right;
 	font-size: 14px;
 	margin-bottom: 0;
@@ -1068,4 +1068,8 @@ a.havetologin{
 
 .cart_item .product-thumbnail a{
 	float: left;
+}
+
+div.thumb-holder{
+	position: relative;
 }

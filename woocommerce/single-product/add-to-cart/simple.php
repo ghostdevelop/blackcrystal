@@ -75,7 +75,7 @@ if ( ! $product->is_purchasable() ) {
 					<div class="price-box">
 						<?php show_add_price($product);?>
 					</div>
-					<h4><?php _e('Díszdoboz', 'blackcrystal')?><?php echo get_post_meta(get_the_ID(), '_item_per_pack_box', true)?> <?php _e('db termékhez', 'blackcrystal')?></h4>
+					<h4><?php _e('Díszdoboz', 'blackcrystal')?><?php echo get_post_meta(get_the_ID(), '_item_per_pack_box', true)?> <?php _e(' db termékhez', 'blackcrystal')?></h4>
 				</div>
 				<div class="additional-product-info">
 					<p><?php _e('Kézzel készített bordó díszdoboz, kívül velúr, belül szaténnal bélelve. Kiemeli a kristály szépségét, ajándékozáshoz kiváló. (a kép illusztráció)', 'theme-phrases')?></p>

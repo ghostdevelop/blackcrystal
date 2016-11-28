@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			echo '<div class="QapTcha qpt-login"></div>';
 			echo '<script type="text/javascript">
 				jQuery(document).ready(function($){
-					$(".qpt-login").QapTcha({txtLock : "Csúsztasd el a bejelentkezéshez", txtUnlock : "Feloldva", disabledSubmit: false, autoSubmit: true});
+					$(".qpt-login").QapTcha({txtLock : "Csúsztasd el a bejelentkezéshez", txtUnlock : "Feloldva", disabledSubmit: true, autoSubmit: true});
 				});
 			</script>';	
 ?>						
