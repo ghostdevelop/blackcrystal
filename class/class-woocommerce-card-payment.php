@@ -174,7 +174,7 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		$sign = array(
 			"lang"	 	=> $lang,
 			"sign"		=> bin2hex($signature),
-			"nocheck"	=> $this->nocheck
+			"nocheck"	=> $nocheck
 		);
 		
 		return array(
