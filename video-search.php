@@ -26,8 +26,8 @@
 											            title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
 													<input type="hidden" name="video-search" value="1" />
 											    </label>
-											    <input type="submit" class="search-submit" name="sku" value="<?php echo esc_attr_x( 'Keresés termékkód alapján', 'submit button' ) ?>" />
-											    <input type="submit" class="search-submit" name="dek" value="<?php echo esc_attr_x( 'Keresés dekor alapján', 'submit button' ) ?>" />
+											    <input type="submit" class="search-submit" name="sku" value="<?php echo esc_attr_x( 'Keresés termékkód alapján', 'blackcrystal' ) ?>" />
+											    <input type="submit" class="search-submit" name="dek" value="<?php echo esc_attr_x( 'Keresés dekor alapján', 'blackcrystal' ) ?>" />
 											</form>	    						
 										</div>										
 									<?php endif;?>

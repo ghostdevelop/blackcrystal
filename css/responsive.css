@@ -819,6 +819,13 @@ display: block; }
 	.woocommerce input.button,
 	input.button{
 		font-size: 14px;
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+		-webkit-hyphens: auto;
+		-ms-hyphens: auto;
+		-moz-hyphens: auto;
+		hyphens: auto;
+		white-space:normal;		
 	}
 	
 	.product_list_widget del{
@@ -1002,6 +1009,12 @@ display: block; }
 }
 
 @media only screen and (max-width: 320px) {
+	.woocommerce input.button,
+	input.button,
+	.woocommerce a.button{
+		font-size: 10px
+	}
+
 	.header-info #callback-btn-mobile{
 		font-size: 16px;
 	}

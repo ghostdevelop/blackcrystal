@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-26 05:03+0000\n"
-"PO-Revision-Date: 2016-11-26 05:09+0000\n"
+"POT-Creation-Date: 2016-11-28 02:53+0000\n"
+"PO-Revision-Date: 2016-11-28 02:54+0000\n"
 "Last-Translator: Petya <petyaxd@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu-HU\n"
@@ -17,19 +17,19 @@ msgstr ""
 msgid "Video kereső"
 msgstr ""
 
-#: functions.php:63
+#: functions.php:62
 msgid "Top menu"
 msgstr ""
 
-#: functions.php:64
+#: functions.php:63
 msgid "Header menu"
 msgstr ""
 
-#: functions.php:65
+#: functions.php:64
 msgid "Header nav menu"
 msgstr ""
 
-#: functions.php:156
+#: functions.php:155
 msgid "Jelentkezz be az árak megtekintéséhez"
 msgstr ""
 
@@ -137,11 +137,112 @@ msgstr ""
 msgid "Díszdoboz a %d kódszámú termékhez"
 msgstr ""
 
-#: class/class-woocommerce-card-payment.php:194
+#: class/class-woocommerce-card-payment.php:12
+#: class/class-woocommerce-card-payment.php:18
+msgid "K & H Bankkártyás fizetés"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:15
+msgid "K & H bankkártyás fizetési module woocommercehez"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:58
+msgid "Enable / Disable"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:59
+msgid "Enable this payment gateway"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:64
+msgid "Title"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:66
+msgid "Payment title the customer will see during the checkout process."
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:67
+msgid "Credit card"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:70
+msgid "Description"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:72
+msgid "Payment description the customer will see during the checkout process."
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:73
+msgid "Pay securely using your credit card."
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:77
+msgid "Bolt azonosító"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:79
+msgid "Bank ID"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:83
+#: class/class-woocommerce-card-payment.php:85
+msgid "Privát kulcs jelszó"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:89
+#: class/class-woocommerce-card-payment.php:91
+msgid "API url"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:95
+#: class/class-woocommerce-card-payment.php:97
+msgid "API test url"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:101
+#: class/class-woocommerce-card-payment.php:103
+msgid "API visszatérési url"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:107
+msgid "API visszatérési tesz url"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:109
+msgid "API visszatérési teszt url"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:113
+msgid "Test Mode"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:114
+msgid "Enable Test Mode"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:116
+msgid "Place the payment gateway in test mode."
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:120
+msgid "No check SSL"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:121
+msgid "Enable no check SSL Mode"
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:123
+msgid "Place the payment gateway ssl in test mode."
+msgstr ""
+
+#: class/class-woocommerce-card-payment.php:204
 msgid "Sikeres fizetés!"
 msgstr ""
 
-#: class/class-woocommerce-card-payment.php:209
+#: class/class-woocommerce-card-payment.php:219
 msgid "Sikertelen tranzakció. Hibás adatokat adott meg."
 msgstr ""
 
@@ -149,12 +250,28 @@ msgstr ""
 msgid " (tranzakicó azonosító)"
 msgstr ""
 
-#: woocommerce/emails/email-order-items.php:61
-msgid "készlet"
+#: woocommerce/myaccount/my-address.php:25
+msgid "My Addresses"
+msgstr "Címeim"
+
+#: woocommerce/single-product/add-to-cart/simple.php:78
+msgid "Díszdoboz"
 msgstr ""
 
-#: woocommerce/emails/email-order-items.php:61
-msgid "db"
+#: woocommerce/single-product/add-to-cart/simple.php:78
+msgid "db termékhez"
+msgstr ""
+
+#. Name of the theme
+msgid "Blackcrystal 2016"
+msgstr ""
+
+#. URI of the theme
+msgid "http://www.webcreatives.hu"
+msgstr ""
+
+#. Author of the theme
+msgid "Petya"
 msgstr ""
 
 #: woocommerce/myaccount/my-account.php:28
@@ -174,19 +291,3 @@ msgstr ""
 "A fiók oldaladon megtekintheted a korábbi rendeléseidet, szerkesztheted a "
 "szállítási és számlázási adataid illetve <a href=\"%s\">megváltoztathatod a "
 "jelszavad és egyéb profil beállításaid</a>."
-
-#: woocommerce/single-product/add-to-cart/simple.php:78
-msgid "Díszdoboz"
-msgstr ""
-
-#. Name of the theme
-msgid "Blackcrystal 2016"
-msgstr ""
-
-#. URI of the theme
-msgid "http://www.webcreatives.hu"
-msgstr ""
-
-#. Author of the theme
-msgid "Petya"
-msgstr ""

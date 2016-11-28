@@ -15,6 +15,7 @@ if(!class_exists('CustomWoo')) {
 			add_filter( 'woocommerce_payment_gateways', array(&$this, 'add_card_gateway' ));
 			add_action( 'woocommerce_thankyou', array(&$this, 'send_order'));
 			add_filter( 'the_title', array($this, 'thankyou_title'), 10, 2 );			
+			add_filter( 'woocommerce_cart_item_name', array($this, 'add_sku_in_cart'), 20, 3);
 			
 			
 			
@@ -22,9 +23,15 @@ if(!class_exists('CustomWoo')) {
 			add_action(	'woocommerce_add_to_cart', array(&$this, 'add_cart_item'), 10, 6);		
 			add_filter( 'woocommerce_add_cart_item', array(&$this, 'filter_woocommerce_add_cart_item'), 10, 1 ); 				
 			add_action( 'woocommerce_add_order_item_meta', array(&$this, 'save_order_itemmeta'), 10, 3 );	
-						
-			
-			
+									
+			if (SIMPLE_SHOP == false){
+				add_filter('woocommerce_get_price', array(&$this, 'get_custom_price'), 10, 2);
+				add_action('after_setup_theme',array(&$this, 'activate_filter')) ; 
+				add_action( 'wp_ajax_display_price_action', array(&$this, 'display_price_action_hook' ));
+				add_action( 'wp_ajax_nopriv_display_price_action', array(&$this, 'display_price_action_hook' ));
+			}
+
+		
 			/*		
 			add_action( 'woocommerce_before_checkout_form', array(&$this, 'apply_matched_coupons' ));
 			add_action( 'woocommerce_before_cart', array(&$this, 'apply_matched_coupons' ));		
@@ -88,6 +95,12 @@ if(!class_exists('CustomWoo')) {
 		
 		     return $fields;
 		}	
+		
+		function add_sku_in_cart( $title, $values, $cart_item_key ) {
+		  $sku = $values['data']->get_sku();
+		  
+		  return $sku ? $title . " " . sprintf( __('(Termékkód: %s)', 'blackcrystal'), $sku) : $title;
+		}			
 				
 		function filter_woocommerce_add_cart_item( $cart_item) { 
 		    // make filter magic happen here... 
@@ -98,6 +111,54 @@ if(!class_exists('CustomWoo')) {
 		    
 		    return $cart_item; 
 		}
+		
+		function get_custom_price($price, $product) {
+		    if (!is_user_logged_in()) return $price;
+		
+			if (get_user_meta(get_current_user_id(), '_show_customer_price', true) == true){
+				$pref = get_user_meta(get_current_user_id(), '_preference', true);
+				$cp = get_user_meta(get_current_user_id(), '_customer_price', true);
+		        //give user 10% of	
+		        if ($pref > 0){
+					$price = $price * ((100 - $pref) / 100);
+					$price = $price * ((100 + $cp) / 100);
+		        }	
+			} else {
+				$pref = get_user_meta(get_current_user_id(), '_preference', true);
+		        //give user 10% of
+		        if ($pref > 0) $price = $price * ((100 - $pref) / 100);		
+			}
+		
+		            
+		    return $price;
+		}
+	
+		function display_price_action_hook() {
+		    // Handle request then generate response using WP_Ajax_Response
+			if ($_POST['data'] == false){
+				update_user_meta( get_current_user_id(), '_show_customer_price', true );	
+			} else{
+				update_user_meta( get_current_user_id(), '_show_customer_price', false );	
+			}
+		    
+		    die();
+		}
+
+		function activate_filter(){
+			add_filter('woocommerce_get_price_html', array( &$this, 'show_price_logged'));
+		}
+	
+		function show_price_logged($price){
+			if(is_user_logged_in() ){
+				return $price;
+		    } else {
+			    remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
+			    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+			    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+			    remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+			    return '<a class="havetologin" href="' . get_permalink(woocommerce_get_page_id('myaccount')) . '">'.__('Jelentkezz be az árak megtekintéséhez', 'blackcrystal').'</a>';
+		    }
+		}		
 		
 		public function add_cart_item($cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data) {
 			if (isset($_POST['_package_price'])){	
