@@ -136,6 +136,7 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		
 		// Are we testing right now or is it a real transaction
 		$environment = ( $this->environment == "yes" ) ? 'TRUE' : 'FALSE';
+		$nocheck = ( $this->nocheck == "yes" ) ? 1 : 0;
 
 		// Decide which URL to post to
 		//https://ebank.khb.hu/PaymentGatewayTest/PGPayment?txid=3141592653&type=PU&mid=10234506&amount=1234000&ccy=HUF&sign=a1154ffeb7…535cfc88cfd784&lang=HU
