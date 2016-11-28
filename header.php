@@ -72,21 +72,16 @@
 									</div>
 								</div>
 								<div class="header-buttons">
-									<div class="header-button top-login">
-										<?php wp_nav_menu(array( 
-											'menu' => '', 
-											'container' => '', 
-											'items_wrap' => '<ul id="%1$s" class="%2$s links">%3$s</ul>',
-											'theme_location' => 'header-menu' 
-										))?>
+									<div class="header-button top-sale">
+										<a href="<?php echo get_permalink(get_option('page_sale'))?>"><i class="fa fa-tags" aria-hidden="true"></i></a>
 									</div>
 									<div class="header-button menu-list">
 										<i class="fa fa-info"></i>
 										<?php wp_nav_menu(array( 
-											'menu' => 'információk', 
+											'menu' => '', 
 											'container' => '', 
 											'items_wrap' => '<ul id="%1$s" class="%2$s links">%3$s</ul>',
-											'theme_location' => '' 
+											'theme_location' => 'header-nav-menu' 
 										))?>
 									</div>
 									<div class="header-button menu-list">

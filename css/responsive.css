@@ -806,14 +806,14 @@ display: block; }
 	
 	.additional-product .price-box del,
 	.additional-product .price-box ins{
-		
+		margin: 0;		
 		float: none;
 	}
 	
 	.additional-product .price-box ins span span,
 	.additional-product .price-box del span span{
 		display: inherit;
-		float: left;
+		float: right;
 	}
 	
 	.woocommerce input.button,
@@ -953,7 +953,7 @@ display: block; }
 	}
 	
 	.header-button.menu-list ul{
-		left: -65px;
+		left: 0;
 	}
 	
 	.header-info.mobile{
@@ -963,6 +963,10 @@ display: block; }
 	#callback_wrapper{
 		right: 0;
 		margin: 30px;
+	}
+	
+	.top-sale{
+		display: block;
 	}
 	
 
