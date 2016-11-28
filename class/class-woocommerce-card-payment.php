@@ -143,7 +143,7 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 			"txid" 	 	=> $customer_order->get_order_number(),
 			"type"		=> "PU",
 			"amount" 	=> number_format($customer_order->order_total, 2,  '', ''),
-			"ccy"	 	=> "HUF",
+			"ccy"	 	=> get_woocommerce_currency(),
 		);
 		
 		$data =  http_build_query( $payload );
@@ -159,10 +159,12 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		openssl_sign($data, $signature, $pkeyid);
 		
 		// free the key from memory
-		openssl_free_key($pkeyid);						   
+		openssl_free_key($pkeyid);	
+							   
+		$lang = substr(get_locale(), -2);
 		
 		$sign = array(
-			"lang"	 	=> "HU",
+			"lang"	 	=> $lang,
 			"sign"		=> bin2hex($signature),
 			//"nocheck"	=> "1"
 		);
