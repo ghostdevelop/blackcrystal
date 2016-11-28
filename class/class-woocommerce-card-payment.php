@@ -9,13 +9,13 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		$this->id = "webcreatives_card_payment";
 
 		// The Title shown on the top of the Payment Gateways Page next to all the other Payment Gateways
-		$this->method_title = __( "K & H Bankkártyás fizetés", 'webcreatives-core' );
+		$this->method_title = __( "K & H Bankkártyás fizetés", 'blackcrystal' );
 
 		// The description for this Payment Gateway, shown on the actual Payment options page on the backend
-		$this->method_description = __( "K & H bankkártyás fizetési module woocommercehez", 'webcreatives-core' );
+		$this->method_description = __( "K & H bankkártyás fizetési module woocommercehez", 'blackcrystal' );
 
 		// The title to be used for the vertical tabs that can be ordered top to bottom
-		$this->title = __( "K & H Bankkártyás fizetés", 'webcreatives-core' );
+		$this->title = __( "K & H Bankkártyás fizetés", 'blackcrystal' );
 
 		// If you want to show an image next to the gateway's name on the frontend, enter a URL to an image.
 		$this->icon = null;
@@ -55,67 +55,74 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 	public function init_form_fields() {
 		$this->form_fields = array(
 			'enabled' => array(
-				'title'		=> __( 'Enable / Disable', 'webcreatives-core' ),
-				'label'		=> __( 'Enable this payment gateway', 'webcreatives-core' ),
+				'title'		=> __( 'Enable / Disable', 'blackcrystal' ),
+				'label'		=> __( 'Enable this payment gateway', 'blackcrystal' ),
 				'type'		=> 'checkbox',
 				'default'	=> 'no',
 			),
 			'title' => array(
-				'title'		=> __( 'Title', 'webcreatives-core' ),
+				'title'		=> __( 'Title', 'blackcrystal' ),
 				'type'		=> 'text',
-				'desc_tip'	=> __( 'Payment title the customer will see during the checkout process.', 'webcreatives-core' ),
-				'default'	=> __( 'Credit card', 'webcreatives-core' ),
+				'desc_tip'	=> __( 'Payment title the customer will see during the checkout process.', 'blackcrystal' ),
+				'default'	=> __( 'Credit card', 'blackcrystal' ),
 			),
 			'description' => array(
-				'title'		=> __( 'Description', 'webcreatives-core' ),
+				'title'		=> __( 'Description', 'blackcrystal' ),
 				'type'		=> 'textarea',
-				'desc_tip'	=> __( 'Payment description the customer will see during the checkout process.', 'webcreatives-core' ),
-				'default'	=> __( 'Pay securely using your credit card.', 'webcreatives-core' ),
+				'desc_tip'	=> __( 'Payment description the customer will see during the checkout process.', 'blackcrystal' ),
+				'default'	=> __( 'Pay securely using your credit card.', 'blackcrystal' ),
 				'css'		=> 'max-width:350px;'
 			),
 			'mid' => array(
-				'title'		=> __( 'Bolt azonosító', 'webcreatives-core' ),
+				'title'		=> __( 'Bolt azonosító', 'blackcrystal' ),
 				'type'		=> 'number',
-				'desc_tip'	=> __( 'Bank ID', 'webcreatives-core' ),
-				'default'	=> __( '', 'webcreatives-core' ),
+				'desc_tip'	=> __( 'Bank ID', 'blackcrystal' ),
+				'default'	=> __( '', 'blackcrystal' ),
 			),	
 			'key_pass' => array(
-				'title'		=> __( 'Privát kulcs jelszó', 'webcreatives-core' ),
+				'title'		=> __( 'Privát kulcs jelszó', 'blackcrystal' ),
 				'type'		=> 'password',
-				'desc_tip'	=> __( 'Privát kulcs jelszó', 'webcreatives-core' ),
-				'default'	=> __( '', 'webcreatives-core' ),
+				'desc_tip'	=> __( 'Privát kulcs jelszó', 'blackcrystal' ),
+				'default'	=> __( '', 'blackcrystal' ),
 			),				
 			'action_url' => array(
-				'title'		=> __( 'API url', 'webcreatives-core' ),
+				'title'		=> __( 'API url', 'blackcrystal' ),
 				'type'		=> 'text',
-				'desc_tip'	=> __( 'API url', 'webcreatives-core' ),
-				'default'	=> __( '', 'webcreatives-core' ),
+				'desc_tip'	=> __( 'API url', 'blackcrystal' ),
+				'default'	=> __( '', 'blackcrystal' ),
 			),	
 			'action_test_url' => array(
-				'title'		=> __( 'API test url', 'webcreatives-core' ),
+				'title'		=> __( 'API test url', 'blackcrystal' ),
 				'type'		=> 'text',
-				'desc_tip'	=> __( 'API test url', 'webcreatives-core' ),
-				'default'	=> __( '', 'webcreatives-core' ),
+				'desc_tip'	=> __( 'API test url', 'blackcrystal' ),
+				'default'	=> __( '', 'blackcrystal' ),
 			),	
 			'result_url' => array(
-				'title'		=> __( 'API visszatérési url', 'webcreatives-core' ),
+				'title'		=> __( 'API visszatérési url', 'blackcrystal' ),
 				'type'		=> 'text',
-				'desc_tip'	=> __( 'API visszatérési url', 'webcreatives-core' ),
-				'default'	=> __( '', 'webcreatives-core' ),
+				'desc_tip'	=> __( 'API visszatérési url', 'blackcrystal' ),
+				'default'	=> __( '', 'blackcrystal' ),
 			),	
 			'result_test_url' => array(
-				'title'		=> __( 'API visszatérési tesz url', 'webcreatives-core' ),
+				'title'		=> __( 'API visszatérési tesz url', 'blackcrystal' ),
 				'type'		=> 'text',
-				'desc_tip'	=> __( 'API visszatérési teszt url', 'webcreatives-core' ),
-				'default'	=> __( '', 'webcreatives-core' ),
+				'desc_tip'	=> __( 'API visszatérési teszt url', 'blackcrystal' ),
+				'default'	=> __( '', 'blackcrystal' ),
 			),												
 			'environment' => array(
-				'title'		=> __( 'Test Mode', 'webcreatives-core' ),
-				'label'		=> __( 'Enable Test Mode', 'webcreatives-core' ),
+				'title'		=> __( 'Test Mode', 'blackcrystal' ),
+				'label'		=> __( 'Enable Test Mode', 'blackcrystal' ),
 				'type'		=> 'checkbox',
-				'description' => __( 'Place the payment gateway in test mode.', 'webcreatives-core' ),
+				'description' => __( 'Place the payment gateway in test mode.', 'blackcrystal' ),
 				'default'	=> 'no',
-			)
+			),
+			'nocheck' => array(
+				'title'		=> __( 'No check SSL', 'blackcrystal' ),
+				'label'		=> __( 'Enable no check SSL Mode', 'blackcrystal' ),
+				'type'		=> 'checkbox',
+				'description' => __( 'Place the payment gateway ssl in test mode.', 'blackcrystal' ),
+				'default'	=> '0',
+			)			
 		);		
 	}
 	
@@ -166,8 +173,11 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		$sign = array(
 			"lang"	 	=> $lang,
 			"sign"		=> bin2hex($signature),
-			//"nocheck"	=> "1"
 		);
+		
+		 if ( $this->nocheck == 1 ){
+			$sign['nocheck'] = 0; 
+		 }
 		
 		return array(
 			'result'   => 'success',

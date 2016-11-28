@@ -205,18 +205,7 @@ if(!class_exists('CustomWoo')) {
 						'std'      => '0',  // WC < 2.0
 						'default'  => '0',  // WC >= 2.0
 						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
-					);
-					
-					$updated_settings[] = array(
-						'name'     => __( 'Díszdoboz azonosító', 'woocommerce' ),
-						'desc_tip' => __( 'A díszdoboz termék azonosítója.', 'woocommerce' ),
-						'id'       => 'pack_id',
-						'type'     => 'text',
-						'css'      => 'min-width:300px;',
-						'std'      => '',  // WC < 2.0
-						'default'  => '',  // WC >= 2.0
-						'desc'     => __( 'A díszdoboz termék azonosítója.', 'woocommerce' ),
-					);						
+					);					
 					
 					$updated_settings[] = array(
 						'name'     => __( 'Díszdoboz kedvezmény', 'woocommerce' ),
