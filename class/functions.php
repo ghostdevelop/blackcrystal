@@ -79,23 +79,37 @@ function show_add_price($product){
 /******** IMPORT Functions **********/
 function image_list($tag = '0000', $local = false){
 	for ($i = 1; $i <= 2; $i++) {
-		$formatted_value = sprintf("%02d", $i);
-		$url = 'http://blackcrystal.hu/images/';
+
 		if ($local){
-			$url = 'kepek/';
-		}
-		
-		if ($i == 1){
-			$url = $url.$tag.".jpg";
-		} else {
-			$url = $url.$tag."_".$i.".jpg";
-		}
-		if (@getimagesize($url)){
+			$url = '/kepek/';
 			if ($i == 1){
-				echo $url;
+				$url = $url.$tag.".jpg";
 			} else {
-				echo ", ";
-				echo $url;
+				$url = $url.$tag."_".$i.".jpg";
+			}
+			if (file_exists(ABSPATH . '/wp-content/uploads/wpallimport/files' . $url)){
+				if ($i == 1){
+					echo $url;
+				} else {
+					echo ", ";
+					echo $url;
+				}
+			}			
+		} else {
+			$url = 'http://blackcrystal.hu/images/';		
+			if ($i == 1){
+				$url = $url.$tag.".jpg";
+			} else {
+				$url = $url.$tag."_".$i.".jpg";
+			}
+			
+			if (@getimagesize($url)){
+				if ($i == 1){
+					echo $url;
+				} else {
+					echo ", ";
+					echo $url;
+				}
 			}
 		}
 	}
@@ -103,6 +117,8 @@ function image_list($tag = '0000', $local = false){
 
 function import_get_price($price){
 	global $wpdb;
+	
+	$return_price = "";
 	
 	$exchange_rate = (int) get_option( 'exchange_rate');
 	$adjust_price =  get_option('adjust_price');
@@ -117,10 +133,13 @@ function import_get_price($price){
 function import_get_sale_price($price, $sale_price){
 	global $wpdb;
 	
+	$return_price = "";	
+	
+	$sale_percent = (int) get_option('sale_percent');	
+	
 	if ($sale_price > 0){
 		$return_price = $sale_price;		
-	} else{
-		$sale_percent = (int) get_option('sale_percent');
+	} elseif ($sale_percent > 0){
 		$return_price = import_get_price($price, $db);	
 		$return_price = round($return_price * ((100 - $sale_percent) / 100));	
 	}
