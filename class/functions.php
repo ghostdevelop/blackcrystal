@@ -3,6 +3,7 @@ function get_add_price_net($prod_id){
 	$add_price = get_post_meta($prod_id->id, '_add_product_price', true);
 	$adjust_add_price = get_option( 'adjust_add_price' );
 	$sale = (int) get_option( 'pack_sale_percent');
+	$exchange_rate = (int) get_option( 'exchange_rate');
 	
 	$add_price = round($add_price * $adjust_add_price);
 	
@@ -35,6 +36,8 @@ function get_add_price_net($prod_id){
 	}
 	
 
+	if ($exchange_rate > 0) $prices['normal'] = $prices['normal'] / $exchange_rate;
+	if ($exchange_rate > 0 && isset($prices['sale'])) $prices['sale'] = $prices['sale'] / $exchange_rate;
 	
 	return $prices;
 }
@@ -43,7 +46,7 @@ function get_add_price($product){
 	$prices = get_add_price_net($product);
 		
 	if (SIMPLE_SHOP){
-		$tax_rates = WC_Tax::get_rates( $tax_class );
+		$tax_rates = WC_Tax::get_rates(  );
 		$tax = (100 + $tax_rates[1]['rate']) / 100;	
 		$prices['normal'] = $prices['normal'] * $tax;
 		if (isset($prices['sale'] )) $prices['sale'] = $prices['sale'] * $tax;
