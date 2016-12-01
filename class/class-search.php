@@ -17,9 +17,10 @@
 	    return; //determine if we are modifying the right query
 
 	  $search_term = $query->get('s');
+
 	  global $wpdb;
 	  
-	  if ($_GET['video-search'] == true && $_GET['sku']){
+	  if (isset($_GET['video-search']) && $_GET['sku']){
 		  $search = ' AND ((';
 		 	  	 
 		  $search .= "($wpdb->postmeta.meta_key = '_sku' AND $wpdb->postmeta.meta_value LIKE '%$search_term%')";
@@ -31,7 +32,7 @@
 		  
 		  $search .= "(pma.meta_key = '_video' AND pma.meta_value <> '0') AND (pma.meta_key = '_video' AND pma.meta_value <> '') ";	  
 	  	  */
-	  } elseif ($_GET['video-search'] == true && $_GET['dek']){
+	  } elseif (isset($_GET['video-search']) && $_GET['dek']){
 		  $search = ' AND ((';
 		 	  	 
 		  $search .= "($wpdb->postmeta.meta_key = '_design' AND $wpdb->postmeta.meta_value LIKE '%$search_term%')";
@@ -74,7 +75,7 @@
 	  }
 
 	  
-	  add_filter('posts_join', '__custom_join_tables');
+	  add_filter('posts_join', '__custom_join_tables', 10 ,2);
 	  add_filter( 'posts_groupby', 'my_posts_groupby' );
 	  
 	  return $search;
@@ -86,12 +87,13 @@
 	    return $groupby;
 	}	
 	 
-	function __custom_join_tables($joins) {
+	function __custom_join_tables($joins, $query) {
 	  global $wpdb;
-
-	  	$joins .= "JOIN $wpdb->postmeta ON ($wpdb->postmeta.post_ID = $wpdb->posts.ID)";
+	  	if ($query->is_search()){
+		  	$joins .= "JOIN $wpdb->postmeta ON ($wpdb->postmeta.post_ID = $wpdb->posts.ID)";	  	
+	  	}
 	  	
-		if ($_GET['video-search'] == true && $_GET['dek']){
+		if (isset($_GET['video-search']) && $_GET['dek']){
 			$joins .= "JOIN $wpdb->postmeta AS pma ON (pma.post_ID = $wpdb->posts.ID)";
 		}
 	  	  

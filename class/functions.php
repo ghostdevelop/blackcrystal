@@ -68,13 +68,16 @@ function show_add_price($product){
 	$prices = get_add_price($product);
 	
 	if (!isset($prices['sale'])){
-		echo wc_price($prices['normal']);	
+		echo wc_price($prices['normal']);
+		if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
 	} else {
 		echo '<del>';
 		echo wc_price($prices['normal']);
+		if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
 		echo '</del>';
 		echo '<ins>';
 		echo wc_price($prices['sale']);
+		if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
 		echo '</ins>';
 	}
 	
