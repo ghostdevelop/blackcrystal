@@ -4,8 +4,9 @@ function get_add_price_net($prod_id){
 	$adjust_add_price = get_option( 'adjust_add_price' );
 	$sale = (int) get_option( 'pack_sale_percent');
 	$exchange_rate = (int) get_option( 'exchange_rate');
+	$decimals = get_option('woocommerce_price_num_decimals');
 	
-	$add_price = round($add_price * $adjust_add_price);
+	$add_price = round($add_price * $adjust_add_price, $decimals);
 	
 	$prices['normal'] = $add_price;	
 		
@@ -125,10 +126,11 @@ function import_get_price($price){
 	
 	$exchange_rate = (int) get_option( 'exchange_rate');
 	$adjust_price =  get_option('adjust_price');
+	$decimals = get_option('woocommerce_price_num_decimals');
 	
 	$return_price = $price / $exchange_rate;
 	
-	$return_price = round($return_price * $adjust_price);
+	$return_price = round($return_price * $adjust_price, $decimals);
 	
 	return $return_price;	
 }
@@ -139,12 +141,13 @@ function import_get_sale_price($price, $sale_price){
 	$return_price = "";	
 	
 	$sale_percent = (int) get_option('sale_percent');	
+	$decimals = get_option('woocommerce_price_num_decimals');
 	
 	if ($sale_price > 0){
 		$return_price = $sale_price;		
 	} elseif ($sale_percent > 0){
 		$return_price = import_get_price($price);	
-		$return_price = round($return_price * ((100 - $sale_percent) / 100));	
+		$return_price = round($return_price * ((100 - $sale_percent) / 100), $decimals);	
 	}
 	
 	
