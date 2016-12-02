@@ -23,6 +23,7 @@ if(!class_exists('CustomWoo')) {
 			add_action(	'woocommerce_add_to_cart', array(&$this, 'add_cart_item'), 10, 6);		
 			add_filter( 'woocommerce_add_cart_item', array(&$this, 'filter_woocommerce_add_cart_item'), 10, 1 ); 				
 			add_action( 'woocommerce_add_order_item_meta', array(&$this, 'save_order_itemmeta'), 10, 3 );	
+			add_filter( 'woocommerce_get_order_item_totals',  array(&$this, 'order_details_total'), 10, 2 );
 									
 			if (SIMPLE_SHOP == false){
 				add_filter('woocommerce_get_price', array(&$this, 'get_custom_price'), 10, 2);
@@ -53,7 +54,13 @@ if(!class_exists('CustomWoo')) {
 
 		function loop_columns() {
 			return 3; // 3 products per row
-		}		
+		}	
+		
+		function order_details_total($total_rows, $obj){
+			unset($total_rows['payment_method']);
+			
+			return $total_rows;
+		}
 		
 		function shipping_tab( $tabs ) {
 			
@@ -169,7 +176,7 @@ if(!class_exists('CustomWoo')) {
 
 			}
 
-		    return $cart_item;
+		    //return $cart_item;
 		}
 		
 		public function get_cart_items_from_session( $item, $values, $key ) {		
