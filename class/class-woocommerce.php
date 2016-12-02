@@ -171,8 +171,17 @@ if(!class_exists('CustomWoo')) {
 			if (isset($_POST['_package_price'])){	
 				$ap = $_POST['_package_price'];			
 				unset($_POST['_package_price']);
+				$ipp = get_post_meta($product_id, '_item_per_pack', true);
+				$qty = 0;
+				
+				if ($quantity % $ipp == 0){
+					$qty = $quantity / $ipp;
+					
+					WC()->cart->add_to_cart(get_product_by_sku(1000), $qty, "", "", array('package' => $ap, 'prod_id' => get_post_meta($product_id, '_sku', true)));	
+				} else {
+					wc_add_notice(__('Nem megfelelő a darabszám a kiegészítő termék hozzáadásához.'), 'error');
+				}
 								
-				WC()->cart->add_to_cart(get_product_by_sku(1000), 1, "", "", array('package' => $ap, 'prod_id' => get_post_meta($product_id, '_sku', true)));	
 
 			}
 
