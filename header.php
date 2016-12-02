@@ -146,6 +146,7 @@
 							$list_args['title_li']                   = '';
 							$list_args['depth']                 = 3;
 							$list_args['taxonomy']                 = 'product_cat';
+							$list_args['current_category_ancestors']                 = '';
 							$list_args['show_option_none']           = __('No product categories exist.', 'woocommerce' );
 						
 							echo '<ul id="nav" class="menu sf-menu">';
