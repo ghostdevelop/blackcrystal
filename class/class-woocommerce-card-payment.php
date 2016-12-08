@@ -25,7 +25,10 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		$this->has_fields = false;
 
 		// Supports the default credit card form
-		$this->supports = array( );
+		$this->supports = array(
+			'products',
+			'refunds'
+		 );
 
 		// This basically defines your settings which are then loaded with init_settings()
 		$this->init_form_fields();
@@ -50,7 +53,7 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 			add_action( 'woocommerce_thankyou_webcreatives_card_payment',  array( $this, 'thankyou_page' ), 10, 1 );			
 		}	
 	} // End __construct()
-
+	
 	// Build the administration fields for this specific Gateway
 	public function init_form_fields() {
 		$this->form_fields = array(
@@ -184,21 +187,78 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 			
 	}
 	
+	public function process_refund( $order_id, $amount = null, $reason = "" ) {
+	  // Do your refund here. Refund $amount for the order with ID $order_id
+		$environment = ( $this->environment == "yes" ) ? 'TRUE' : 'FALSE';
+		$nocheck = ( $this->nocheck == "yes" ) ? 1 : 0;
+		$customer_order = new WC_Order( $order_id );
+
+		$environment_url = ( "FALSE" == $environment ) 
+						   ? $this->action_url
+						   : $this->action_test_url;
+						   
+		$return_url = ( "FALSE" == $environment ) 
+						   ? $this->result_url
+						   : $this->result_test_url;							   
+						   
+		   
+		$payload = array(
+			"mid"		=>  $this->mid,
+			"txid" 	 	=> $order_id,
+			"type"		=> "RE",
+			"amount" 	=> number_format($customer_order->order_total, 2,  '', ''),
+			"ccy"	 	=> get_woocommerce_currency(),
+		);
+		
+		$data =  http_build_query( $payload );
+		$file =  ABSPATH . "/private_key.pem";
+		$fp = fopen($file, "r");
+		
+		$priv_key = fread($fp, 8192);
+		fclose($fp);
+		$pkeyid = openssl_get_privatekey($priv_key, $this->key_pass);
+		
+		
+		// compute signature
+		openssl_sign($data, $signature, $pkeyid);
+		
+		// free the key from memory
+		openssl_free_key($pkeyid);	
+							   
+		$lang = substr(get_locale(), -2);
+		
+		$sign = array(
+			"lang"	 	=> $lang,
+			"sign"		=> bin2hex($signature),
+			"nocheck"	=> $nocheck
+		);
+		
+		$action = file_get_contents($environment_url . http_build_query( $payload ) . "&" . http_build_query( $sign ));
+	  
+		return true;
+	}		
+	
 	function thankyou_page($order_id){
 		global $woocommerce;
 		
 		$txid = (int) $_GET['txid'];
 
 		$order = new WC_Order($txid);
+		
+		$return_url = ( "FALSE" == $environment ) 
+						   ? $this->result_url
+						   : $this->result_test_url;		
 
-		$bank_result = file_get_contents($this->result_url . "mid=" . $this->mid . "&txid=" . $order->id);
+		$bank_result = file_get_contents($return_url . "mid=" . $this->mid . "&txid=" . $order->id);
 		$status_key = substr($bank_result, 0, 3);
-		$woocommerce->cart->empty_cart();	
+		$woocommerce->cart->empty_cart();
 		
 		$arr = explode(' ', $bank_result);
+		
 		if ($status_key  == "ACK"){
 			wc_add_order_item_meta($order->id, 'b_accept', substr($arr[2], -6).$arr[3]);
 			$order->update_status( 'completed' );
+			$order->payment_complete( $txid );
 			
 			echo '<p class="woocommerce-thankyou-order-received">';
 			_e( 'Sikeres fizetés!', 'blackcrystal' );

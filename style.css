@@ -780,6 +780,7 @@ input[type=checkbox].addiotional-check{
 img.khlogo{
 	width: 200px;
 	position: absolute;
+	margin-bottom: 40px;
 	bottom:0;
 	right: 40px;
 }
@@ -817,6 +818,10 @@ div#lightgallery a{
 	border: 5px solid #957c62;
 	box-sizing: border-box;
 	height: 300px;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals table tr.tax-total small{
+	display: none;
 }
 
 
@@ -1072,4 +1077,12 @@ a.havetologin{
 
 div.thumb-holder{
 	position: relative;
+}
+
+div.footer-container{
+	margin-bottom: 40px;
+}
+
+.shop_table.order_details tfoot tr:nth-child(4n){
+	display: none;
 }
