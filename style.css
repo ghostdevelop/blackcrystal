@@ -1086,3 +1086,23 @@ div.footer-container{
 .shop_table.order_details tfoot tr:nth-child(4n){
 	display: none;
 }
+
+div.wpcf7-response-output{
+	display: block;
+	display: inline-block;
+	width: 90%;
+	margin: 50px 0 0;
+	padding: 20px;
+	box-sizing: border-box;
+	color: black;	
+}
+
+div.wpcf7-response-output.wpcf7-mail-sent-ok{
+	border: 2px solid #398f14;
+	background: #398f14	
+}
+
+div.wpcf7-response-output.wpcf7-validation-errors{
+	background: #f7b105;
+	border-color: #f7b105;
+}
