@@ -31,8 +31,7 @@ if(!class_exists('ThemeFramework')) {
 		}				
 		
 		public function logout_url(){
-		  wp_redirect( home_url() );
-		  exit();
+		  return  home_url();
 		}		
 		
 		public function create_pages(){
