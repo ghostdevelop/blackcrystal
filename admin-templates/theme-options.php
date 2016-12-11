@@ -85,11 +85,11 @@ if (!current_user_can('manage_options')) {
 				</td>
 				<td>
 					<label for="register"><?php _e('Írjon nekünk', 'blackcrystal')?></label>
-					<textarea name="callback_form" ><?php echo get_option('writeus_form') ?></textarea>
+					<textarea name="writeus_form" ><?php echo get_option('writeus_form') ?></textarea>
 				</td>	
 				<td>
 					<label for="register"><?php _e('Video kérése', 'blackcrystal')?></label>
-					<textarea name="callback_form" ><?php echo get_option('video_form') ?></textarea>
+					<textarea name="video_form" ><?php echo get_option('video_form') ?></textarea>
 				</td>								
 			</tr>
 		</table> 						
