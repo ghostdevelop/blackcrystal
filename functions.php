@@ -11,7 +11,8 @@ if(!class_exists('ThemeFramework')) {
 			add_action('admin_init', array(&$this, 'register_settings') );	
 			add_filter( 'wp_nav_menu_items', array(&$this, 'loginout_menu_link'), 10, 2 );		
 			add_action( 'pre_get_posts', array(&$this, 'polylang_search_normalize' ));	
-			add_action( 'after_setup_theme', array(&$this, 'set_languages' ));				
+			add_action( 'after_setup_theme', array(&$this, 'set_languages' ));	
+			add_filter( 'logout_url', array(&$this, 'logout_url'), 10, 2 );			
 
 			$this->init();					
 		}
@@ -49,6 +50,8 @@ if(!class_exists('ThemeFramework')) {
 			register_setting('theme-group', 'page_gift'); 
 			register_setting('theme-group', 'page_actuality'); 	
 			register_setting('theme-group', 'callback_form'); 	
+			register_setting('theme-group', 'writeus_form'); 	
+			register_setting('theme-group', 'video_form'); 	
 		}	
 		
 		public function images_setup(){		

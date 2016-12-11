@@ -14,7 +14,7 @@
 							<?php $current_user = wp_get_current_user();?>
 							<?php $myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' );?>
 							<p class="welcome-msg"><?php _e('Viszonteladók részére', 'blackcrystal')?></p>
-							<em><a  href="mailto:blackcrystal.office@gmail.com"><i class="fa fa-envelope"></i><?php _e('Érdeklődjön itt', 'blackcrystal')?></a></em>						
+							<em><a  href="<?php echo get_permalink(get_option('page_kontakt'))?>"><i class="fa fa-envelope"></i><?php _e('Érdeklődjön itt', 'blackcrystal')?></a></em>						
 						<?php endif;?>
 					</div> 
 					<?php get_search_form()?>

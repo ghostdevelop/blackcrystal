@@ -21,13 +21,13 @@
 											<form role="search" method="get" class="search-form video-search" action="<?php echo home_url( '/' ); ?>">
 											    <label>
 											        <input type="search" class="search-field"
-											            placeholder="<?php echo esc_attr_x( 'Search' ) ?>"
+											            placeholder="<?php _e( 'Keresés', 'blackcrystal' ) ?>"
 											            value="<?php echo get_search_query() ?>" name="s"
-											            title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+											            title="<?php _e( 'Keresés', 'blackcrystal' ) ?>" />
 													<input type="hidden" name="video-search" value="1" />
 											    </label>
-											    <input type="submit" class="search-submit" name="sku" value="<?php echo esc_attr_x( 'Keresés termékkód alapján', 'blackcrystal' ) ?>" />
-											    <input type="submit" class="search-submit" name="dek" value="<?php echo esc_attr_x( 'Keresés dekor alapján', 'blackcrystal' ) ?>" />
+											    <input type="submit" class="search-submit" name="sku" value="<?php _e( 'Keresés termékkód alapján', 'blackcrystal' ) ?>" />
+											    <input type="submit" class="search-submit" name="dek" value="<?php _e( 'Keresés dekor alapján', 'blackcrystal' ) ?>" />
 											</form>	    						
 										</div>										
 									<?php endif;?>
