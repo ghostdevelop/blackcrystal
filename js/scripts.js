@@ -206,7 +206,7 @@ jQuery(function(){
    jQuery(this).css({width:thiswidth})})
  }); 
 });
-jQuery(document).ready(function() {
+jQuery(document).ready(function($) {
 	if (jQuery('.container').width() < 724) {
 		jQuery('.related-carousel').jcarousel({
 			vertical: false,
@@ -221,6 +221,19 @@ jQuery(document).ready(function() {
 			scroll: 1
 		});
 	}
+	
+	$('#_package_price').change(function(){
+		if ($('.quantity .qty').val() % $(this).data('ipp')  != 0){
+			console.log('run')
+			if ( !$( ".add_prod_error_box" ).length ) {
+				$('.additional-product').after('<div class="add_prod_error_box"><div>'+ texts.not_enough +'</div></div>');
+				$('.add_prod_error_box').slideToggle().delay(3000).slideToggle(function(){
+					$('.add_prod_error_box').remove()
+				})
+			}
+		}
+
+	})
 });
 (function(doc) {
 
@@ -242,3 +255,4 @@ jQuery(document).ready(function() {
 	}
 
 }(document));
+

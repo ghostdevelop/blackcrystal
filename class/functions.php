@@ -48,9 +48,11 @@ function get_add_price($product){
 		
 	if (SIMPLE_SHOP){
 		$tax_rates = WC_Tax::get_rates(  );
-		$tax = (100 + $tax_rates[1]['rate']) / 100;	
-		$prices['normal'] = $prices['normal'] * $tax;
-		if (isset($prices['sale'] )) $prices['sale'] = $prices['sale'] * $tax;
+		if (isset($tax_rates[1])){
+			$tax = (100 + $tax_rates[1]['rate']) / 100;	
+			$prices['normal'] = $prices['normal'] * $tax;
+			if (isset($prices['sale'] )) $prices['sale'] = $prices['sale'] * $tax;		
+		}
 	}
 	
 	return $prices;

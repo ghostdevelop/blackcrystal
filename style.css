@@ -1106,3 +1106,17 @@ div.wpcf7-response-output.wpcf7-validation-errors{
 	background: #f7b105;
 	border-color: #f7b105;
 }
+
+div.summary.entry-summary{
+	position: relative
+}
+
+.add_prod_error_box{
+	background: transparent;
+	display: none;margin-top: 20px;
+	padding: 30px 0;
+	text-align: center;
+	width: 100%;
+	z-index: 9999;
+	border: 3px solid rgba(237, 37, 7, 0.71);	
+}

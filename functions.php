@@ -30,8 +30,8 @@ if(!class_exists('ThemeFramework')) {
 		    load_theme_textdomain( 'blackcrystal', get_template_directory() . '/languages' );
 		}				
 		
-		public function logout_url(){
-		  return  home_url();
+		public function logout_url($logout_url, $redirect){
+			return $logout_url . '&redirect_to=' . home_url();
 		}		
 		
 		public function create_pages(){

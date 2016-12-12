@@ -75,6 +75,9 @@
 									<div class="header-button top-sale">
 										<a href="<?php echo get_permalink(get_option('page_sale'))?>"><i class="fa fa-tags" aria-hidden="true"></i></a>
 									</div>
+									<div class="header-button top-facebook">
+										<a href="https://www.facebook.com/Black-Crystal-1457288184496495/" alt="Kövess minket Facebookon" title="Kövess minket Facebookon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+									</div>								
 									<div class="header-button menu-list">
 										<i class="fa fa-info"></i>
 										<?php wp_nav_menu(array( 
@@ -93,7 +96,7 @@
 											'theme_location' => 'header-menu' 
 										))?>
 									</div>
-									<?php if ( defined( 'POLYLANG_VERSION' ) ):?>
+									<?php /*if ( defined( 'POLYLANG_VERSION' ) ):?>
 										<div class="header-button lang-list">
 											<?php $languages = pll_the_languages(array('raw' => 1));?>
 											<a href="#"></a>
@@ -106,7 +109,7 @@
 												<?php endforeach;?>
 											</ul>
 										</div>
-									<?php endif?>
+									<?php endif */?>
 								</div>
 								<h1 class="logo mobile"><a href="<?php echo home_url()?>" title="<?php bloginfo('name')?>" class="logo"><img width="200px" src="<?php bloginfo('template_url')?>/images/logo2.png" alt="<?php bloginfo('name')?>"/></a></h1>
 								<div class="block-cart-header">
