@@ -111,7 +111,7 @@ jQuery(document).ready(function($){
 
 	/*********************************************************************************************************** Header Buttons *********************************************************************/
 
-		jQuery('.header-button').not('.top-sale').on("click", function(e){
+		jQuery('.header-button').not('.top-sale').not('.top-facebook').on("click", function(e){
 		    var ul=jQuery(this).find('ul')
 		    if(ul.is(':hidden'))
 		     ul.slideDown()
@@ -223,8 +223,9 @@ jQuery(document).ready(function($) {
 	}
 	
 	$('#_package_price').change(function(){
+		var chkb = $(this);
 		if ($('.quantity .qty').val() % $(this).data('ipp')  != 0){
-			console.log('run')
+			chkb.attr('checked', false)
 			if ( !$( ".add_prod_error_box" ).length ) {
 				$('.additional-product').after('<div class="add_prod_error_box"><div>'+ texts.not_enough +'</div></div>');
 				$('.add_prod_error_box').slideToggle().delay(3000).slideToggle(function(){
