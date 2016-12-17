@@ -41,14 +41,14 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
 ?>
 <br />		
 <?php if (wc_get_order_item_meta($order->id, 'b_accept') != ""):?>
-	<span style="font-size: 14px;"><?php _e('Banki engedélyszám: ', theme_textdomain())?></span>	
+	<span style="font-size: 14px;"><?php _e('Banki engedélyszám: ', 'blackcrystal')?></span>	
 	<?php echo wc_get_order_item_meta($order->id, 'b_accept') ?>
 	<br />		
-	<span style="font-size: 14px;"><?php _e('Elfogadó cégszerű neve: ', theme_textdomain())?></span>
-	<span style="font-size: 14px;"><?php _e('Novák Zoltán EV', theme_textdomain())?></span>
+	<span style="font-size: 14px;"><?php _e('Elfogadó cégszerű neve: ', 'blackcrystal')?></span>
+	<span style="font-size: 14px;"><?php _e('Novák Zoltán EV', 'blackcrystal')?></span>
 	<br />		
-	<span style="font-size: 14px;"><?php _e('Webáruház címe: ', theme_textdomain())?></span>
-	<span style="font-size: 14px;"><?php _e('http://blackcrystal.hu', theme_textdomain())?></span>		
+	<span style="font-size: 14px;"><?php _e('Webáruház címe: ', 'blackcrystal')?></span>
+	<span style="font-size: 14px;"><?php echo home_url()?></span>		
 <?php endif;?>
 <?php
 /**
