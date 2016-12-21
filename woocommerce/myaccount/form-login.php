@@ -25,13 +25,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'woocommerce_before_customer_login_form' ); ?>
 
-<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
+<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' && $_GET['action'] == "login") : ?>
 
 <div class="col2-set" id="customer_login">
-
-	<div class="col-1">
-
-<?php endif; ?>
 
 		<h2><?php _e( 'Login', 'woocommerce' ); ?></h2>
 
@@ -73,9 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</form>
 
-<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
-	</div>
+<?php endif; ?>
+<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' && $_GET['action'] != "login") : ?>
+
 
 	<div class="col-2">
 
@@ -130,9 +127,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</form>
 
-	</div>
 
-</div>
 <?php endif; ?>
+</div>
 
 <?php do_action( 'woocommerce_after_customer_login_form' ); ?>

@@ -18,7 +18,7 @@ if(!class_exists('CustomWoo')) {
 			add_filter( 'woocommerce_cart_item_name', array($this, 'add_sku_in_cart'), 20, 3);
 			
 			
-			
+			add_action( 'woocommerce_remove_cart_item', array(&$this, 'remove_additional_product'), 10, 2 );
 			add_filter( 'woocommerce_get_cart_item_from_session', array(&$this, 'get_cart_items_from_session'), 1, 3 );			
 			add_action(	'woocommerce_add_to_cart', array(&$this, 'add_cart_item'), 10, 6);		
 			add_filter( 'woocommerce_add_cart_item', array(&$this, 'filter_woocommerce_add_cart_item'), 10, 1 ); 				
@@ -169,9 +169,8 @@ if(!class_exists('CustomWoo')) {
 				
 				if ($quantity % $ipp == 0){
 					$qty = $quantity / $ipp;
-					var_dump($ipp);
 					
-					WC()->cart->add_to_cart(get_product_by_sku(1000), $qty, "", "", array('package' => $ap, 'prod_id' => get_post_meta($product_id, '_sku', true)));	
+					WC()->cart->add_to_cart(get_product_by_sku(1000), $qty, "", "", array('package' => $ap, 'prod_id' => get_post_meta($product_id, '_sku', true), 'CartItemKey' => $cart_item_key));	
 				} else {
 					wc_add_notice(__('Nem megfelelő a darabszám a kiegészítő termék hozzáadásához.'), 'error');
 				}
@@ -180,6 +179,15 @@ if(!class_exists('CustomWoo')) {
 			}
 
 		    //return $cart_item;
+		}
+		
+		function remove_additional_product($cart_item_key, $cart ){			
+			foreach ($cart->cart_contents as $key => $item){
+				if (isset($item['CartItemKey']) && $item['CartItemKey'] == $cart_item_key){		
+					$cart->remove_cart_item($key);			
+				}
+			}
+		
 		}
 		
 		public function get_cart_items_from_session( $item, $values, $key ) {		
