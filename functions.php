@@ -74,7 +74,7 @@ if(!class_exists('ThemeFramework')) {
 		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'">'.__('My Account', 'woocommerce').'</a></li>';
 		         $items .= '<li class=""><a href="'. wp_logout_url(home_url()) .'">'.__('Logout', 'woocommerce').'</a></li>';
 		      } else {
-		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'&action=login">'.__('Log in', 'woocommerce').'</a></li>';
+		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'?action=login">'.__('Log in', 'woocommerce').'</a></li>';
 		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'">'.__('Register', 'woocommerce').'</a></li>';
 		         $items .= '<li class=""><a href="'. wp_lostpassword_url() .'">'.__('Lost Password', 'woocommerce').'</a></li>';
 		      }

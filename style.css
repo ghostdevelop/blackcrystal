@@ -1120,3 +1120,7 @@ div.summary.entry-summary{
 	z-index: 9999;
 	border: 3px solid rgba(237, 37, 7, 0.71);	
 }
+
+.woocommerce-password-strength{
+	color: black;
+}
