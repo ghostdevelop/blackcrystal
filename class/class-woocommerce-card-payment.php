@@ -241,6 +241,7 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 	function thankyou_page($order_id){
 		global $woocommerce;
 		
+		$environment = ( $this->environment == "yes" ) ? 'TRUE' : 'FALSE';
 		$txid = (int) $_GET['txid'];
 
 		$order = new WC_Order($txid);
