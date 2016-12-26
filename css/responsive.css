@@ -707,6 +707,15 @@ display: block; }
 		margin-top: 8px;
 	}	
 	
+	.isotope-item {
+		max-width: 100%;
+	}
+	
+	.portfolioFilter a{ 
+		width: 100%; 
+		margin-bottom: 0;
+	}	
+		
 }
 
 @media only screen and (max-width: 632px) and (min-width: 585px) {

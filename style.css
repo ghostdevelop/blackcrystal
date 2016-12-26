@@ -1124,3 +1124,53 @@ div.summary.entry-summary{
 .woocommerce-password-strength{
 	color: black;
 }
+
+.portfolioFilter a { 
+	text-decoration: none;
+	font-weight: bold;
+	padding: 20px;
+	display: inline-block;
+	color: #a2a2a2;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.portfolioFilter a.current { 
+    font-weight:bold;
+}
+
+.isotope-item {
+    z-index: 2;
+}
+
+.isotope-item {
+	max-height: 220px;
+	overflow: hidden;
+	max-width: 33%;
+}
+.isotope-item a{
+	display: inline-block;
+}
+
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    transition-property: height, width;
+}
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    transition-property: transform, opacity;
+}

@@ -79,11 +79,11 @@
 											</a>
 										</li>
 										<li class="span4">
-											<a href="<?php echo get_permalink(get_option('page_kontakt'))?>">
+											<a href="<?php echo get_permalink(get_option('page_gift'))?>">
 												<img src="<?php bloginfo('template_url')?>/images/banners-1.jpg" alt=""/>
 												<div class="banner-block-center">
 													<div>
-														<h1><?php _e('Kapcsolat', 'blackcrystal')?></h1>
+														<h1><?php _e('Ajándék ötletek', 'blackcrystal')?></h1>
 													</div>
 												</div>
 											</a>
