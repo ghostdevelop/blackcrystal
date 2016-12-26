@@ -1136,7 +1136,7 @@ div.summary.entry-summary{
 }
 
 .portfolioFilter a.current { 
-    font-weight:bold;
+    color: white
 }
 
 .isotope-item {
@@ -1173,4 +1173,31 @@ div.summary.entry-summary{
     -webkit-transition-property: -webkit-transform, opacity;
     -moz-transition-property: -moz-transform, opacity;
     transition-property: transform, opacity;
+}
+
+.grid-item span{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	font-weight: bold;
+	width: 98%;
+	background: rgba(149, 124, 98, 0.8);
+	padding: 20px 1%;
+	color: #fff;
+}
+
+/*GROW*/
+.grow img {
+	height: auto;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+}
+ 
+.grow img:hover {
+  width: 400px;
+  height: auto;
 }

@@ -2,6 +2,9 @@ function close_callback(){
 	jQuery('#callback_wrapper').delay( 800 ).fadeOut( 400 );
 }
 jQuery(document).ready(function($){
+	/* Basic Gallery */
+	$( '.swipebox' ).swipebox();
+
 	$('.more-images-btn').click(function(){
 		$(this).next().slideToggle();
 	});
