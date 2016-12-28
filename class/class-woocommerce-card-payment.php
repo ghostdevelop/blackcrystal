@@ -238,13 +238,10 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		$bank_result = file_get_contents($return_url . "mid=" . $this->mid . "&txid=" . $order_id);
 		$status_key = substr($bank_result, 0, 3);	
 	
-		if ($status_key  == "VOI"){		
-			$arr = explode(' ', $bank_result);	
-			wc_add_order_item_meta($order_id, 'b_accept_refund', substr($arr[2], -6).$arr[3]);		
-			return true;
-		}
+		$arr = explode(' ', $bank_result);	
+		wc_add_order_item_meta($order_id, 'b_accept_refund', substr($arr[2], -6).$arr[3]);		
 		
-		return false;
+		return true;
 	}		
 	
 	function thankyou_page($order_id){
