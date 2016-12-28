@@ -46,14 +46,16 @@ do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_tex
  */
 do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email );?>
 <br clear="all">
-<span style="font-size: 14px;"><?php _e('Banki engedélyszám: ', 'blackcrystal')?></span>	
-<?php echo wc_get_order_item_meta($order->id, 'b_accept') ?>
-<br />		
-<span style="font-size: 14px;"><?php _e('Elfogadó cégszerű neve: ', 'blackcrystal')?></span>
-<span style="font-size: 14px;"><?php _e('Novák Zoltán EV', 'blackcrystal')?></span>
-<br />		
-<span style="font-size: 14px;"><?php _e('Webáruház címe: ', 'blackcrystal')?></span>
-<span style="font-size: 14px;"><?php echo home_url()?></span>	
+<?php if (wc_get_order_item_meta($order->id, 'b_accept_refund') != ""):?>
+	<span style="font-size: 14px;"><?php _e('Banki engedélyszám: ', 'blackcrystal')?></span>	
+	<?php echo wc_get_order_item_meta($order->id, 'b_accept_refund') ?>
+	<br />		
+	<span style="font-size: 14px;"><?php _e('Elfogadó cégszerű neve: ', 'blackcrystal')?></span>
+	<span style="font-size: 14px;"><?php _e('Novák Zoltán EV', 'blackcrystal')?></span>
+	<br />		
+	<span style="font-size: 14px;"><?php _e('Webáruház címe: ', 'blackcrystal')?></span>
+	<span style="font-size: 14px;"><?php echo home_url()?></span>		
+<?php endif;?>
 
 <?php
 
