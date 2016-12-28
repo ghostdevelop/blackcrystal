@@ -240,7 +240,7 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 	
 		if ($status_key  == "VOI"){		
 			$arr = explode(' ', $bank_result);	
-			wc_add_order_item_meta($order->id, 'b_accept_refund', substr($arr[2], -6).$arr[3]);		
+			wc_add_order_item_meta($order_id, 'b_accept_refund', substr($arr[2], -6).$arr[3]);		
 			return true;
 		}
 		
