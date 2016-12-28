@@ -40,9 +40,9 @@ do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_tex
 do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email );
 ?>
 <br />		
-<?php if (wc_get_order_item_meta($order->id, 'b_accept') != ""):?>
+<?php if (wc_get_order_item_meta($order->id, 'b_accept_refund') != ""):?>
 	<span style="font-size: 14px;"><?php _e('Banki engedélyszám: ', 'blackcrystal')?></span>	
-	<?php echo wc_get_order_item_meta($order->id, 'b_accept') ?>
+	<?php echo wc_get_order_item_meta($order->id, 'b_accept_refund') ?>
 	<br />		
 	<span style="font-size: 14px;"><?php _e('Elfogadó cégszerű neve: ', 'blackcrystal')?></span>
 	<span style="font-size: 14px;"><?php _e('Novák Zoltán EV', 'blackcrystal')?></span>

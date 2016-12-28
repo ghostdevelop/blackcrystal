@@ -234,8 +234,17 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		);
 		
 		$action = file_get_contents($environment_url . http_build_query( $payload ) . "&" . http_build_query( $sign ));
-	  
-		return true;
+		
+		$bank_result = file_get_contents($return_url . "mid=" . $this->mid . "&txid=" . $order_id);
+		$status_key = substr($bank_result, 0, 3);	
+	
+		if ($status_key  == "VOI"){		
+			$arr = explode(' ', $bank_result);	
+			wc_add_order_item_meta($order->id, 'b_accept_refund', substr($arr[2], -6).$arr[3]);		
+			return true;
+		}
+		
+		return false;
 	}		
 	
 	function thankyou_page($order_id){
