@@ -235,6 +235,8 @@ class WebcreativesCardPayment extends WC_Payment_Gateway {
 		
 		$action = file_get_contents($environment_url . http_build_query( $payload ) . "&" . http_build_query( $sign ));
 		
+		sleep(20);		
+		
 		$bank_result = file_get_contents($return_url . "mid=" . $this->mid . "&txid=" . $order_id);
 		$status_key = substr($bank_result, 0, 3);	
 	
