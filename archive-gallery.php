@@ -60,7 +60,7 @@ jQuery(window).load(function(){
 									            <div class="grid-item <?php echo $category[0]->slug?>">
 									                <?php if (has_post_thumbnail()):?>
 										                <a href="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full')?>" class="grow swipebox" title="<?php echo  get_the_title()?>">
-															<?php the_post_thumbnail(array(300), array('title' => get_the_title()))?>
+															<?php the_post_thumbnail('gallery-thumb', array('title' => get_the_title()))?>
 															<span><?php the_title()?></span>
 										                </a>	
 									                <?php endif;?>	

@@ -11,6 +11,7 @@ if(!class_exists('ThemeFramework')) {
 			add_action('admin_init', array(&$this, 'register_settings') );	
 			add_filter( 'wp_nav_menu_items', array(&$this, 'loginout_menu_link'), 10, 2 );		
 			add_action( 'pre_get_posts', array(&$this, 'polylang_search_normalize' ));	
+			add_action( 'pre_get_posts', array(&$this, 'gallery_posts_per_page' ));	
 			add_action( 'after_setup_theme', array(&$this, 'set_languages' ));	
 			add_filter( 'logout_url', array(&$this, 'logout_url'), 10, 2 );			
 
@@ -58,6 +59,7 @@ if(!class_exists('ThemeFramework')) {
 		
 			//Add image sizes
 			add_image_size( 'home-gallery-thumb', 520, 300, true );					
+			add_image_size( 'gallery-thumb', 290, 220, true );					
 		}	
 
 		public function nav_menus_setup() {
@@ -85,6 +87,12 @@ if(!class_exists('ThemeFramework')) {
 		function polylang_search_normalize( $query ) {
 		    if ( $query->is_search()) {
 		        $query->query_vars['tax_query'] = array();
+		    }
+		}	
+				
+		function gallery_posts_per_page( $query ) {
+		   if( !is_admin() && $query->is_main_query() && is_post_type_archive( 'gallery' ) ) {
+		        $query->set( 'posts_per_page', '-1' );
 		    }
 		}		
 		
