@@ -7,7 +7,6 @@ if(!class_exists('CustomWoo')) {
 		
 			add_action( 'after_setup_theme', array(&$this, 'woocommerce_support' ));
 			add_filter( 'woocommerce_enqueue_styles', '__return_false' );
-			add_filter( 'woocommerce_cart_shipping_method_full_label', array(&$this, 'hide_shipping_name_on_cart'), 999, 2 );	
 			add_filter('loop_shop_columns', array(&$this, 'loop_columns'));
 			add_filter( 'woocommerce_product_tabs', array(&$this, 'shipping_tab' ));	
 			add_filter( 'woocommerce_checkout_fields' , array(&$this, 'override_checkout_fields' ));				
@@ -33,6 +32,7 @@ if(!class_exists('CustomWoo')) {
 
 		
 			/*		
+			add_filter( 'woocommerce_cart_shipping_method_full_label', array(&$this, 'hide_shipping_name_on_cart'), 999, 2 );	
 			add_action( 'woocommerce_before_checkout_form', array(&$this, 'apply_matched_coupons' ));
 			add_action( 'woocommerce_before_cart', array(&$this, 'apply_matched_coupons' ));		
 			

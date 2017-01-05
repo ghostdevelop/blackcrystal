@@ -1201,3 +1201,7 @@ div.summary.entry-summary{
   width: 400px;
   height: auto;
 }
+
+div#postaPontApi-inner{
+	background: white;
+}
