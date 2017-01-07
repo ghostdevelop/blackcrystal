@@ -333,6 +333,9 @@ display: block; }
 		-webkit-box-sizing: border-box; 
 		 box-sizing: border-box;
 	}
+.top-facebook i{
+	display: block;
+}	
 	
 	.header-button i.fa{
 		font-size: 24px;
