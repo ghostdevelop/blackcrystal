@@ -15,6 +15,7 @@ if(!class_exists('CustomWoo')) {
 			add_action( 'woocommerce_thankyou', array(&$this, 'send_order'));
 			add_filter( 'the_title', array($this, 'thankyou_title'), 10, 2 );			
 			add_filter( 'woocommerce_cart_item_name', array($this, 'add_sku_in_cart'), 20, 3);
+			add_filter( 'woocommerce_email_recipient_customer_refunded_order', array(&$this, 'refund_email_to_admin'), 10, 2);
 			
 			
 			add_action( 'woocommerce_remove_cart_item', array(&$this, 'remove_additional_product'), 10, 2 );
@@ -54,6 +55,11 @@ if(!class_exists('CustomWoo')) {
 		function loop_columns() {
 			return 3; // 3 products per row
 		}	
+		
+		function refund_email_to_admin($recipient, $object) {
+		    $recipient = $recipient . ', edit.blackcrystal.office@gmail.com, blackcrystal.office@gmail.com';
+		    return $recipient;
+		}		
 		
 		function shipping_tab( $tabs ) {
 			
