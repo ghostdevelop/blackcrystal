@@ -51,6 +51,7 @@ if(!class_exists('ThemeFramework')) {
 			register_setting('theme-group', 'page_actuality'); 	
 			register_setting('theme-group', 'callback_form'); 	
 			register_setting('theme-group', 'writeus_form'); 	
+			register_setting('theme-group', 'kh_logo'); 	
 			register_setting('theme-group', 'video_form'); 	
 		}	
 		

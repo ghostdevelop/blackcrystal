@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<?php if (SIMPLE_SHOP):?>
-					<img src="http://blackcrystal.hu/wp-content/themes/blackcrystal/images/kkh_cimke_300x86.png" class="khlogo"/>
+					<img src="<?php echo get_option('kh_logo')?>" class="khlogo"/>
 				<?php endif;?>
 			</div>
 		</div>
