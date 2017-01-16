@@ -728,6 +728,11 @@ display: block; }
 }
 
 @media only screen and (max-width: 585px) {
+	img.khlogo{
+		bottom: -40px;
+		right: 0;
+	}
+
 	.header .welcome-msg{
 		font-size: 16px;
 	}
