@@ -37,7 +37,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$loop_count = 0;
 			foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 				if ($loop_count < 6){
-					$loop_count++;
 					$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 					$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 	
@@ -76,10 +75,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div>
 						</li>
 						<?php
+					}
+				
 				} elseif ($loop_count == 6){
-					_e('további termékek', 'blackcrystal');
+					echo '<small>';
+					_e('(további termékek ...)', 'blackcrystal');
+					echo '</small>';
 				}
-				}?>
+				
+				$loop_count++;
+				 
+				?>
 		<?php }	?>
 			</ul>
 				<?php if ( ! WC()->cart->is_empty() ) : ?>
