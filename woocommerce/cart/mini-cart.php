@@ -76,6 +76,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div>
 						</li>
 						<?php
+				} elseif ($loop_count == 6){
+					_e('további termékek', 'blackcrystal');
 				}
 				}?>
 		<?php }	?>
