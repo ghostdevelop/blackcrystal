@@ -34,45 +34,49 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<span id="close_callback">x</span>
 			<ul class="mini-cart-products clearfix">
 		<?php
+			$loop_count = 0;
 			foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
-				$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-				$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-
-				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
-
-					$product_name  = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
-					$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(50,50)), $cart_item, $cart_item_key );
-					$product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
-					?>
-					<li class="<?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?> clearfix">
-						<div class="cart-item-image">
-							<?php
-							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-								'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
-								esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
-								__( 'Remove this item', 'woocommerce' ),
-								esc_attr( $product_id ),
-								esc_attr( $_product->get_sku() )
-							), $cart_item_key );
-							?>
-							<?php if ( ! $_product->is_visible() ) : ?>
-								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . '&nbsp;'; ?>
-							<?php else : ?>
-								<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">
-									<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . '&nbsp;'; ?>
-								</a>
-							<?php endif; ?>
-						</div>
-						<div class="cart-item-data">
-							<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">
-								<?=$product_name?>
-							</a>
-							<?php echo WC()->cart->get_item_data( $cart_item ); ?>
+				if ($loop_count < 6){
+					$loop_count++;
+					$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+					$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 	
-							<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
-						</div>
-					</li>
-					<?php
+					if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+	
+						$product_name  = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
+						$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(50,50)), $cart_item, $cart_item_key );
+						$product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+						?>
+						<li class="<?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?> clearfix">
+							<div class="cart-item-image">
+								<?php
+								echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
+									'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+									esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
+									__( 'Remove this item', 'woocommerce' ),
+									esc_attr( $product_id ),
+									esc_attr( $_product->get_sku() )
+								), $cart_item_key );
+								?>
+								<?php if ( ! $_product->is_visible() ) : ?>
+									<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . '&nbsp;'; ?>
+								<?php else : ?>
+									<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">
+										<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . '&nbsp;'; ?>
+									</a>
+								<?php endif; ?>
+							</div>
+							<div class="cart-item-data">
+								<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">
+									<?=$product_name?>
+								</a>
+								<?php echo WC()->cart->get_item_data( $cart_item ); ?>
+		
+								<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
+							</div>
+						</li>
+						<?php
+				}
 				}?>
 		<?php }	?>
 			</ul>
