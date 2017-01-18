@@ -8,8 +8,10 @@
 						<p class="welcome-msg"><?php echo sprintf(__("Keressen minket %s elérhetőségeinken %s vagy,", 'blackcrystal'),'<a href="'.get_permalink(get_option('page_kontakt')).'">','</a>');?></p>
 						<div class="top-sale-button">
 							<a href="<?php echo get_permalink(get_option('page_sale'))?>"><i class="fa fa-tags" aria-hidden="true"></i><?php _e('Akciós termékek', 'blackcrystal')?></a>
-						</div>								
-						<em><a id="callback-btn"><i class="fa fa-phone"></i><?php _e('Kérjen Visszahívást','blackcrystal')?></a></em>
+						</div>				
+						<?php if (get_locale() == 'hu_HU'):?>										
+							<em><a id="callback-btn"><i class="fa fa-phone"></i><?php _e('Kérjen Visszahívást','blackcrystal')?></a></em>
+						<?php endif;?>
 					</div> 
 					<?php get_search_form()?>
 					<div class="clear"></div>
