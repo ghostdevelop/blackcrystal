@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 17:10+0000\n"
-"PO-Revision-Date: 2017-01-17 21:23+0000\n"
-"Last-Translator: Zoltán Novák <blackcrystal.office@gmail.com>\n"
+"POT-Creation-Date: 2017-01-18 22:52+0000\n"
+"PO-Revision-Date: 2017-01-18 22:52+0000\n"
+"Last-Translator: Petya <petyaxd@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
@@ -146,9 +146,9 @@ msgstr ""
 msgid "Írjon nekünk"
 msgstr ""
 
-#: admin-templates/theme-options.php:106
-msgid "Video kérése"
-msgstr "Video Anfrage"
+#: class/class-woocommerce.php:69
+msgid "Shipping"
+msgstr ""
 
 #: class/class-woocommerce.php:114 class/class-woocommerce.php:202
 #, php-format
@@ -157,6 +157,66 @@ msgstr ""
 
 #: class/class-woocommerce.php:165
 msgid "Jelentkezz be az árak megtekintéséhez"
+msgstr ""
+
+#: class/class-woocommerce.php:236
+msgid "Free"
+msgstr ""
+
+#: class/class-woocommerce.php:252 class/class-woocommerce.php:253
+#: class/class-woocommerce-card-payment.php:80
+msgid "Bolt azonosító"
+msgstr ""
+
+#: class/class-woocommerce.php:259
+msgid "Bolt azonosízó beállítása a raktárkezelőben történő azonosításhoz"
+msgstr ""
+
+#: class/class-woocommerce.php:263
+msgid "Árfolyam"
+msgstr ""
+
+#: class/class-woocommerce.php:264
+msgid "Aktuális árfolyam"
+msgstr ""
+
+#: class/class-woocommerce.php:270
+msgid "Aktuális árfolyam beállítása forintról a bolt pénznemére"
+msgstr ""
+
+#: class/class-woocommerce.php:274
+msgid "Árszorzó"
+msgstr ""
+
+#: class/class-woocommerce.php:275 class/class-woocommerce.php:281
+#: class/class-woocommerce.php:286 class/class-woocommerce.php:292
+#: class/class-woocommerce.php:303 class/class-woocommerce.php:314
+#: class/class-woocommerce.php:325
+msgid "A mindenkori nettó árat módosítja a megadott értékkel."
+msgstr ""
+
+#: class/class-woocommerce.php:285
+msgid "Kedvezmény"
+msgstr ""
+
+#: class/class-woocommerce.php:296
+msgid "Díszdoboz kedvezmény"
+msgstr ""
+
+#: class/class-woocommerce.php:297 class/class-woocommerce.php:308
+msgid "A mindenkori nettó díszdoboz árat módosítja a megadott értékkel."
+msgstr ""
+
+#: class/class-woocommerce.php:307
+msgid "Díszdoboz árszorzó"
+msgstr ""
+
+#: class/class-woocommerce.php:318
+msgid "Mennyiségi kedvezmények"
+msgstr ""
+
+#: class/class-woocommerce.php:319
+msgid "Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik."
 msgstr ""
 
 #: class/class-woocommerce-card-payment.php:12
@@ -198,10 +258,6 @@ msgstr ""
 
 #: class/class-woocommerce-card-payment.php:76
 msgid "Pay securely using your credit card."
-msgstr ""
-
-#: class/class-woocommerce-card-payment.php:80
-msgid "Bolt azonosító"
 msgstr ""
 
 #: class/class-woocommerce-card-payment.php:82
@@ -272,8 +328,55 @@ msgstr ""
 msgid "További termékeink"
 msgstr ""
 
-#: woocommerce/myaccount/my-address.php:25
-msgid "My Addresses"
+#: woocommerce/content-product.php:71
+msgid "Részletek"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:32
+#: woocommerce/myaccount/form-login.php:59
+msgid "Login"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:39
+msgid "Username or email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:43
+#: woocommerce/myaccount/form-login.php:102
+msgid "Password"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:55
+msgid "Csúsztasd el a bejelentkezéshez"
+msgstr "Slide to login"
+
+#: woocommerce/myaccount/form-login.php:55
+msgid "Feloldva"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:61
+msgid "Remember me"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:65
+msgid "Lost your password?"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:79
+#: woocommerce/myaccount/form-login.php:123
+msgid "Register"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:88
+msgid "Username"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:95
+msgid "Email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:109
+msgid "Anti-spam"
 msgstr ""
 
 #: woocommerce/cart/mini-cart.php:82
@@ -342,22 +445,10 @@ msgstr ""
 msgid "Petya"
 msgstr ""
 
-#: woocommerce/myaccount/my-account.php:28
+#: header-simple.php:8
 #, php-format
-msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
-msgstr ""
-"Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Ausloggen</a>)."
-
-#: woocommerce/myaccount/my-account.php:33
-#, php-format
-msgid ""
-"From your account dashboard you can view your recent orders, manage your "
-"shipping and billing addresses and <a href=\"%s\">edit your password and "
-"account details</a>."
-msgstr ""
-"Als angemeldeter/registrierter Kunde können Sie schneller kaufen, Ihre "
-"vorige Bestellungen verfolgen, und <a href=\"%s\"> Sie werden up-to-date "
-"betreffs Ihren Bestellungen sein </a>."
+msgid "Keressen minket %s elérhetőségeinken %s vagy,"
+msgstr "Suchen Sie uns auf unsere %s Erreichbarkeiten %s oder "
 
 #: header-simple.php:10
 msgid "Akciós termékek"
@@ -412,6 +503,10 @@ msgstr "alle Kategorien"
 msgid "Videok"
 msgstr "Videos"
 
+#: admin-templates/theme-options.php:106
+msgid "Video kérése"
+msgstr "Video Anfrage"
+
 #: class/class-woocommerce.php:50
 msgid "Rendelés állapota"
 msgstr "Bestellung"
@@ -425,7 +520,19 @@ msgstr "Aufschrift"
 msgid "(Termékkód: %s)"
 msgstr "(Kode: %s)"
 
-#: header-simple.php:8
+#: woocommerce/myaccount/my-account.php:28
 #, php-format
-msgid "Keressen minket %s elérhetőségeinken %s vagy,"
-msgstr "Suchen Sie uns auf unsere %s Erreichbarkeiten %s oder "
+msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
+msgstr ""
+"Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Ausloggen</a>)."
+
+#: woocommerce/myaccount/my-account.php:33
+#, php-format
+msgid ""
+"From your account dashboard you can view your recent orders, manage your "
+"shipping and billing addresses and <a href=\"%s\">edit your password and "
+"account details</a>."
+msgstr ""
+"Als angemeldeter/registrierter Kunde können Sie schneller kaufen, Ihre "
+"vorige Bestellungen verfolgen, und <a href=\"%s\"> Sie werden up-to-date "
+"betreffs Ihren Bestellungen sein </a>."
