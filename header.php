@@ -132,10 +132,12 @@
 				<div class="clear"></div>
 			</div>
 		</div>
-		<?php if (SIMPLE_SHOP):?>
-			<?php get_template_part('header-simple')?>
-		<?php else:?>
-			<?php get_template_part('header-wholesale')?>
+		<?php if (get_locale() == 'hu_HU'):?>
+			<?php if (SIMPLE_SHOP):?>
+				<?php get_template_part('header-simple')?>
+			<?php else:?>
+				<?php get_template_part('header-wholesale')?>
+			<?php endif;?>
 		<?php endif;?>
 		<div class="nav-container">
 			<div class="container">
