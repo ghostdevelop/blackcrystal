@@ -68,7 +68,7 @@ $classes[] = 'item span3';
 	<div class="price-box">
 		<?php woocommerce_template_loop_price()?>	
 	</div>
-	<a href="<?php the_permalink()?>" class="more-info"><?php _e('Részletek', theme_textdomain())?></a>
+	<a href="<?php the_permalink()?>" class="more-info"><?php _e('Részletek', 'blackcrystal')?></a>
 	<?php $shp = get_user_meta(get_current_user_id(), '_show_customer_price', true );?>
 	<?php if (is_user_logged_in() and !$shp):?>
 		<?php woocommerce_template_loop_add_to_cart()	?>

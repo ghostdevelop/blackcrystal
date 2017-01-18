@@ -1,27 +1,17 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-17 17:10+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"PO-Revision-Date: 2017-01-17 21:23+0000\n"
+"Last-Translator: Zoltán Novák <blackcrystal.office@gmail.com>\n"
+"Language-Team: German\n"
+"Language: de-DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
-
-#: header-simple.php:8
-#, php-format
-msgid "Keressen minket %s elérhetőségeinken %s vagy,"
-msgstr ""
-
-#: header-simple.php:10
-msgid "Akciós termékek"
-msgstr ""
 
 #: header-simple.php:12
 msgid "Kérjen Visszahívást"
@@ -48,47 +38,6 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: admin-templates/theme-options.php:57
-msgid "Kapcsolat"
-msgstr ""
-
-#: home.php:28 archive.php:28
-msgid "Megnézem"
-msgstr ""
-
-#. Name of the template
-msgid "Video kereső"
-msgstr ""
-
-#: video-search.php:24 video-search.php:26
-msgid "Keresés"
-msgstr ""
-
-#: video-search.php:29
-msgid "Keresés termékkód alapján"
-msgstr ""
-
-#: video-search.php:30
-msgid "Keresés dekor alapján"
-msgstr ""
-
-#: welcome.php:65 post-types/designs.php:43
-msgid "Dekorok"
-msgstr ""
-
-#: welcome.php:76
-msgid "Videók"
-msgstr ""
-
-#. Name of the template
-#: welcome.php:86 admin-templates/theme-options.php:69
-msgid "Ajándék ötletek"
-msgstr ""
-
-#: footer.php:19
-msgid "Minden jog fentartva."
-msgstr ""
-
 #: header-wholesale.php:11
 msgid "Üdvözlünk az oldalon,"
 msgstr ""
@@ -99,10 +48,6 @@ msgstr ""
 
 #: header-wholesale.php:17
 msgid "Érdeklődjön itt"
-msgstr ""
-
-#: archive-gallery.php:51
-msgid "Minden kategória"
 msgstr ""
 
 #: post-types/banners.php:34
@@ -185,10 +130,6 @@ msgstr ""
 msgid "Akciók"
 msgstr ""
 
-#: admin-templates/theme-options.php:45
-msgid "Videok"
-msgstr ""
-
 #: admin-templates/theme-options.php:81
 msgid "Aktualitások"
 msgstr ""
@@ -207,20 +148,7 @@ msgstr ""
 
 #: admin-templates/theme-options.php:106
 msgid "Video kérése"
-msgstr ""
-
-#: class/class-woocommerce.php:50
-msgid "Rendelés állapota"
-msgstr ""
-
-#: class/class-woocommerce.php:75
-msgid "Felirat"
-msgstr ""
-
-#: class/class-woocommerce.php:108
-#, php-format
-msgid "(Termékkód: %s)"
-msgstr ""
+msgstr "Video Anfrage"
 
 #: class/class-woocommerce.php:114 class/class-woocommerce.php:202
 #, php-format
@@ -348,19 +276,6 @@ msgstr ""
 msgid "My Addresses"
 msgstr ""
 
-#: woocommerce/myaccount/my-account.php:28
-#, php-format
-msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
-msgstr ""
-
-#: woocommerce/myaccount/my-account.php:33
-#, php-format
-msgid ""
-"From your account dashboard you can view your recent orders, manage your "
-"shipping and billing addresses and <a href=\"%s\">edit your password and "
-"account details</a>."
-msgstr ""
-
 #: woocommerce/cart/mini-cart.php:82
 msgid "(további termékek ...)"
 msgstr ""
@@ -426,3 +341,91 @@ msgstr ""
 #. Author of the theme
 msgid "Petya"
 msgstr ""
+
+#: woocommerce/myaccount/my-account.php:28
+#, php-format
+msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
+msgstr ""
+"Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Ausloggen</a>)."
+
+#: woocommerce/myaccount/my-account.php:33
+#, php-format
+msgid ""
+"From your account dashboard you can view your recent orders, manage your "
+"shipping and billing addresses and <a href=\"%s\">edit your password and "
+"account details</a>."
+msgstr ""
+"Als angemeldeter/registrierter Kunde können Sie schneller kaufen, Ihre "
+"vorige Bestellungen verfolgen, und <a href=\"%s\"> Sie werden up-to-date "
+"betreffs Ihren Bestellungen sein </a>."
+
+#: header-simple.php:10
+msgid "Akciós termékek"
+msgstr "Angebote Produkte"
+
+#: admin-templates/theme-options.php:57
+msgid "Kapcsolat"
+msgstr "Kontakt"
+
+#: home.php:28 archive.php:28
+msgid "Megnézem"
+msgstr "anschauen"
+
+#. Name of the template
+msgid "Video kereső"
+msgstr "Video suche"
+
+#: video-search.php:24 video-search.php:26
+msgid "Keresés"
+msgstr "Suche"
+
+#: video-search.php:29
+msgid "Keresés termékkód alapján"
+msgstr "Suche nach Artikelnummer"
+
+#: video-search.php:30
+msgid "Keresés dekor alapján"
+msgstr "Suche nach Dekoration"
+
+#: welcome.php:65 post-types/designs.php:43
+msgid "Dekorok"
+msgstr "Dekorationen"
+
+#: welcome.php:76
+msgid "Videók"
+msgstr "Videos"
+
+#. Name of the template
+#: welcome.php:86 admin-templates/theme-options.php:69
+msgid "Ajándék ötletek"
+msgstr "Geschenkideen"
+
+#: footer.php:19
+msgid "Minden jog fentartva."
+msgstr "alle Rechte vorbehalten"
+
+#: archive-gallery.php:51
+msgid "Minden kategória"
+msgstr "alle Kategorien"
+
+#: admin-templates/theme-options.php:45
+msgid "Videok"
+msgstr "Videos"
+
+#: class/class-woocommerce.php:50
+msgid "Rendelés állapota"
+msgstr "Bestellung"
+
+#: class/class-woocommerce.php:75
+msgid "Felirat"
+msgstr "Aufschrift"
+
+#: class/class-woocommerce.php:108
+#, php-format
+msgid "(Termékkód: %s)"
+msgstr "(Kode: %s)"
+
+#: header-simple.php:8
+#, php-format
+msgid "Keressen minket %s elérhetőségeinken %s vagy,"
+msgstr "Suchen Sie uns auf unsere %s Erreichbarkeiten %s oder "

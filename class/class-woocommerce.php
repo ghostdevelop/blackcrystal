@@ -42,7 +42,7 @@ if(!class_exists('CustomWoo')) {
 		}
 		
 		function woocommerce_support() {
-		    add_theme_support( 'woocommerce' );
+		    add_theme_support( 'blackcrystal' );
 		}			
 		
 		function thankyou_title( $title, $id ) {
@@ -66,7 +66,7 @@ if(!class_exists('CustomWoo')) {
 			// Adds the new tab
 			
 			$tabs['shipping-tab'] = array(
-				'title' 	=> __( 'Shipping', 'woocommerce' ),
+				'title' 	=> __( 'Shipping', 'blackcrystal' ),
 				'priority' 	=> 50,
 				'callback' 	=> array(&$this, 'shipping_tab_content')
 			);
@@ -233,7 +233,7 @@ if(!class_exists('CustomWoo')) {
 			        }
 			    }
 			} elseif ( $method->id !== 'free_shipping' ) {
-			    $label .= ' (' . __( 'Free', 'woocommerce' ) . ')';
+			    $label .= ' (' . __( 'Free', 'blackcrystal' ) . ')';
 			}
 			
 			return $label;
@@ -249,80 +249,80 @@ if(!class_exists('CustomWoo')) {
 		
 			   	if ( isset( $section['id'] ) && 'pricing_options' == $section['id'] && isset( $section['type'] ) && 'sectionend' == $section['type'] ) {
 					$updated_settings[] = array(		
-						'name'     => __( 'Bolt azonosító', 'woocommerce' ),		
-						'desc_tip' => __( 'Bolt azonosító', 'woocommerce' ),		
+						'name'     => __( 'Bolt azonosító', 'blackcrystal' ),		
+						'desc_tip' => __( 'Bolt azonosító', 'blackcrystal' ),		
 						'id'       => 'shop_id',
 						'type'     => 'text',
 						'css'      => 'min-width:300px;',		
 						'std'      => '',  // WC < 2.0
 						'default'  => '',  // WC >= 2.0
-						'desc'     => __( 'Bolt azonosízó beállítása a raktárkezelőben történő azonosításhoz', 'woocommerce' ),
+						'desc'     => __( 'Bolt azonosízó beállítása a raktárkezelőben történő azonosításhoz', 'blackcrystal' ),
 					);
 					
 					$updated_settings[] = array(		
-						'name'     => __( 'Árfolyam', 'woocommerce' ),		
-						'desc_tip' => __( 'Aktuális árfolyam', 'woocommerce' ),		
+						'name'     => __( 'Árfolyam', 'blackcrystal' ),		
+						'desc_tip' => __( 'Aktuális árfolyam', 'blackcrystal' ),		
 						'id'       => 'exchange_rate',
 						'type'     => 'text',
 						'css'      => 'min-width:300px;',		
 						'std'      => '1',  // WC < 2.0
 						'default'  => '1',  // WC >= 2.0
-						'desc'     => __( 'Aktuális árfolyam beállítása forintról a bolt pénznemére', 'woocommerce' ),
+						'desc'     => __( 'Aktuális árfolyam beállítása forintról a bolt pénznemére', 'blackcrystal' ),
 					);
 					
 					$updated_settings[] = array(
-						'name'     => __( 'Árszorzó', 'woocommerce' ),
-						'desc_tip' => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'name'     => __( 'Árszorzó', 'blackcrystal' ),
+						'desc_tip' => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
 						'id'       => 'adjust_price',
 						'type'     => 'text',
 						'css'      => 'min-width:300px;',
 						'std'      => '1',  // WC < 2.0
 						'default'  => '1',  // WC >= 2.0
-						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
 					);	
 					
 					$updated_settings[] = array(
-						'name'     => __( 'Kedvezmény', 'woocommerce' ),
-						'desc_tip' => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'name'     => __( 'Kedvezmény', 'blackcrystal' ),
+						'desc_tip' => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
 						'id'       => 'sale_percent',
 						'type'     => 'text',
 						'css'      => 'min-width:300px;',
 						'std'      => '0',  // WC < 2.0
 						'default'  => '0',  // WC >= 2.0
-						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
 					);					
 					
 					$updated_settings[] = array(
-						'name'     => __( 'Díszdoboz kedvezmény', 'woocommerce' ),
-						'desc_tip' => __( 'A mindenkori nettó díszdoboz árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'name'     => __( 'Díszdoboz kedvezmény', 'blackcrystal' ),
+						'desc_tip' => __( 'A mindenkori nettó díszdoboz árat módosítja a megadott értékkel.', 'blackcrystal' ),
 						'id'       => 'pack_sale_percent',
 						'type'     => 'text',
 						'css'      => 'min-width:300px;',
 						'std'      => '0',  // WC < 2.0
 						'default'  => '0',  // WC >= 2.0
-						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
 					);	
 					
 					$updated_settings[] = array(
-						'name'     => __( 'Díszdoboz árszorzó', 'woocommerce' ),
-						'desc_tip' => __( 'A mindenkori nettó díszdoboz árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'name'     => __( 'Díszdoboz árszorzó', 'blackcrystal' ),
+						'desc_tip' => __( 'A mindenkori nettó díszdoboz árat módosítja a megadott értékkel.', 'blackcrystal' ),
 						'id'       => 'adjust_add_price',
 						'type'     => 'text',
 						'css'      => 'min-width:300px;',
 						'std'      => '1',  // WC < 2.0
 						'default'  => '1',  // WC >= 2.0
-						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
 					);						
 					
 					$updated_settings[] = array(
-						'name'     => __( 'Mennyiségi kedvezmények', 'woocommerce' ),
-						'desc_tip' => __( 'Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik.', 'woocommerce' ),
+						'name'     => __( 'Mennyiségi kedvezmények', 'blackcrystal' ),
+						'desc_tip' => __( 'Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik.', 'blackcrystal' ),
 						'id'       => 'sale_limits',
 						'type'     => 'textarea',
 						'css'      => 'min-width:300px;',
 						'std'      => '',  // WC < 2.0
 						'default'  => '',  // WC >= 2.0
-						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'woocommerce' ),
+						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
 					);		      	      			      	      
 				
 				}
