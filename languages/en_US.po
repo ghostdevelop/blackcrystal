@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 13:41+0000\n"
-"PO-Revision-Date: 2017-01-18 15:28+0000\n"
+"POT-Creation-Date: 2017-01-18 23:07+0000\n"
+"PO-Revision-Date: 2017-01-18 23:07+0000\n"
 "Last-Translator: PabloUSAblackcrystal <blackcrystal.office@gmail.com>\n"
 "Language-Team: English (United States)\n"
 "Language: en-US\n"
@@ -13,12 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: footer.php:19
-msgid "Minden jog fentartva."
-msgstr "all rights reserved"
-
-#: home.php:28 archive.php:28
-msgid "Megnézem"
+#: header-simple.php:12
+msgid "Kérjen Visszahívást"
 msgstr ""
 
 #: functions.php:67
@@ -33,60 +29,14 @@ msgstr ""
 msgid "Header nav menu"
 msgstr ""
 
-#. Name of the template
-#. Name of the template
-msgid "Home"
-msgstr ""
-
-#: welcome.php:65 post-types/designs.php:43
-msgid "Dekorok"
-msgstr "Decorations"
-
-#: welcome.php:76
-msgid "Videók"
-msgstr "Videos"
-
-#. Name of the template
-#: welcome.php:86 admin-templates/theme-options.php:69
-msgid "Ajándék ötletek"
-msgstr "Gift ideas"
-
-#: archive-gallery.php:51
-msgid "Minden kategória"
-msgstr "All categories"
-
-#: header-simple.php:8
-#, php-format
-msgid "Keressen minket %s elérhetőségeinken %s vagy,"
-msgstr "Contact us %s here. %s"
-
-#: header-simple.php:10
-msgid "Akciós termékek"
-msgstr "Discounted goods"
-
-#: header-simple.php:12
-msgid "Kérjen Visszahívást"
-msgstr ""
-
 #: header.php:43
 msgid "Kérjük adja meg nevét és telefonszámát, hogy visszahívhassuk Önt."
 msgstr ""
 
 #. Name of the template
-msgid "Video kereső"
-msgstr "Search for videos"
-
-#: video-search.php:24 video-search.php:26
-msgid "Keresés"
-msgstr "Search"
-
-#: video-search.php:29
-msgid "Keresés termékkód alapján"
-msgstr "Search by product code"
-
-#: video-search.php:30
-msgid "Keresés dekor alapján"
-msgstr "Search by decoration"
+#. Name of the template
+msgid "Home"
+msgstr ""
 
 #: header-wholesale.php:11
 msgid "Üdvözlünk az oldalon,"
@@ -100,40 +50,98 @@ msgstr ""
 msgid "Érdeklődjön itt"
 msgstr ""
 
-#: class/class-woocommerce.php:50
-msgid "Rendelés állapota"
-msgstr "Order status"
+#: post-types/banners.php:34
+msgid "Új hírdetés hozzáadása"
+msgstr ""
+
+#: post-types/banners.php:35
+msgid "Új hírdetés"
+msgstr ""
+
+#: post-types/banners.php:36 post-types/designs.php:35
+msgid "Hírdetés szerkesztése"
+msgstr ""
+
+#: post-types/banners.php:37 post-types/designs.php:36
+msgid "Hírdetés megtekintése"
+msgstr ""
+
+#: post-types/banners.php:38
+msgid "Összes hírdetés"
+msgstr ""
+
+#: post-types/banners.php:39
+msgid "Hírdetés keresése"
+msgstr ""
+
+#: post-types/banners.php:40
+msgid "Parent hírdetés:"
+msgstr ""
+
+#: post-types/banners.php:41
+msgid "Nincsenek hírdetések."
+msgstr ""
+
+#: post-types/banners.php:42
+msgid "Nincsenek hírdetések a kukában."
+msgstr ""
+
+#: post-types/banners.php:44
+msgid "Hirdetések"
+msgstr ""
+
+#: post-types/designs.php:33
+msgid "Új design hozzáadása"
+msgstr ""
+
+#: post-types/designs.php:34
+msgid "Új design"
+msgstr ""
+
+#: post-types/designs.php:39
+msgid "Szülő design:"
+msgstr ""
+
+#: post-types/designs.php:40
+msgid "Nincsenek designok."
+msgstr ""
+
+#: post-types/designs.php:41
+msgid "Nincsenek designok a kukában."
+msgstr ""
+
+#: admin-templates/theme-options.php:8
+msgid "beállítások"
+msgstr ""
+
+#: admin-templates/theme-options.php:29
+msgid "Oldalak"
+msgstr ""
+
+#: admin-templates/theme-options.php:81
+msgid "Aktualitások"
+msgstr ""
+
+#: admin-templates/theme-options.php:94
+msgid "Űrlapok"
+msgstr ""
+
+#: admin-templates/theme-options.php:98
+msgid "Visszahívás kérése"
+msgstr ""
 
 #: class/class-woocommerce.php:69
 msgid "Shipping"
 msgstr ""
-
-#: class/class-woocommerce.php:75
-msgid "Felirat"
-msgstr "Label"
 
 #: class/class-woocommerce.php:108
 #, php-format
 msgid "(Termékkód: %s)"
 msgstr ""
 
-#: class/class-woocommerce.php:114 class/class-woocommerce.php:202
-#, php-format
-msgid "Díszdoboz a %d kódszámú termékhez"
-msgstr "Gift box for number %d products."
-
-#: class/class-woocommerce.php:165
-msgid "Jelentkezz be az árak megtekintéséhez"
-msgstr "Log in to see the prices."
-
 #: class/class-woocommerce.php:236
 msgid "Free"
 msgstr ""
-
-#: class/class-woocommerce.php:252 class/class-woocommerce.php:253
-#: class/class-woocommerce-card-payment.php:80
-msgid "Bolt azonosító"
-msgstr "Shop ID"
 
 #: class/class-woocommerce.php:259
 msgid "Bolt azonosízó beállítása a raktárkezelőben történő azonosításhoz"
@@ -185,11 +193,6 @@ msgstr ""
 #: class/class-woocommerce.php:319
 msgid "Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik."
 msgstr ""
-
-#: class/class-woocommerce-card-payment.php:12
-#: class/class-woocommerce-card-payment.php:18
-msgid "K & H Bankkártyás fizetés"
-msgstr "Credit card payment"
 
 #: class/class-woocommerce-card-payment.php:15
 msgid "K & H bankkártyás fizetési module woocommercehez"
@@ -283,128 +286,68 @@ msgstr ""
 msgid "Place the payment gateway ssl in test mode."
 msgstr ""
 
-#: class/class-woocommerce-card-payment.php:273
-msgid "Sikeres fizetés!"
-msgstr "Payment successful"
-
-#: class/class-woocommerce-card-payment.php:288
-msgid "Sikertelen tranzakció. Hibás adatokat adott meg."
-msgstr "Failed transactions. Incorrect information was given."
-
-#: admin-templates/theme-options.php:8
-msgid "beállítások"
-msgstr ""
-
-#: admin-templates/theme-options.php:29
-msgid "Oldalak"
-msgstr ""
-
-#: admin-templates/theme-options.php:33
-msgid "Akciók"
-msgstr "Sales"
-
-#: admin-templates/theme-options.php:45
-msgid "Videok"
-msgstr "Videos"
-
-#: admin-templates/theme-options.php:81
-msgid "Aktualitások"
-msgstr ""
-
-#: admin-templates/theme-options.php:94
-msgid "Űrlapok"
-msgstr ""
-
-#: admin-templates/theme-options.php:98
-msgid "Visszahívás kérése"
-msgstr ""
-
-#: admin-templates/theme-options.php:102
-msgid "Írjon nekünk"
-msgstr "Write us"
-
-#: admin-templates/theme-options.php:106
-msgid "Video kérése"
-msgstr "Video request"
-
-#: post-types/banners.php:34
-msgid "Új hírdetés hozzáadása"
-msgstr ""
-
-#: post-types/banners.php:35
-msgid "Új hírdetés"
-msgstr ""
-
-#: post-types/banners.php:36 post-types/designs.php:35
-msgid "Hírdetés szerkesztése"
-msgstr ""
-
-#: post-types/banners.php:37 post-types/designs.php:36
-msgid "Hírdetés megtekintése"
-msgstr ""
-
-#: post-types/banners.php:38
-msgid "Összes hírdetés"
-msgstr ""
-
-#: post-types/banners.php:39
-msgid "Hírdetés keresése"
-msgstr ""
-
-#: post-types/banners.php:40
-msgid "Parent hírdetés:"
-msgstr ""
-
-#: post-types/banners.php:41
-msgid "Nincsenek hírdetések."
-msgstr ""
-
-#: post-types/banners.php:42
-msgid "Nincsenek hírdetések a kukában."
-msgstr ""
-
-#: post-types/banners.php:44
-msgid "Hirdetések"
-msgstr ""
-
-#: post-types/designs.php:33
-msgid "Új design hozzáadása"
-msgstr ""
-
-#: post-types/designs.php:34
-msgid "Új design"
-msgstr ""
-
-#: post-types/designs.php:37
-msgid "Összes design"
-msgstr "All decoration"
-
-#: post-types/designs.php:38
-msgid "Dekor keresése"
-msgstr "Decoration search"
-
-#: post-types/designs.php:39
-msgid "Szülő design:"
-msgstr ""
-
-#: post-types/designs.php:40
-msgid "Nincsenek designok."
-msgstr ""
-
-#: post-types/designs.php:41
-msgid "Nincsenek designok a kukában."
-msgstr ""
-
 #: woocommerce/content-product.php:71
 msgid "Részletek"
 msgstr ""
 
-#: woocommerce/archive-product.php:69
-msgid "További termékeink"
-msgstr "Other goods"
+#: woocommerce/myaccount/my-account.php:28
+#, php-format
+msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
+msgstr ""
 
-#: woocommerce/emails/email-order-details.php:25
-msgid " (tranzakicó azonosító)"
+#: woocommerce/myaccount/my-account.php:33
+#, php-format
+msgid ""
+"From your account dashboard you can view your recent orders, manage your "
+"shipping and billing addresses and <a href=\"%s\">edit your password and "
+"account details</a>."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:32
+#: woocommerce/myaccount/form-login.php:59
+msgid "Login"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:39
+msgid "Username or email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:43
+#: woocommerce/myaccount/form-login.php:102
+msgid "Password"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:55
+msgid "Csúsztasd el a bejelentkezéshez"
+msgstr "Slide to login"
+
+#: woocommerce/myaccount/form-login.php:55
+msgid "Feloldva"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:61
+msgid "Remember me"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:65
+msgid "Lost your password?"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:79
+#: woocommerce/myaccount/form-login.php:123
+msgid "Register"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:88
+msgid "Username"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:95
+msgid "Email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:109
+msgid "Anti-spam"
 msgstr ""
 
 #: woocommerce/emails/customer-refunded-order.php:50
@@ -445,21 +388,8 @@ msgid ""
 "password here: %s."
 msgstr ""
 
-#: woocommerce/cart/mini-cart.php:82
-msgid "(további termékek ...)"
-msgstr "(more products...)"
-
-#: woocommerce/myaccount/my-account.php:28
-#, php-format
-msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
-msgstr ""
-
-#: woocommerce/myaccount/my-account.php:33
-#, php-format
-msgid ""
-"From your account dashboard you can view your recent orders, manage your "
-"shipping and billing addresses and <a href=\"%s\">edit your password and "
-"account details</a>."
+#: woocommerce/emails/email-order-details.php:25
+msgid " (tranzakicó azonosító)"
 msgstr ""
 
 #: woocommerce/single-product/add-to-cart/simple.php:78
@@ -482,6 +412,123 @@ msgstr ""
 msgid "Petya"
 msgstr ""
 
+#: header-simple.php:8
+#, php-format
+msgid "Keressen minket %s elérhetőségeinken %s vagy,"
+msgstr "Contact us %s here. %s"
+
+#: header-simple.php:10
+msgid "Akciós termékek"
+msgstr "Discounted goods"
+
 #: admin-templates/theme-options.php:57
 msgid "Kapcsolat"
 msgstr "Contact"
+
+#: home.php:28 archive.php:28
+msgid "Megnézem"
+msgstr "More"
+
+#. Name of the template
+msgid "Video kereső"
+msgstr "Search for videos"
+
+#: video-search.php:24 video-search.php:26
+msgid "Keresés"
+msgstr "Search"
+
+#: video-search.php:29
+msgid "Keresés termékkód alapján"
+msgstr "Search by product code"
+
+#: video-search.php:30
+msgid "Keresés dekor alapján"
+msgstr "Search by decoration"
+
+#: welcome.php:65 post-types/designs.php:43
+msgid "Dekorok"
+msgstr "Decorations"
+
+#: welcome.php:76
+msgid "Videók"
+msgstr "Videos"
+
+#. Name of the template
+#: welcome.php:86 admin-templates/theme-options.php:69
+msgid "Ajándék ötletek"
+msgstr "Gift ideas"
+
+#: footer.php:19
+msgid "Minden jog fentartva."
+msgstr "all rights reserved"
+
+#: archive-gallery.php:51
+msgid "Minden kategória"
+msgstr "All categories"
+
+#: post-types/designs.php:37
+msgid "Összes design"
+msgstr "All decoration"
+
+#: post-types/designs.php:38
+msgid "Dekor keresése"
+msgstr "Decoration search"
+
+#: admin-templates/theme-options.php:33
+msgid "Akciók"
+msgstr "Sales"
+
+#: admin-templates/theme-options.php:45
+msgid "Videok"
+msgstr "Videos"
+
+#: admin-templates/theme-options.php:102
+msgid "Írjon nekünk"
+msgstr "Write us"
+
+#: admin-templates/theme-options.php:106
+msgid "Video kérése"
+msgstr "Video request"
+
+#: class/class-woocommerce.php:50
+msgid "Rendelés állapota"
+msgstr "Order status"
+
+#: class/class-woocommerce.php:75
+msgid "Felirat"
+msgstr "Label"
+
+#: class/class-woocommerce.php:114 class/class-woocommerce.php:202
+#, php-format
+msgid "Díszdoboz a %d kódszámú termékhez"
+msgstr "Gift box for number %d products."
+
+#: class/class-woocommerce.php:165
+msgid "Jelentkezz be az árak megtekintéséhez"
+msgstr "Log in to see the prices."
+
+#: class/class-woocommerce.php:252 class/class-woocommerce.php:253
+#: class/class-woocommerce-card-payment.php:80
+msgid "Bolt azonosító"
+msgstr "Shop ID"
+
+#: class/class-woocommerce-card-payment.php:12
+#: class/class-woocommerce-card-payment.php:18
+msgid "K & H Bankkártyás fizetés"
+msgstr "Credit card payment"
+
+#: class/class-woocommerce-card-payment.php:273
+msgid "Sikeres fizetés!"
+msgstr "Payment successful"
+
+#: class/class-woocommerce-card-payment.php:288
+msgid "Sikertelen tranzakció. Hibás adatokat adott meg."
+msgstr "Failed transactions. Incorrect information was given."
+
+#: woocommerce/archive-product.php:69
+msgid "További termékeink"
+msgstr "Other goods"
+
+#: woocommerce/cart/mini-cart.php:82
+msgid "(további termékek ...)"
+msgstr "(more products...)"
