@@ -23,7 +23,7 @@
 										-->
 										<br clear="all">
 										<div class="design-products-list">
-										<h2 class="page-title"><strong><?php _e('Termékek ezzel a dekorral', theme_textdomain())?></strong></h2>											
+										<h2 class="page-title"><strong><?php _e('Termékek ezzel a dekorral', 'blackcrystal')?></strong></h2>											
 										<?php $products = new WP_Query(array('post_type' => 'product', 'meta_key' => '_design', 'meta_value'=> get_post_meta(get_the_ID(), '_slug', true)))?>
 										<?php if ( $products->have_posts() ) : ?>
 											<?php woocommerce_product_loop_start(); ?>

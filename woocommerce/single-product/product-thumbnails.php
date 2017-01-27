@@ -27,7 +27,7 @@ if ( $attachment_ids ) {
 	$loop 		= 0;
 	$columns 	= apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 	?>
-	<a class="more-images-btn"><?php _e('További képek megtekintéséhez kattintson ide!')?></a>
+	<a class="more-images-btn"><?php _e('További képek megtekintéséhez kattintson ide!', 'blackcrystal')?></a>
 	<div class="more-images <?php echo 'columns-' . $columns; ?>"><?php
 
 		foreach ( $attachment_ids as $attachment_id ) {

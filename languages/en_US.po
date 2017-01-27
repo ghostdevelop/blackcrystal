@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 23:07+0000\n"
-"PO-Revision-Date: 2017-01-18 23:07+0000\n"
+"PO-Revision-Date: 2017-01-23 14:33+0000\n"
 "Last-Translator: PabloUSAblackcrystal <blackcrystal.office@gmail.com>\n"
 "Language-Team: English (United States)\n"
 "Language: en-US\n"
@@ -118,10 +118,6 @@ msgstr ""
 msgid "Oldalak"
 msgstr ""
 
-#: admin-templates/theme-options.php:81
-msgid "Aktualitások"
-msgstr ""
-
 #: admin-templates/theme-options.php:94
 msgid "Űrlapok"
 msgstr ""
@@ -132,11 +128,6 @@ msgstr ""
 
 #: class/class-woocommerce.php:69
 msgid "Shipping"
-msgstr ""
-
-#: class/class-woocommerce.php:108
-#, php-format
-msgid "(Termékkód: %s)"
 msgstr ""
 
 #: class/class-woocommerce.php:236
@@ -286,10 +277,6 @@ msgstr ""
 msgid "Place the payment gateway ssl in test mode."
 msgstr ""
 
-#: woocommerce/content-product.php:71
-msgid "Részletek"
-msgstr ""
-
 #: woocommerce/myaccount/my-account.php:28
 #, php-format
 msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
@@ -316,10 +303,6 @@ msgstr ""
 #: woocommerce/myaccount/form-login.php:102
 msgid "Password"
 msgstr ""
-
-#: woocommerce/myaccount/form-login.php:55
-msgid "Csúsztasd el a bejelentkezéshez"
-msgstr "Slide to login"
 
 #: woocommerce/myaccount/form-login.php:55
 msgid "Feloldva"
@@ -392,14 +375,6 @@ msgstr ""
 msgid " (tranzakicó azonosító)"
 msgstr ""
 
-#: woocommerce/single-product/add-to-cart/simple.php:78
-msgid "Díszdoboz"
-msgstr ""
-
-#: woocommerce/single-product/add-to-cart/simple.php:78
-msgid "db termékhez"
-msgstr ""
-
 #. Name of the theme
 msgid "Blackcrystal 2016"
 msgstr ""
@@ -411,6 +386,31 @@ msgstr ""
 #. Author of the theme
 msgid "Petya"
 msgstr ""
+
+#: woocommerce/content-product.php:71
+msgid "Részletek"
+msgstr "Details"
+
+#: admin-templates/theme-options.php:81
+msgid "Aktualitások"
+msgstr "New informations"
+
+#: class/class-woocommerce.php:108
+#, php-format
+msgid "(Termékkód: %s)"
+msgstr "(Code: %s)"
+
+#: woocommerce/single-product/add-to-cart/simple.php:78
+msgid "Díszdoboz"
+msgstr "Gift box for"
+
+#: woocommerce/single-product/add-to-cart/simple.php:78
+msgid "db termékhez"
+msgstr "pcs goods"
+
+#: woocommerce/myaccount/form-login.php:55
+msgid "Csúsztasd el a bejelentkezéshez"
+msgstr "Slide to login"
 
 #: header-simple.php:8
 #, php-format

@@ -25,7 +25,7 @@ global $product;
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
 	<p class="price">
-		<?php echo $product->get_price_html(); ?> <span class="item-per-pack">(<?php echo get_post_meta(get_the_ID(), '_item_per_pack', true)?> db)</span>
+		<?php echo $product->get_price_html(); ?> <span class="item-per-pack">(<?php echo get_post_meta(get_the_ID(), '_item_per_pack', true)?> <?php _e('db', 'blackcrystal')?>)</span>
 		<?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
 	
 			<span class="sku_wrapper"><?php _e( 'SKU:', 'woocommerce' ); ?> <span class="sku" itemprop="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?></span></span>
