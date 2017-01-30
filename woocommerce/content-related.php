@@ -51,7 +51,11 @@ $classes[] = 'item';
 ?>
 <li <?php post_class( $classes ); ?>>
 	<a href="<?php the_permalink()?>" class="product-image">
-		<?php the_post_thumbnail('shop_catalog')?>
+		<?php if (has_post_thumbnail()):?>
+			<?php the_post_thumbnail('shop_catalog')?>
+		<?php else: ?>
+			<img src="<?php echo home_url()?>/wp-content/themes/blackcrystal/images/default-no-image.png">		
+		<?php endif;?>
 	</a>
 	<h3 class="product-name">
 		<a href="<?php the_permalink()?>" class="product-title">
