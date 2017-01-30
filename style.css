@@ -181,12 +181,12 @@ span.sku_wrapper{
 
 .additional-products li .additional-product .price-box{
 	float: right;
-	margin-right: 30px;
+	margin-right: 10px;
 }
 
 .additional-product-image,
 .additional-products li .additional-product h4{
-	margin-right: 20px;
+	margin-right: 10px;
 	float: right;
 	font-size: 14px;
 	margin-bottom: 0;

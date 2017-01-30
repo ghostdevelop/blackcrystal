@@ -69,20 +69,23 @@ function show_add_price_net($product){
 function show_add_price($product){
 	$prices = get_add_price($product);
 	
-	if (!isset($prices['sale'])){
-		echo wc_price($prices['normal']);
-		if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
+	if (!SIMPLE_SHOP && !is_user_logged_in()){
+		echo '<a class="havetologin" href="' . get_permalink(woocommerce_get_page_id('myaccount')) . '">'.__('Jelentkezz be az árak megtekintéséhez', 'blackcrystal').'</a>';
 	} else {
-		echo '<del>';
-		echo wc_price($prices['normal']);
-		if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
-		echo '</del>';
-		echo '<ins>';
-		echo wc_price($prices['sale']);
-		if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
-		echo '</ins>';
+		if (!isset($prices['sale'])){
+			echo wc_price($prices['normal']);
+			if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
+		} else {
+			echo '<del>';
+			echo wc_price($prices['normal']);
+			if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
+			echo '</del>';
+			echo '<ins>';
+			echo wc_price($prices['sale']);
+			if (!SIMPLE_SHOP) echo get_option('woocommerce_price_display_suffix');
+			echo '</ins>';
+		}
 	}
-	
 }
 
 /******** IMPORT Functions **********/
