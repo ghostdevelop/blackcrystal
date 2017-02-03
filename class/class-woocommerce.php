@@ -22,7 +22,8 @@ if(!class_exists('CustomWoo')) {
 			add_filter( 'woocommerce_get_cart_item_from_session', array(&$this, 'get_cart_items_from_session'), 1, 3 );			
 			add_action(	'woocommerce_add_to_cart', array(&$this, 'add_cart_item'), 10, 6);		
 			add_filter( 'woocommerce_add_cart_item', array(&$this, 'filter_woocommerce_add_cart_item'), 10, 1 ); 				
-			add_action( 'woocommerce_add_order_item_meta', array(&$this, 'save_order_itemmeta'), 10, 3 );			
+			add_action( 'woocommerce_add_order_item_meta', array(&$this, 'save_order_itemmeta'), 10, 3 );	
+			add_filter( 'woocommerce_product_tabs', array(&$this, 'woo_rename_tabs'), 98 );					
 									
 			if (SIMPLE_SHOP == false){
 				add_filter('woocommerce_get_price', array(&$this, 'get_custom_price'), 10, 2);
@@ -59,7 +60,16 @@ if(!class_exists('CustomWoo')) {
 		function refund_email_to_admin($recipient, $object) {
 		    $recipient = $recipient . ', edit.blackcrystal.office@gmail.com, blackcrystal.office@gmail.com';
 		    return $recipient;
-		}		
+		}	
+		
+		function woo_rename_tabs( $tabs ) {
+		
+			$tabs['description']['title'] = __( 'Leírás', 'blackcrystal');		// Rename the description tab
+			$tabs['additional_information']['title'] = __( 'Termék adatok', 'blackcrystal' );	// Rename the additional information tab
+		
+			return $tabs;
+		
+		}			
 		
 		function shipping_tab( $tabs ) {
 			

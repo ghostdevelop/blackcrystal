@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 23:07+0000\n"
-"PO-Revision-Date: 2017-01-23 14:24+0000\n"
-"Last-Translator: PabloUSAblackcrystal <blackcrystal.office@gmail.com>\n"
+"POT-Creation-Date: 2017-01-30 14:21+0000\n"
+"PO-Revision-Date: 2017-02-02 17:01+0000\n"
+"Last-Translator: Novák Zoltán <blackcrystal.office@gmail.com>\n"
 "Language-Team: English (UK)\n"
 "Language: en-GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
@@ -12,10 +12,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
-
-#: header-simple.php:12
-msgid "Kérjen Visszahívást"
-msgstr ""
 
 #: functions.php:67
 msgid "Top menu"
@@ -27,6 +23,10 @@ msgstr ""
 
 #: functions.php:69
 msgid "Header nav menu"
+msgstr ""
+
+#: header-simple.php:13
+msgid "Kérjen Visszahívást"
 msgstr ""
 
 #: header.php:43
@@ -48,6 +48,38 @@ msgstr ""
 
 #: header-wholesale.php:17
 msgid "Érdeklődjön itt"
+msgstr "More enquiry here"
+
+#: single-design.php:26
+msgid "Termékek ezzel a dekorral"
+msgstr ""
+
+#: post-types/designs.php:33
+msgid "Új design hozzáadása"
+msgstr ""
+
+#: post-types/designs.php:34
+msgid "Új design"
+msgstr ""
+
+#: post-types/designs.php:35 post-types/banners.php:36
+msgid "Hírdetés szerkesztése"
+msgstr ""
+
+#: post-types/designs.php:36 post-types/banners.php:37
+msgid "Hírdetés megtekintése"
+msgstr ""
+
+#: post-types/designs.php:39
+msgid "Szülő design:"
+msgstr ""
+
+#: post-types/designs.php:40
+msgid "Nincsenek designok."
+msgstr ""
+
+#: post-types/designs.php:41
+msgid "Nincsenek designok a kukában."
 msgstr ""
 
 #: post-types/banners.php:34
@@ -56,14 +88,6 @@ msgstr ""
 
 #: post-types/banners.php:35
 msgid "Új hírdetés"
-msgstr ""
-
-#: post-types/banners.php:36 post-types/designs.php:35
-msgid "Hírdetés szerkesztése"
-msgstr ""
-
-#: post-types/banners.php:37 post-types/designs.php:36
-msgid "Hírdetés megtekintése"
 msgstr ""
 
 #: post-types/banners.php:38
@@ -90,26 +114,6 @@ msgstr ""
 msgid "Hirdetések"
 msgstr ""
 
-#: post-types/designs.php:33
-msgid "Új design hozzáadása"
-msgstr ""
-
-#: post-types/designs.php:34
-msgid "Új design"
-msgstr ""
-
-#: post-types/designs.php:39
-msgid "Szülő design:"
-msgstr ""
-
-#: post-types/designs.php:40
-msgid "Nincsenek designok."
-msgstr ""
-
-#: post-types/designs.php:41
-msgid "Nincsenek designok a kukában."
-msgstr ""
-
 #: admin-templates/theme-options.php:8
 msgid "beállítások"
 msgstr ""
@@ -120,7 +124,7 @@ msgstr ""
 
 #: admin-templates/theme-options.php:81
 msgid "Aktualitások"
-msgstr ""
+msgstr "News"
 
 #: admin-templates/theme-options.php:94
 msgid "Űrlapok"
@@ -281,17 +285,46 @@ msgstr ""
 msgid "Place the payment gateway ssl in test mode."
 msgstr ""
 
-#: woocommerce/myaccount/my-account.php:28
-#, php-format
-msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
+#: woocommerce/emails/customer-refunded-order.php:50
+#: woocommerce/emails/customer-completed-order.php:43
+msgid "Banki engedélyszám: "
 msgstr ""
 
-#: woocommerce/myaccount/my-account.php:33
+#: woocommerce/emails/customer-refunded-order.php:53
+#: woocommerce/emails/customer-completed-order.php:46
+msgid "Elfogadó cégszerű neve: "
+msgstr ""
+
+#: woocommerce/emails/customer-refunded-order.php:54
+#: woocommerce/emails/customer-completed-order.php:47
+msgid "Novák Zoltán EV"
+msgstr ""
+
+#: woocommerce/emails/customer-refunded-order.php:56
+#: woocommerce/emails/customer-completed-order.php:49
+msgid "Webáruház címe: "
+msgstr ""
+
+#: woocommerce/emails/email-order-details.php:25
+msgid " (tranzakicó azonosító)"
+msgstr ""
+
+#: woocommerce/emails/customer-new-account.php:26
 #, php-format
 msgid ""
-"From your account dashboard you can view your recent orders, manage your "
-"shipping and billing addresses and <a href=\"%s\">edit your password and "
-"account details</a>."
+"Thanks for creating an account on %s. Your username is <strong>%s</strong>."
+msgstr ""
+
+#: woocommerce/emails/customer-new-account.php:30
+#, php-format
+msgid "Your password has been automatically generated: <strong>%s</strong>"
+msgstr ""
+
+#: woocommerce/emails/customer-new-account.php:34
+#, php-format
+msgid ""
+"You can access your account area to view your orders and change your "
+"password here: %s."
 msgstr ""
 
 #: woocommerce/myaccount/form-login.php:32
@@ -306,10 +339,6 @@ msgstr ""
 #: woocommerce/myaccount/form-login.php:43
 #: woocommerce/myaccount/form-login.php:102
 msgid "Password"
-msgstr ""
-
-#: woocommerce/myaccount/form-login.php:55
-msgid "Feloldva"
 msgstr ""
 
 #: woocommerce/myaccount/form-login.php:61
@@ -337,46 +366,17 @@ msgstr ""
 msgid "Anti-spam"
 msgstr ""
 
-#: woocommerce/emails/customer-refunded-order.php:50
-#: woocommerce/emails/customer-completed-order.php:43
-msgid "Banki engedélyszám: "
+#: woocommerce/myaccount/my-account.php:28
+#, php-format
+msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
 msgstr ""
 
-#: woocommerce/emails/customer-refunded-order.php:53
-#: woocommerce/emails/customer-completed-order.php:46
-msgid "Elfogadó cégszerű neve: "
-msgstr ""
-
-#: woocommerce/emails/customer-refunded-order.php:54
-#: woocommerce/emails/customer-completed-order.php:47
-msgid "Novák Zoltán EV"
-msgstr ""
-
-#: woocommerce/emails/customer-refunded-order.php:56
-#: woocommerce/emails/customer-completed-order.php:49
-msgid "Webáruház címe: "
-msgstr ""
-
-#: woocommerce/emails/customer-new-account.php:26
+#: woocommerce/myaccount/my-account.php:33
 #, php-format
 msgid ""
-"Thanks for creating an account on %s. Your username is <strong>%s</strong>."
-msgstr ""
-
-#: woocommerce/emails/customer-new-account.php:30
-#, php-format
-msgid "Your password has been automatically generated: <strong>%s</strong>"
-msgstr ""
-
-#: woocommerce/emails/customer-new-account.php:34
-#, php-format
-msgid ""
-"You can access your account area to view your orders and change your "
-"password here: %s."
-msgstr ""
-
-#: woocommerce/emails/email-order-details.php:25
-msgid " (tranzakicó azonosító)"
+"From your account dashboard you can view your recent orders, manage your "
+"shipping and billing addresses and <a href=\"%s\">edit your password and "
+"account details</a>."
 msgstr ""
 
 #. Name of the theme
@@ -391,43 +391,26 @@ msgstr ""
 msgid "Petya"
 msgstr ""
 
-#: class/class-woocommerce.php:108
-#, php-format
-msgid "(Termékkód: %s)"
-msgstr "(Code: %s)"
-
-#: woocommerce/content-product.php:71
-msgid "Részletek"
-msgstr "Details"
-
-#: woocommerce/single-product/add-to-cart/simple.php:78
-msgid "Díszdoboz"
-msgstr "Gift box for"
-
-#: woocommerce/single-product/add-to-cart/simple.php:78
-msgid "db termékhez"
-msgstr "pcs goods"
-
 #: woocommerce/myaccount/form-login.php:55
-msgid "Csúsztasd el a bejelentkezéshez"
-msgstr "Slide to login"
+msgid "Feloldva"
+msgstr "Accepted."
 
-#: header-simple.php:8
-#, php-format
-msgid "Keressen minket %s elérhetőségeinken %s vagy,"
-msgstr "Contact us %s here. %s"
+#: woocommerce/single-product/price.php:28
+msgid "db"
+msgstr "pcs"
 
-#: header-simple.php:10
-msgid "Akciós termékek"
-msgstr "Discounted goods"
+#: woocommerce/single-product/product-thumbnails.php:30
+msgid "További képek megtekintéséhez kattintson ide!"
+msgstr "Click to see more pictures !"
 
-#: admin-templates/theme-options.php:57
-msgid "Kapcsolat"
-msgstr "Contact"
-
-#: home.php:28 archive.php:28
-msgid "Megnézem"
-msgstr "More"
+#: woocommerce/single-product/add-to-cart/simple.php:81
+msgid ""
+"Kézzel készített bordó díszdoboz, kívül velúr, belül szaténnal bélelve. "
+"Kiemeli a kristály szépségét, ajándékozáshoz kiváló. (a kép illusztráció)"
+msgstr ""
+"Hand-made purple gift box, outside velour, lined with satin inside. It "
+"highlights the beauty of the crystal,excellent as a gift . (Photo "
+"illustration)"
 
 #. Name of the template
 msgid "Video kereső"
@@ -445,6 +428,19 @@ msgstr "Search by product code"
 msgid "Keresés dekor alapján"
 msgstr "Search by decoration"
 
+#: header-simple.php:8
+#, php-format
+msgid "Keressen minket %s elérhetőségeinken %s vagy,"
+msgstr "Contact us %s here. %s"
+
+#: header-simple.php:10
+msgid "Akciós termékek"
+msgstr "Discounted goods"
+
+#: admin-templates/theme-options.php:57
+msgid "Kapcsolat"
+msgstr "Contact"
+
 #: welcome.php:65 post-types/designs.php:43
 msgid "Dekorok"
 msgstr "Decorations"
@@ -458,13 +454,17 @@ msgstr "Videos"
 msgid "Ajándék ötletek"
 msgstr "Gift ideas"
 
+#: archive-gallery.php:51
+msgid "Minden kategória"
+msgstr "All categories"
+
 #: footer.php:19
 msgid "Minden jog fentartva."
 msgstr "all rights reserved"
 
-#: archive-gallery.php:51
-msgid "Minden kategória"
-msgstr "All categories"
+#: home.php:28 archive.php:28
+msgid "Megnézem"
+msgstr "More"
 
 #: post-types/designs.php:37
 msgid "Összes design"
@@ -490,6 +490,14 @@ msgstr "Write us"
 msgid "Video kérése"
 msgstr "Video request"
 
+#: woocommerce/archive-product.php:69
+msgid "További termékeink"
+msgstr "Other goods"
+
+#: woocommerce/content-product.php:71
+msgid "Részletek"
+msgstr "Details"
+
 #: class/class-woocommerce.php:50
 msgid "Rendelés állapota"
 msgstr "Order status"
@@ -497,6 +505,11 @@ msgstr "Order status"
 #: class/class-woocommerce.php:75
 msgid "Felirat"
 msgstr "Label"
+
+#: class/class-woocommerce.php:108
+#, php-format
+msgid "(Termékkód: %s)"
+msgstr "(Code: %s)"
 
 #: class/class-woocommerce.php:114 class/class-woocommerce.php:202
 #, php-format
@@ -525,10 +538,18 @@ msgstr "Payment successful"
 msgid "Sikertelen tranzakció. Hibás adatokat adott meg."
 msgstr "Failed transactions. Incorrect information was given."
 
-#: woocommerce/archive-product.php:69
-msgid "További termékeink"
-msgstr "Other goods"
-
 #: woocommerce/cart/mini-cart.php:82
 msgid "(további termékek ...)"
 msgstr "(more products...)"
+
+#: woocommerce/myaccount/form-login.php:55
+msgid "Csúsztasd el a bejelentkezéshez"
+msgstr "Slide to login"
+
+#: woocommerce/single-product/add-to-cart/simple.php:78
+msgid "Díszdoboz"
+msgstr "Gift box for"
+
+#: woocommerce/single-product/add-to-cart/simple.php:78
+msgid "db termékhez"
+msgstr "pcs goods"
