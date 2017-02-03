@@ -49,6 +49,8 @@ if(!class_exists('ThemeFramework')) {
 			register_setting('theme-group', 'page_sale'); 		
 			register_setting('theme-group', 'page_gift'); 
 			register_setting('theme-group', 'page_actuality'); 	
+			register_setting('theme-group', 'page_subtitle'); 	
+			register_setting('theme-group', 'page_shipping'); 	
 			register_setting('theme-group', 'callback_form'); 	
 			register_setting('theme-group', 'writeus_form'); 	
 			register_setting('theme-group', 'kh_logo'); 	

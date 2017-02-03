@@ -23,10 +23,19 @@ global $post;
 
 $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Product Description', 'woocommerce' ) ) );
 
+$args = array(
+	'p' => get_option('page_shipping'), 
+	'post_type' => 'any'
+);
+
+$subtitle = new WP_Query($args);
+
+if ($subtitle->have_posts()){
+	$subtitle->the_post();
+	
+	the_content();
+
+}
+
+wp_reset_query();
 ?>
-<ul>
-	<li>A kiválasztott terméket futár szállítja a megadott címre.</li>
-	<li>A raktáron levő terméket akár másnap átveheti</li>
-	<li>A sürgős (másnapra kért) szállítást, kérjük jelezze felénk</li>
-	<li>Extrém sürgős szállításhoz egyeztetés szükséges</li>
-</ul>

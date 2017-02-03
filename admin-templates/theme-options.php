@@ -91,6 +91,32 @@ if (!current_user_can('manage_options')) {
 				</td>										
 			</tr>
 			<tr>
+				<td>
+					<label for="register"><?php _e('Felirat leírás oldala', 'blackcrystal')?></label>				
+					<?php     wp_dropdown_pages(
+				        array(
+				             'name' => 'page_subtitle',
+				             'echo' => 1,
+				             'show_option_none' => __( '&mdash; Select &mdash;' ),
+				             'option_none_value' => '0',
+				             'selected' => get_option('page_subtitle')
+				        )
+				    );?>
+				</td>	
+				<td>
+					<label for="register"><?php _e('Szállítás leírás oldala', 'blackcrystal')?></label>				
+					<?php     wp_dropdown_pages(
+				        array(
+				             'name' => 'page_shipping',
+				             'echo' => 1,
+				             'show_option_none' => __( '&mdash; Select &mdash;' ),
+				             'option_none_value' => '0',
+				             'selected' => get_option('page_shipping')
+				        )
+				    );?>
+				</td>								
+			</tr>
+			<tr>
 				<th><?php _e('Űrlapok', 'blackcrystal')?></th>
 			</tr>
 			<tr>

@@ -23,17 +23,19 @@ global $post;
 
 $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Product Description', 'woocommerce' ) ) );
 
+$args = array(
+	'p' => get_option('page_subtitle'), 
+	'post_type' => 'any'
+);
+
+$subtitle = new WP_Query($args);
+
+if ($subtitle->have_posts()){
+	$subtitle->the_post();
+	
+	the_content();
+
+}
+
+wp_reset_query();
 ?>
-<p>Lehetőség van a termékeken, vagy egy melléjük helyezett táblán feliratokat, logókat elhelyezni.</p>
-<p>Terméken:</p>
-<ul>
-	<li>leghosszabb szállítási idő</li>
-	<li>egyedi ár az egyeztetés során</li>
-	<li>a termék veszít az értékéből</li>
-</ul>
-<p>Táblán:</p>
-<ul>
-	<li>3000 Ft (15 szó, táblával, tartóval)</li>
-	<li>termék értéke megmarad</li>
-	<li>rövidebb szállítási határidő</li>
-</ul>
