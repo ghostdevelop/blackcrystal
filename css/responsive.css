@@ -728,6 +728,15 @@ display: block; }
 }
 
 @media only screen and (max-width: 585px) {
+	.gift-name{
+		line-height: 60px;
+		font-size: 24px;	
+	}
+	
+	.gifts-list li{
+		height: auto;
+	}
+	
 	img.khlogo{
 		bottom: -40px;
 		right: 0;

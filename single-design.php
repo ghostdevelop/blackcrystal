@@ -22,30 +22,20 @@
 										</div>
 										-->
 										<br clear="all">
-										<div class="design-products-list">
-										<h2 class="page-title"><strong><?php _e('Termékek ezzel a dekorral', 'blackcrystal')?></strong></h2>											
-										<?php $products = new WP_Query(array('post_type' => 'product', 'meta_key' => '_design', 'meta_value'=> get_post_meta(get_the_ID(), '_slug', true)))?>
-										<?php if ( $products->have_posts() ) : ?>
-											<?php woocommerce_product_loop_start(); ?>
-										
-												<?php while ( $products->have_posts() ) : $products->the_post(); ?>
-										
-													<?php wc_get_template_part( 'content', 'product' ); ?>
-										
-												<?php endwhile; // end of the loop. ?>
-										
-											<?php woocommerce_product_loop_end(); ?>
-											<div class="pagination clearfix">				
-												<?php $args = array(
-													'base'               => '%_%',
-													'format'             => '?paged=%#%',
-													'prev_next'          => true,
-													'prev_text'          => __('«'),
-													'next_text'          => __('»'),
-												); ?>
-												<?php echo paginate_links($args)?>
-											</div>										
-										<?php endif; ?>		
+										<div class="box-collateral box-up-sell related-carousel">
+											<h2 class="page-title"><strong><?php _e('Termékek ezzel a dekorral', 'blackcrystal')?></strong></h2>											
+											<?php $products = new WP_Query(array('post_type' => 'product', 'meta_key' => '_design', 'meta_value'=> get_post_meta(get_the_ID(), '_slug', true), 'posts_per_page' => -1))?>
+											<?php if ( $products->have_posts() ) : ?>
+												<?php woocommerce_product_loop_start(); ?>
+											
+													<?php while ( $products->have_posts() ) : $products->the_post(); ?>
+											
+														<?php wc_get_template_part( 'content', 'product' ); ?>
+											
+													<?php endwhile; // end of the loop. ?>
+											
+												<?php woocommerce_product_loop_end(); ?>									
+											<?php endif; ?>		
 										</div>								
 									<?php endif;?>
 								</div>

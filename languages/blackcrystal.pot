@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-30 14:50+0000\n"
+"POT-Creation-Date: 2017-02-03 14:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -30,15 +30,15 @@ msgstr ""
 msgid "Keresés dekor alapján"
 msgstr ""
 
-#: functions.php:67
+#: functions.php:69
 msgid "Top menu"
 msgstr ""
 
-#: functions.php:68
+#: functions.php:70
 msgid "Header menu"
 msgstr ""
 
-#: functions.php:69
+#: functions.php:71
 msgid "Header nav menu"
 msgstr ""
 
@@ -197,19 +197,27 @@ msgstr ""
 msgid "Aktualitások"
 msgstr ""
 
-#: admin-templates/theme-options.php:94
+#: admin-templates/theme-options.php:95
+msgid "Felirat leírás oldala"
+msgstr ""
+
+#: admin-templates/theme-options.php:107
+msgid "Szállítás leírás oldala"
+msgstr ""
+
+#: admin-templates/theme-options.php:120
 msgid "Űrlapok"
 msgstr ""
 
-#: admin-templates/theme-options.php:98
+#: admin-templates/theme-options.php:124
 msgid "Visszahívás kérése"
 msgstr ""
 
-#: admin-templates/theme-options.php:102
+#: admin-templates/theme-options.php:128
 msgid "Írjon nekünk"
 msgstr ""
 
-#: admin-templates/theme-options.php:106
+#: admin-templates/theme-options.php:132
 msgid "Video kérése"
 msgstr ""
 
@@ -221,89 +229,97 @@ msgstr ""
 msgid "Részletek"
 msgstr ""
 
-#: class/functions.php:73 class/class-woocommerce.php:165
+#: class/functions.php:73 class/class-woocommerce.php:175
 msgid "Jelentkezz be az árak megtekintéséhez"
 msgstr ""
 
-#: class/class-woocommerce.php:50
+#: class/class-woocommerce.php:51
 msgid "Rendelés állapota"
 msgstr ""
 
-#: class/class-woocommerce.php:69
+#: class/class-woocommerce.php:67
+msgid "Leírás"
+msgstr ""
+
+#: class/class-woocommerce.php:68
+msgid "Termék adatok"
+msgstr ""
+
+#: class/class-woocommerce.php:79
 msgid "Shipping"
 msgstr ""
 
-#: class/class-woocommerce.php:75
+#: class/class-woocommerce.php:85
 msgid "Felirat"
 msgstr ""
 
-#: class/class-woocommerce.php:108
+#: class/class-woocommerce.php:118
 #, php-format
 msgid "(Termékkód: %s)"
 msgstr ""
 
-#: class/class-woocommerce.php:114 class/class-woocommerce.php:202
+#: class/class-woocommerce.php:124 class/class-woocommerce.php:212
 #, php-format
 msgid "Díszdoboz a %d kódszámú termékhez"
 msgstr ""
 
-#: class/class-woocommerce.php:236
+#: class/class-woocommerce.php:246
 msgid "Free"
 msgstr ""
 
-#: class/class-woocommerce.php:252 class/class-woocommerce.php:253
+#: class/class-woocommerce.php:262 class/class-woocommerce.php:263
 #: class/class-woocommerce-card-payment.php:80
 msgid "Bolt azonosító"
 msgstr ""
 
-#: class/class-woocommerce.php:259
+#: class/class-woocommerce.php:269
 msgid "Bolt azonosízó beállítása a raktárkezelőben történő azonosításhoz"
 msgstr ""
 
-#: class/class-woocommerce.php:263
+#: class/class-woocommerce.php:273
 msgid "Árfolyam"
 msgstr ""
 
-#: class/class-woocommerce.php:264
+#: class/class-woocommerce.php:274
 msgid "Aktuális árfolyam"
 msgstr ""
 
-#: class/class-woocommerce.php:270
+#: class/class-woocommerce.php:280
 msgid "Aktuális árfolyam beállítása forintról a bolt pénznemére"
 msgstr ""
 
-#: class/class-woocommerce.php:274
+#: class/class-woocommerce.php:284
 msgid "Árszorzó"
 msgstr ""
 
-#: class/class-woocommerce.php:275 class/class-woocommerce.php:281
-#: class/class-woocommerce.php:286 class/class-woocommerce.php:292
-#: class/class-woocommerce.php:303 class/class-woocommerce.php:314
-#: class/class-woocommerce.php:325
+#: class/class-woocommerce.php:285 class/class-woocommerce.php:291
+#: class/class-woocommerce.php:296 class/class-woocommerce.php:302
+#: class/class-woocommerce.php:313 class/class-woocommerce.php:324
+#: class/class-woocommerce.php:335
 msgid "A mindenkori nettó árat módosítja a megadott értékkel."
 msgstr ""
 
-#: class/class-woocommerce.php:285
+#: class/class-woocommerce.php:295
 msgid "Kedvezmény"
 msgstr ""
 
-#: class/class-woocommerce.php:296
+#: class/class-woocommerce.php:306
 msgid "Díszdoboz kedvezmény"
 msgstr ""
 
-#: class/class-woocommerce.php:297 class/class-woocommerce.php:308
+#: class/class-woocommerce.php:307 class/class-woocommerce.php:318
 msgid "A mindenkori nettó díszdoboz árat módosítja a megadott értékkel."
 msgstr ""
 
-#: class/class-woocommerce.php:307
+#: class/class-woocommerce.php:317
 msgid "Díszdoboz árszorzó"
 msgstr ""
 
-#: class/class-woocommerce.php:318
+#: class/class-woocommerce.php:328
 msgid "Mennyiségi kedvezmények"
 msgstr ""
 
-#: class/class-woocommerce.php:319
+#: class/class-woocommerce.php:329
 msgid "Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik."
 msgstr ""
 

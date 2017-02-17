@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-30 14:51+0000\n"
-"PO-Revision-Date: 2017-01-30 14:51+0000\n"
-"Last-Translator: Petya <petyaxd@gmail.com>\n"
+"PO-Revision-Date: 2017-02-06 16:46+0000\n"
+"Last-Translator: Novák Zoltán <blackcrystal.office@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu-HU\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
@@ -230,7 +230,7 @@ msgstr ""
 
 #: class/class-woocommerce.php:69
 msgid "Shipping"
-msgstr ""
+msgstr "Szállítás"
 
 #: class/class-woocommerce.php:75
 msgid "Felirat"
@@ -457,20 +457,6 @@ msgid ""
 "password here: %s."
 msgstr ""
 
-#: woocommerce/myaccount/form-login.php:32
-#: woocommerce/myaccount/form-login.php:59
-msgid "Login"
-msgstr ""
-
-#: woocommerce/myaccount/form-login.php:39
-msgid "Username or email address"
-msgstr ""
-
-#: woocommerce/myaccount/form-login.php:43
-#: woocommerce/myaccount/form-login.php:102
-msgid "Password"
-msgstr ""
-
 #: woocommerce/myaccount/form-login.php:55
 msgid "Csúsztasd el a bejelentkezéshez"
 msgstr ""
@@ -481,23 +467,15 @@ msgstr ""
 
 #: woocommerce/myaccount/form-login.php:61
 msgid "Remember me"
-msgstr ""
+msgstr "Emlékezz rám"
 
 #: woocommerce/myaccount/form-login.php:65
 msgid "Lost your password?"
-msgstr ""
+msgstr "Elfelejtetted a jelszavad?"
 
 #: woocommerce/myaccount/form-login.php:79
 #: woocommerce/myaccount/form-login.php:123
 msgid "Register"
-msgstr ""
-
-#: woocommerce/myaccount/form-login.php:88
-msgid "Username"
-msgstr ""
-
-#: woocommerce/myaccount/form-login.php:95
-msgid "Email address"
 msgstr ""
 
 #: woocommerce/myaccount/form-login.php:109
@@ -537,6 +515,28 @@ msgstr ""
 #. Author of the theme
 msgid "Petya"
 msgstr ""
+
+#: woocommerce/myaccount/form-login.php:32
+#: woocommerce/myaccount/form-login.php:59
+msgid "Login"
+msgstr "Belépés"
+
+#: woocommerce/myaccount/form-login.php:39
+msgid "Username or email address"
+msgstr "Felhasználói név vagy email cím"
+
+#: woocommerce/myaccount/form-login.php:43
+#: woocommerce/myaccount/form-login.php:102
+msgid "Password"
+msgstr "Jelszó"
+
+#: woocommerce/myaccount/form-login.php:88
+msgid "Username"
+msgstr "Felhasználói név"
+
+#: woocommerce/myaccount/form-login.php:95
+msgid "Email address"
+msgstr "Email cím"
 
 #: woocommerce/myaccount/my-account.php:28
 #, php-format

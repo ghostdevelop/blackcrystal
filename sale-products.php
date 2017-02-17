@@ -23,27 +23,33 @@ get_header( 'shop' ); ?>
 
 	<?php woocommerce_output_content_wrapper()?>
 
-		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-			<div class="page-title category-title">
-				<h1><?php woocommerce_page_title(); ?></h1>
-			</div>
-		<?php endif; ?>
+		<div class="page-title category-title">
+			<h1><?php the_title(); ?></h1>
+		</div>
+		
+		<?php 
+		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+		$sale_prods = new WP_Query(array(
+			'post_type' => 'product',
+			'paged' => $paged,
+		    'meta_query'     => array(
+		        'relation' => 'OR',
+		        array( // Simple products type
+		            'key'           => '_sale_price',
+		            'value'         => 0,
+		            'compare'       => '>',
+		            'type'          => 'numeric'
+		        ),
+		        array( // Variable products type
+		            'key'           => '_min_variation_sale_price',
+		            'value'         => 0,
+		            'compare'       => '>',
+		            'type'          => 'numeric'
+		        )
+		    )										
+		))?>			
 
-		<?php if (is_tax('product_tag')):?>
-			<div class="entry-content">
-				<?php
-					/**
-					 * woocommerce_archive_description hook.
-					 *
-					 * @hooked woocommerce_taxonomy_archive_description - 10
-					 * @hooked woocommerce_product_archive_description - 10
-					 */
-					do_action( 'woocommerce_archive_description' );
-				?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( have_posts() ) : ?>
+		<?php if ( $sale_prods->have_posts() ) : ?>
 
 			<?php wc_print_notices()?>
 			<div class="filter-holder clearfix">
@@ -55,17 +61,26 @@ get_header( 'shop' ); ?>
 
 				<?php woocommerce_product_subcategories(); ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( $sale_prods->have_posts() ) : $sale_prods->the_post(); ?>
 
 					<?php wc_get_template_part( 'content', 'product' ); ?>
 
 				<?php endwhile; // end of the loop. ?>
 
 			<?php woocommerce_product_loop_end(); ?>
+			<div class="pagination clearfix">				
+				<?php if ($sale_prods->max_num_pages > 1) { // check if the max number of pages is greater than 1  ?>
+				  <nav class="prev-next-posts">
+				    <div class="next-posts-link">
+				      <?php echo get_previous_posts_link( __('Előző oldal') ); // display newer posts link ?>
+				    </div>
+				    <div class="prev-posts-link">
+				      <?php echo get_next_posts_link( __('Következő oldal'), $sale_prods->max_num_pages ); // display older posts link ?>
+				    </div>
+				  </nav>
+				<?php } ?>
+			</div>			
 			
-			<?php if (is_tax('product_tag')):?>
-				<a href="<?php echo home_url()?>" class="button back_to_gifts"><?php _e('További termékeink', 'blackcrystal')?></a>
-			<?php endif; ?>		
 			
 			<?php
 				/**

@@ -152,7 +152,10 @@ function import_get_sale_price($price, $sale_price){
 	$decimals = get_option('woocommerce_price_num_decimals');
 	
 	if ($sale_price > 0){
-		$return_price = $sale_price;		
+		$exchange_rate = (int) get_option( 'exchange_rate');
+		
+		$return_price = round($sale_price / $exchange_rate);
+	
 	} elseif ($sale_percent > 0){
 		$return_price = import_get_price($price);	
 		$return_price = round($return_price * ((100 - $sale_percent) / 100), $decimals);	

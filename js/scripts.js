@@ -225,6 +225,21 @@ jQuery(document).ready(function($) {
 		});
 	}
 	
+	if (jQuery('.container').width() < 724) {
+		jQuery('.design-carousel').jcarousel({
+			vertical: false,
+			visible:1,
+			scroll: 1
+		});
+	}
+	else {
+		jQuery('.design-carousel').jcarousel({
+			vertical: false,
+			visible:3,
+			scroll: 1
+		});
+	}	
+	
 	$('#_package_price').change(function(){
 		var chkb = $(this);
 		if ($('.quantity .qty').val() % $(this).data('ipp')  != 0){
