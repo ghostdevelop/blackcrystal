@@ -2812,7 +2812,7 @@ tr.summary-details-excluded { font-style:italic; }
 .block-subscribe-footer .actions{ float:left; width:14px; padding:0; margin-left:-15px; }
 .block-subscribe-footer .actions .button span { width:14px; height:25px; font-size: 0; background:url(../images/btn-newsletter.gif) no-repeat center center; padding:0; filter: progid:none; /*IE6-9 */ }
 /* Footer ================================================================================ */
-.footer-container{ padding:40px 0 30px; border-top: 1px solid #434343;}
+.footer-container{ padding:40px 0 60px; border-top: 1px solid #434343;}
 .footer-container-bottom {padding: 20px 0 30px;}
 .footer { position:relative;}
 .footer-cols-wrapper {	position:relative;overflow:hidden;}
