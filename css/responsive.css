@@ -821,9 +821,9 @@ display: block; }
 	
 	.accept-cards{
 		position: absolute;
-		right: 0px;
+		left: 20px;
 		width: 80px;
-		bottom: 70px;
+		bottom: 20px;	
 	}
 
 
