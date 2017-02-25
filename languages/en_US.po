@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-30 14:50+0000\n"
-"PO-Revision-Date: 2017-01-30 14:55+0000\n"
+"PO-Revision-Date: 2017-02-25 20:22+0000\n"
 "Last-Translator: Novák Zoltán <blackcrystal.office@gmail.com>\n"
 "Language-Team: English (United States)\n"
 "Language: en-US\n"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: single-design.php:26
 msgid "Termékek ezzel a dekorral"
-msgstr ""
+msgstr "Goods with this decor"
 
 #: post-types/designs.php:33
 msgid "Új design hozzáadása"
@@ -375,19 +375,14 @@ msgid ""
 "account details</a>."
 msgstr ""
 
-#: woocommerce/single-product/price.php:28
-msgid "db"
-msgstr "pcs"
-
-#: woocommerce/single-product/product-thumbnails.php:30
-msgid "További képek megtekintéséhez kattintson ide!"
-msgstr "Cleck here to see more pictures !"
-
 #: woocommerce/single-product/add-to-cart/simple.php:81
 msgid ""
 "Kézzel készített bordó díszdoboz, kívül velúr, belül szaténnal bélelve. "
 "Kiemeli a kristály szépségét, ajándékozáshoz kiváló. (a kép illusztráció)"
 msgstr ""
+"Hand-made purple gift box, outside velour, lined with satin inside. It "
+"highlights the beauty of the crystal,excellent as a gift . (Photo "
+"illustration)"
 
 #. Name of the theme
 msgid "Blackcrystal 2016"
@@ -400,6 +395,14 @@ msgstr ""
 #. Author of the theme
 msgid "Petya"
 msgstr ""
+
+#: woocommerce/single-product/price.php:28
+msgid "db"
+msgstr "pcs"
+
+#: woocommerce/single-product/product-thumbnails.php:30
+msgid "További képek megtekintéséhez kattintson ide!"
+msgstr "Cleck here to see more pictures !"
 
 #. Name of the template
 msgid "Video kereső"

@@ -23,39 +23,7 @@
 											</div>
 										<?php endif;?>
 									<?php endif;?>
-									<?php $slider = new WP_Query(array('post_type' => 'ad', 'post_status' => 'publish')) ?>
-									<?php if ($slider->have_posts()):?>
-									<script>
-									        jQuery(function(){
-									            jQuery('#camera_wrap').camera({
-									                alignmen: 'topCenter',
-									                height: '34.99%',
-									                minHeight: '100px',
-									                loader : false,
-									                navigation: false,
-									                fx: 'simpleFade',
-									                navigationHover:false,       
-									                thumbnails: false,
-									                playPause: false
-									            });
-									        });
-									</script>
-									<div class="fluid_container_wrap">
-										<div class="fluid_container">
-											<div class="camera_wrap camera_orange_skin" id="camera_wrap">
-												<?php while ($slider->have_posts()): $slider->the_post()?>
-													<?php $img = wp_get_attachment_image_src(get_post_thumbnail_ID(), 'full')?>
-													<div data-link="" data-src="<?=$img[0]?>">
-														<div class="camera_caption fadeFromLeft">
-															<div class="lof_camera_title"><?php the_title()?></div>
-															<?php echo get_the_content()?>
-														</div>
-													</div>
-												<?php endwhile; ?>
-											</div>
-										</div>
-									</div>
-									<?php endif;?>
+									<?php echo do_shortcode('[rev_slider alias="homeslider"]')?>
 									<ul class="banner-block row">
 										<li class="span4">
 											<a href="<?php echo get_post_type_archive_link('design')?>">

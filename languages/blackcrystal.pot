@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 14:23+0000\n"
+"POT-Creation-Date: 2017-02-25 20:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Video kérése"
 msgstr ""
 
-#: woocommerce/archive-product.php:69
+#: woocommerce/archive-product.php:67
 msgid "További termékeink"
 msgstr ""
 

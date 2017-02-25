@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-30 14:21+0000\n"
-"PO-Revision-Date: 2017-02-02 17:01+0000\n"
+"POT-Creation-Date: 2017-02-25 20:18+0000\n"
+"PO-Revision-Date: 2017-02-25 20:19+0000\n"
 "Last-Translator: Novák Zoltán <blackcrystal.office@gmail.com>\n"
 "Language-Team: English (UK)\n"
 "Language: en-GB\n"
@@ -13,15 +13,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: functions.php:67
+#: functions.php:69
 msgid "Top menu"
 msgstr ""
 
-#: functions.php:68
+#: functions.php:70
 msgid "Header menu"
 msgstr ""
 
-#: functions.php:69
+#: functions.php:71
 msgid "Header nav menu"
 msgstr ""
 
@@ -46,13 +46,9 @@ msgstr ""
 msgid "Viszonteladók részére"
 msgstr ""
 
-#: header-wholesale.php:17
-msgid "Érdeklődjön itt"
-msgstr "More enquiry here"
-
 #: single-design.php:26
 msgid "Termékek ezzel a dekorral"
-msgstr ""
+msgstr "Goods with this dekor"
 
 #: post-types/designs.php:33
 msgid "Új design hozzáadása"
@@ -122,74 +118,86 @@ msgstr ""
 msgid "Oldalak"
 msgstr ""
 
-#: admin-templates/theme-options.php:81
-msgid "Aktualitások"
-msgstr "News"
+#: admin-templates/theme-options.php:95
+msgid "Felirat leírás oldala"
+msgstr ""
 
-#: admin-templates/theme-options.php:94
+#: admin-templates/theme-options.php:107
+msgid "Szállítás leírás oldala"
+msgstr ""
+
+#: admin-templates/theme-options.php:120
 msgid "Űrlapok"
 msgstr ""
 
-#: admin-templates/theme-options.php:98
+#: admin-templates/theme-options.php:124
 msgid "Visszahívás kérése"
 msgstr ""
 
-#: class/class-woocommerce.php:69
+#: class/class-woocommerce.php:67
+msgid "Leírás"
+msgstr ""
+
+#: class/class-woocommerce.php:68
+msgid "Termék adatok"
+msgstr ""
+
+#: class/class-woocommerce.php:79
 msgid "Shipping"
 msgstr ""
 
-#: class/class-woocommerce.php:236
+#: class/class-woocommerce.php:246
 msgid "Free"
 msgstr ""
 
-#: class/class-woocommerce.php:259
+#: class/class-woocommerce.php:269
 msgid "Bolt azonosízó beállítása a raktárkezelőben történő azonosításhoz"
 msgstr ""
 
-#: class/class-woocommerce.php:263
+#: class/class-woocommerce.php:273
 msgid "Árfolyam"
 msgstr ""
 
-#: class/class-woocommerce.php:264
+#: class/class-woocommerce.php:274
 msgid "Aktuális árfolyam"
 msgstr ""
 
-#: class/class-woocommerce.php:270
+#: class/class-woocommerce.php:280
 msgid "Aktuális árfolyam beállítása forintról a bolt pénznemére"
 msgstr ""
 
-#: class/class-woocommerce.php:274
+#: class/class-woocommerce.php:284
 msgid "Árszorzó"
 msgstr ""
 
-#: class/class-woocommerce.php:275 class/class-woocommerce.php:281
-#: class/class-woocommerce.php:286 class/class-woocommerce.php:292
-#: class/class-woocommerce.php:303 class/class-woocommerce.php:314
-#: class/class-woocommerce.php:325
+#: class/class-woocommerce.php:285 class/class-woocommerce.php:291
+#: class/class-woocommerce.php:296 class/class-woocommerce.php:302
+#: class/class-woocommerce.php:313 class/class-woocommerce.php:324
+#: class/class-woocommerce.php:335
 msgid "A mindenkori nettó árat módosítja a megadott értékkel."
 msgstr ""
 
-#: class/class-woocommerce.php:285
+#: class/class-woocommerce.php:295
 msgid "Kedvezmény"
 msgstr ""
 
-#: class/class-woocommerce.php:296
+#: class/class-woocommerce.php:306
 msgid "Díszdoboz kedvezmény"
 msgstr ""
 
-#: class/class-woocommerce.php:297 class/class-woocommerce.php:308
+#: class/class-woocommerce.php:307 class/class-woocommerce.php:318
 msgid "A mindenkori nettó díszdoboz árat módosítja a megadott értékkel."
 msgstr ""
 
-#: class/class-woocommerce.php:307
+#: class/class-woocommerce.php:317
 msgid "Díszdoboz árszorzó"
 msgstr ""
 
-#: class/class-woocommerce.php:318
+#: class/class-woocommerce.php:328
 msgid "Mennyiségi kedvezmények"
 msgstr ""
 
-#: class/class-woocommerce.php:319
+#: class/class-woocommerce.php:329
 msgid "Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik."
 msgstr ""
 
@@ -391,27 +399,6 @@ msgstr ""
 msgid "Petya"
 msgstr ""
 
-#: woocommerce/myaccount/form-login.php:55
-msgid "Feloldva"
-msgstr "Accepted."
-
-#: woocommerce/single-product/price.php:28
-msgid "db"
-msgstr "pcs"
-
-#: woocommerce/single-product/product-thumbnails.php:30
-msgid "További képek megtekintéséhez kattintson ide!"
-msgstr "Click to see more pictures !"
-
-#: woocommerce/single-product/add-to-cart/simple.php:81
-msgid ""
-"Kézzel készített bordó díszdoboz, kívül velúr, belül szaténnal bélelve. "
-"Kiemeli a kristály szépségét, ajándékozáshoz kiváló. (a kép illusztráció)"
-msgstr ""
-"Hand-made purple gift box, outside velour, lined with satin inside. It "
-"highlights the beauty of the crystal,excellent as a gift . (Photo "
-"illustration)"
-
 #. Name of the template
 msgid "Video kereső"
 msgstr "Search for videos"
@@ -466,6 +453,10 @@ msgstr "all rights reserved"
 msgid "Megnézem"
 msgstr "More"
 
+#: header-wholesale.php:17
+msgid "Érdeklődjön itt"
+msgstr "More enquiry here"
+
 #: post-types/designs.php:37
 msgid "Összes design"
 msgstr "All decoration"
@@ -482,15 +473,19 @@ msgstr "Sales"
 msgid "Videok"
 msgstr "Videos"
 
-#: admin-templates/theme-options.php:102
+#: admin-templates/theme-options.php:81
+msgid "Aktualitások"
+msgstr "News"
+
+#: admin-templates/theme-options.php:128
 msgid "Írjon nekünk"
 msgstr "Write us"
 
-#: admin-templates/theme-options.php:106
+#: admin-templates/theme-options.php:132
 msgid "Video kérése"
 msgstr "Video request"
 
-#: woocommerce/archive-product.php:69
+#: woocommerce/archive-product.php:67
 msgid "További termékeink"
 msgstr "Other goods"
 
@@ -498,29 +493,29 @@ msgstr "Other goods"
 msgid "Részletek"
 msgstr "Details"
 
-#: class/class-woocommerce.php:50
+#: class/functions.php:73 class/class-woocommerce.php:175
+msgid "Jelentkezz be az árak megtekintéséhez"
+msgstr "Log in to see the prices."
+
+#: class/class-woocommerce.php:51
 msgid "Rendelés állapota"
 msgstr "Order status"
 
-#: class/class-woocommerce.php:75
+#: class/class-woocommerce.php:85
 msgid "Felirat"
 msgstr "Label"
 
-#: class/class-woocommerce.php:108
+#: class/class-woocommerce.php:118
 #, php-format
 msgid "(Termékkód: %s)"
 msgstr "(Code: %s)"
 
-#: class/class-woocommerce.php:114 class/class-woocommerce.php:202
+#: class/class-woocommerce.php:124 class/class-woocommerce.php:212
 #, php-format
 msgid "Díszdoboz a %d kódszámú termékhez"
 msgstr "Gift box for number %d products."
 
-#: class/class-woocommerce.php:165
-msgid "Jelentkezz be az árak megtekintéséhez"
-msgstr "Log in to see the prices."
-
-#: class/class-woocommerce.php:252 class/class-woocommerce.php:253
+#: class/class-woocommerce.php:262 class/class-woocommerce.php:263
 #: class/class-woocommerce-card-payment.php:80
 msgid "Bolt azonosító"
 msgstr "Shop ID"
@@ -546,6 +541,18 @@ msgstr "(more products...)"
 msgid "Csúsztasd el a bejelentkezéshez"
 msgstr "Slide to login"
 
+#: woocommerce/myaccount/form-login.php:55
+msgid "Feloldva"
+msgstr "Accepted."
+
+#: woocommerce/single-product/price.php:28
+msgid "db"
+msgstr "pcs"
+
+#: woocommerce/single-product/product-thumbnails.php:30
+msgid "További képek megtekintéséhez kattintson ide!"
+msgstr "Click to see more pictures !"
+
 #: woocommerce/single-product/add-to-cart/simple.php:78
 msgid "Díszdoboz"
 msgstr "Gift box for"
@@ -553,3 +560,12 @@ msgstr "Gift box for"
 #: woocommerce/single-product/add-to-cart/simple.php:78
 msgid "db termékhez"
 msgstr "pcs goods"
+
+#: woocommerce/single-product/add-to-cart/simple.php:81
+msgid ""
+"Kézzel készített bordó díszdoboz, kívül velúr, belül szaténnal bélelve. "
+"Kiemeli a kristály szépségét, ajándékozáshoz kiváló. (a kép illusztráció)"
+msgstr ""
+"Hand-made purple gift box, outside velour, lined with satin inside. It "
+"highlights the beauty of the crystal,excellent as a gift . (Photo "
+"illustration)"
