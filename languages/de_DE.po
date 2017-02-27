@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-25 20:23+0000\n"
-"PO-Revision-Date: 2017-02-25 20:38+0000\n"
+"POT-Creation-Date: 2017-02-25 22:28+0000\n"
+"PO-Revision-Date: 2017-02-25 22:30+0000\n"
 "Last-Translator: Novák Zoltán <blackcrystal.office@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -49,10 +49,6 @@ msgstr ""
 #: header-wholesale.php:17
 msgid "Érdeklődjön itt"
 msgstr ""
-
-#: single-design.php:26
-msgid "Termékek ezzel a dekorral"
-msgstr "Unsere Waren mit diesem Dekor"
 
 #: post-types/designs.php:33
 msgid "Új design hozzáadása"
@@ -154,30 +150,21 @@ msgstr ""
 msgid "Írjon nekünk"
 msgstr ""
 
-#: woocommerce/archive-product.php:67
-msgid "További termékeink"
-msgstr "andere Waren"
-
 #: class/functions.php:73 class/class-woocommerce.php:175
 msgid "Jelentkezz be az árak megtekintéséhez"
 msgstr ""
 
 #: class/class-woocommerce.php:67
 msgid "Leírás"
-msgstr ""
+msgstr "Beschreibung"
 
 #: class/class-woocommerce.php:68
 msgid "Termék adatok"
-msgstr ""
+msgstr "Parameter"
 
 #: class/class-woocommerce.php:79
 msgid "Shipping"
 msgstr ""
-
-#: class/class-woocommerce.php:124 class/class-woocommerce.php:212
-#, php-format
-msgid "Díszdoboz a %d kódszámú termékhez"
-msgstr "Geschenkbox für das Produkt Nr. %d"
 
 #: class/class-woocommerce.php:246
 msgid "Free"
@@ -264,14 +251,6 @@ msgstr ""
 msgid "Payment title the customer will see during the checkout process."
 msgstr ""
 
-#: class/class-woocommerce-card-payment.php:70
-msgid "Credit card"
-msgstr "Kreditkarte"
-
-#: class/class-woocommerce-card-payment.php:73
-msgid "Description"
-msgstr "Beschreibung"
-
 #: class/class-woocommerce-card-payment.php:75
 msgid "Payment description the customer will see during the checkout process."
 msgstr ""
@@ -336,14 +315,6 @@ msgstr ""
 msgid "Place the payment gateway ssl in test mode."
 msgstr ""
 
-#: class/class-woocommerce-card-payment.php:273
-msgid "Sikeres fizetés!"
-msgstr "erfolgreiche Zahlung"
-
-#: class/class-woocommerce-card-payment.php:288
-msgid "Sikertelen tranzakció. Hibás adatokat adott meg."
-msgstr "Erfolglose Zahlung. Falsche Daten wurden angegeben."
-
 #: woocommerce/emails/customer-refunded-order.php:50
 #: woocommerce/emails/customer-completed-order.php:43
 msgid "Banki engedélyszám: "
@@ -386,52 +357,9 @@ msgid ""
 "password here: %s."
 msgstr ""
 
-#: woocommerce/myaccount/form-login.php:32
-#: woocommerce/myaccount/form-login.php:59
-msgid "Login"
-msgstr "Mein Konto"
-
-#: woocommerce/myaccount/form-login.php:39
-msgid "Username or email address"
-msgstr "Verbrauchername oder E-Mail Adresse"
-
-#: woocommerce/myaccount/form-login.php:43
-#: woocommerce/myaccount/form-login.php:102
-msgid "Password"
-msgstr "Passwort"
-
-#: woocommerce/myaccount/form-login.php:61
-msgid "Remember me"
-msgstr "Erinnere auf mich"
-
-#: woocommerce/myaccount/form-login.php:65
-msgid "Lost your password?"
-msgstr "Passwort vergessen?"
-
-#: woocommerce/myaccount/form-login.php:79
-#: woocommerce/myaccount/form-login.php:123
-msgid "Register"
-msgstr "Neu registrieren"
-
-#: woocommerce/myaccount/form-login.php:88
-msgid "Username"
-msgstr "Benutzername"
-
-#: woocommerce/myaccount/form-login.php:95
-msgid "Email address"
-msgstr "E-Mail Adresse"
-
 #: woocommerce/myaccount/form-login.php:109
 msgid "Anti-spam"
 msgstr ""
-
-#: woocommerce/single-product/add-to-cart/simple.php:78
-msgid "Díszdoboz"
-msgstr "Geschenkbox"
-
-#: woocommerce/single-product/add-to-cart/simple.php:78
-msgid "db termékhez"
-msgstr "für 6 Stück"
 
 #. Name of the theme
 msgid "Blackcrystal 2016"
@@ -499,6 +427,10 @@ msgstr "alle Rechte vorbehalten"
 msgid "Megnézem"
 msgstr "anschauen"
 
+#: single-design.php:26
+msgid "Termékek ezzel a dekorral"
+msgstr "Unsere Waren mit diesem Dekor"
+
 #: admin-templates/theme-options.php:45
 msgid "Videok"
 msgstr "Videos"
@@ -510,6 +442,10 @@ msgstr "Wichtige Nachrichten"
 #: admin-templates/theme-options.php:132
 msgid "Video kérése"
 msgstr "Video Anfrage"
+
+#: woocommerce/archive-product.php:67
+msgid "További termékeink"
+msgstr "andere Waren"
 
 #: woocommerce/content-product.php:71
 msgid "Részletek"
@@ -528,9 +464,44 @@ msgstr "Aufschrift"
 msgid "(Termékkód: %s)"
 msgstr "(Kode: %s)"
 
+#: class/class-woocommerce.php:124 class/class-woocommerce.php:212
+#, php-format
+msgid "Díszdoboz a %d kódszámú termékhez"
+msgstr "Geschenkbox für das Produkt Nr. %d"
+
+#: class/class-woocommerce-card-payment.php:70
+msgid "Credit card"
+msgstr "Kreditkarte"
+
+#: class/class-woocommerce-card-payment.php:73
+msgid "Description"
+msgstr "Beschreibung"
+
+#: class/class-woocommerce-card-payment.php:273
+msgid "Sikeres fizetés!"
+msgstr "erfolgreiche Zahlung"
+
+#: class/class-woocommerce-card-payment.php:288
+msgid "Sikertelen tranzakció. Hibás adatokat adott meg."
+msgstr "Erfolglose Zahlung. Falsche Daten wurden angegeben."
+
 #: woocommerce/cart/mini-cart.php:82
 msgid "(további termékek ...)"
 msgstr "(mehr Produkte...)"
+
+#: woocommerce/myaccount/form-login.php:32
+#: woocommerce/myaccount/form-login.php:59
+msgid "Login"
+msgstr "Mein Konto"
+
+#: woocommerce/myaccount/form-login.php:39
+msgid "Username or email address"
+msgstr "Verbrauchername oder E-Mail Adresse"
+
+#: woocommerce/myaccount/form-login.php:43
+#: woocommerce/myaccount/form-login.php:102
+msgid "Password"
+msgstr "Passwort"
 
 #: woocommerce/myaccount/form-login.php:55
 msgid "Csúsztasd el a bejelentkezéshez"
@@ -539,6 +510,27 @@ msgstr "Slide to login"
 #: woocommerce/myaccount/form-login.php:55
 msgid "Feloldva"
 msgstr "Akzeptiert"
+
+#: woocommerce/myaccount/form-login.php:61
+msgid "Remember me"
+msgstr "Erinnere auf mich"
+
+#: woocommerce/myaccount/form-login.php:65
+msgid "Lost your password?"
+msgstr "Passwort vergessen?"
+
+#: woocommerce/myaccount/form-login.php:79
+#: woocommerce/myaccount/form-login.php:123
+msgid "Register"
+msgstr "Neu registrieren"
+
+#: woocommerce/myaccount/form-login.php:88
+msgid "Username"
+msgstr "Benutzername"
+
+#: woocommerce/myaccount/form-login.php:95
+msgid "Email address"
+msgstr "E-Mail Adresse"
 
 #: woocommerce/myaccount/my-account.php:28
 #, php-format
@@ -564,6 +556,14 @@ msgstr "stck"
 #: woocommerce/single-product/product-thumbnails.php:30
 msgid "További képek megtekintéséhez kattintson ide!"
 msgstr "Weitere Bilder !"
+
+#: woocommerce/single-product/add-to-cart/simple.php:78
+msgid "Díszdoboz"
+msgstr "Geschenkbox"
+
+#: woocommerce/single-product/add-to-cart/simple.php:78
+msgid "db termékhez"
+msgstr "für 6 Stück"
 
 #: woocommerce/single-product/add-to-cart/simple.php:81
 msgid ""

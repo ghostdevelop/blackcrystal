@@ -37,7 +37,6 @@
 			    //Woocommerce 
 			    $menu[55.5][0] = 'Webshop';
 			    //Loco Translate 
-			    $menu[101][0] = 'Fordítások';
 			    $menu[112][0] = 'Import';
 			}	
 			

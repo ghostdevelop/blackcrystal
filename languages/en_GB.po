@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-25 20:18+0000\n"
-"PO-Revision-Date: 2017-02-25 20:19+0000\n"
+"PO-Revision-Date: 2017-02-25 22:25+0000\n"
 "Last-Translator: Novák Zoltán <blackcrystal.office@gmail.com>\n"
 "Language-Team: English (UK)\n"
 "Language: en-GB\n"
@@ -45,10 +45,6 @@ msgstr ""
 #: header-wholesale.php:16
 msgid "Viszonteladók részére"
 msgstr ""
-
-#: single-design.php:26
-msgid "Termékek ezzel a dekorral"
-msgstr "Goods with this dekor"
 
 #: post-types/designs.php:33
 msgid "Új design hozzáadása"
@@ -136,11 +132,11 @@ msgstr ""
 
 #: class/class-woocommerce.php:67
 msgid "Leírás"
-msgstr ""
+msgstr "Description"
 
 #: class/class-woocommerce.php:68
 msgid "Termék adatok"
-msgstr ""
+msgstr "Parameters"
 
 #: class/class-woocommerce.php:79
 msgid "Shipping"
@@ -398,6 +394,10 @@ msgstr ""
 #. Author of the theme
 msgid "Petya"
 msgstr ""
+
+#: single-design.php:26
+msgid "Termékek ezzel a dekorral"
+msgstr "Goods with this dekor"
 
 #. Name of the template
 msgid "Video kereső"
