@@ -23,7 +23,10 @@ if(!class_exists('CustomWoo')) {
 			add_action(	'woocommerce_add_to_cart', array(&$this, 'add_cart_item'), 10, 6);		
 			add_filter( 'woocommerce_add_cart_item', array(&$this, 'filter_woocommerce_add_cart_item'), 10, 1 ); 				
 			add_action( 'woocommerce_add_order_item_meta', array(&$this, 'save_order_itemmeta'), 10, 3 );	
-			add_filter( 'woocommerce_product_tabs', array(&$this, 'woo_rename_tabs'), 98 );					
+			add_filter( 'woocommerce_product_tabs', array(&$this, 'woo_rename_tabs'), 98 );		
+			add_action( 'woocommerce_checkout_process',  array(&$this, 'minimum_order_amount') );
+			add_action( 'woocommerce_before_cart' ,  array(&$this, 'minimum_order_amount') );					
+			
 									
 			if (SIMPLE_SHOP == false){
 				add_filter('woocommerce_get_price', array(&$this, 'get_custom_price'), 10, 2);
@@ -41,6 +44,35 @@ if(!class_exists('CustomWoo')) {
 			*/	
 
 		}
+		
+		function minimum_order_amount() {
+		    // Set this variable to specify a minimum order value
+		    $minimum = get_option('minimum_amount');
+		
+		    if ( $minimum > 0 && WC()->cart->total < $minimum ) {
+		
+		        if( is_cart() ) {
+		
+		            wc_print_notice( 
+		                sprintf( 'You must have an order with a minimum of %s to place your order, your current order total is %s.' , 
+		                    wc_price( $minimum ), 
+		                    wc_price( WC()->cart->total )
+		                ), 'error' 
+		            );
+		
+		        } else {
+		
+		            wc_add_notice( 
+		                sprintf( 'You must have an order with a minimum of %s to place your order, your current order total is %s.' , 
+		                    wc_price( $minimum ), 
+		                    wc_price( WC()->cart->total )
+		                ), 'error' 
+		            );
+		
+		        }
+		    }
+		
+		}			
 		
 		function woocommerce_support() {
 		    add_theme_support( 'blackcrystal' );
@@ -322,7 +354,7 @@ if(!class_exists('CustomWoo')) {
 						'std'      => '1',  // WC < 2.0
 						'default'  => '1',  // WC >= 2.0
 						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
-					);						
+					);	
 					
 					$updated_settings[] = array(
 						'name'     => __( 'Mennyiségi kedvezmények', 'blackcrystal' ),
@@ -333,6 +365,17 @@ if(!class_exists('CustomWoo')) {
 						'std'      => '',  // WC < 2.0
 						'default'  => '',  // WC >= 2.0
 						'desc'     => __( 'A mindenkori nettó árat módosítja a megadott értékkel.', 'blackcrystal' ),
+					);												
+					
+					$updated_settings[] = array(
+						'name'     => __( 'Minimum rendelési összeg', 'blackcrystal' ),
+						'desc_tip' => __( 'Megadja, hogy mekkora mennyi a minimum rendelési összeg.', 'blackcrystal' ),
+						'id'       => 'minimum_amount',
+						'type'     => 'text',
+						'css'      => 'min-width:300px;',
+						'std'      => '',  // WC < 2.0
+						'default'  => '',  // WC >= 2.0
+						'desc'     => __( 'Megadja, hogy mekkora mennyi a minimum rendelési összeg.', 'blackcrystal' ),
 					);		      	      			      	      
 				
 				}
