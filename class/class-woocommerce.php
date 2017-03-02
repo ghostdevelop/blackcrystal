@@ -51,7 +51,7 @@ if(!class_exists('CustomWoo')) {
 		      $availability = __( 'Out of stock', 'blackcrystal' );
 		    } elseif ( $obj->managing_stock() && $obj->is_on_backorder( 1 ) ) {
 		      $availability = $obj->backorders_require_notification() ? __( 'Available on backorder', 'blackcrystal' ) : __( 'In stock', 'blackcrystal' );
-		    } elseif ( $this->managing_stock() ) {
+		    } elseif ( $obj->managing_stock() ) {
 		      switch ( get_option( 'woocommerce_stock_format' ) ) {
 		        case 'no_amount' :
 		          $availability = __( 'In stock', 'blackcrystal' );
