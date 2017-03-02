@@ -1228,3 +1228,89 @@ div#postaPontApi-inner{
 	clear: none !important;
 	width: 256px;
 }
+
+.fade.in{
+	background: rgba(0, 0, 0, .4);
+	opacity: 1;	
+}
+
+.modal.in .modal-dialog{
+	top: 40vh
+}
+
+.modal-content{
+	background: #333;
+	border: 5px solid #6f6f6f;
+	border-radius: 0;
+	color: #cfcfcf	
+}
+
+.modal-title{
+	text-transform: uppercase;
+	font-size: 20px;	
+}
+
+.modal-footer{
+	border: 0;
+}
+
+.btn.btn-default{
+	font-size: 100%;
+	margin: 0 auto;
+	border: 0;
+	font-family: inherit;
+	text-transform: uppercase;
+	line-height: 1;
+	cursor: pointer;
+	position: relative;
+	text-decoration: none;
+	overflow: visible;
+	padding: 10px 15px;
+	font-weight: normal;
+	left: auto;
+	white-space: nowrap;
+	display: inline-block;
+	text-align: center;
+	box-shadow: none;
+	
+	-webkit-box-shadow: none;
+	text-shadow: none;
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d6c1ac', endColorstr='#b1885d');
+	/* IE6-9 */
+	background: -webkit-gradient(linear, left top, left bottom, from(#d6c1ac), to(#b1885d));
+	background: -moz-linear-gradient(top, #d6c1ac, #b1885d);
+	/* firefox 3.6+ */
+	background: -o-linear-gradient(top, #d6c1ac, #b1885d);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #d6c1ac, #b1885d);
+	/* IE10+ */
+	color: black;
+}
+
+.btn.btn-default:hover{
+	cursor: pointer;
+	background: #dad8da;
+	color: #515151
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

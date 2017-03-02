@@ -4,6 +4,14 @@ function close_callback(){
 jQuery(document).ready(function($){
 	/* Basic Gallery */
 	$( '.swipebox' ).swipebox();
+	
+	$('a.checkout.disabled').live('click', function(e){
+		e.preventDefault();
+		$('#myModal').modal('show');
+		$('#myModal .modal-title').html('<p>' + texts.low_order_amount_title + '</p>')
+		$('#myModal .modal-body').html('<p>' + texts.low_order_amount + '</p>')
+
+	})
 
 	$('.more-images-btn').click(function(){
 		$(this).next().slideToggle();

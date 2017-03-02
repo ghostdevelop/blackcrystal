@@ -26,6 +26,7 @@ if(!class_exists('CustomWoo')) {
 			add_filter( 'woocommerce_product_tabs', array(&$this, 'woo_rename_tabs'), 98 );		
 			add_action( 'woocommerce_checkout_process',  array(&$this, 'minimum_order_amount') );
 			add_action( 'woocommerce_before_cart' ,  array(&$this, 'minimum_order_amount') );					
+			add_filter( 'woocommerce_get_availability_text', array(&$this, 'get_availability_text'), 98, 2 );		
 			
 									
 			if (SIMPLE_SHOP == false){
@@ -45,18 +46,54 @@ if(!class_exists('CustomWoo')) {
 
 		}
 		
+		function get_availability_text($availability, $obj){
+		   if ( ! $obj->is_in_stock() ) {
+		      $availability = __( 'Out of stock', 'blackcrystal' );
+		    } elseif ( $obj->managing_stock() && $obj->is_on_backorder( 1 ) ) {
+		      $availability = $obj->backorders_require_notification() ? __( 'Available on backorder', 'blackcrystal' ) : __( 'In stock', 'blackcrystal' );
+		    } elseif ( $this->managing_stock() ) {
+		      switch ( get_option( 'woocommerce_stock_format' ) ) {
+		        case 'no_amount' :
+		          $availability = __( 'In stock', 'blackcrystal' );
+		        break;
+		        case 'low_amount' :
+		          if ( $this->get_total_stock() <= get_option( 'woocommerce_notify_low_stock_amount' ) ) {
+		            $availability = sprintf( __( 'Only %s left in stock', 'blackcrystal' ), $obj->get_total_stock() );
+		
+		            if ( $this->backorders_allowed() && $this->backorders_require_notification() ) {
+		              $availability .= ' ' . __( '(also available on backorder)', 'blackcrystal' );
+		            }
+		          } else {
+		            $availability = __( 'In stock', 'blackcrystal' );
+		          }
+		        break;
+		        default :
+		          $availability = sprintf( __( '%s in stock', 'blackcrystal' ), $obj->get_total_stock() );
+		
+		          if ( $obj->backorders_allowed() && $obj->backorders_require_notification() ) {
+		            $availability .= ' ' . __( '(also available on backorder)', 'blackcrystal' );
+		          }
+		        break;
+		      }
+		    } else {
+		      $availability = '';
+		    }	
+		    
+		    return $availability;		
+		}
+		
 		function minimum_order_amount() {
 		    // Set this variable to specify a minimum order value
 		    $minimum = get_option('minimum_amount');
 		
-		    if ( $minimum > 0 && WC()->cart->total < $minimum ) {
+		    if ( $minimum > 0 && WC()->cart->cart_contents_total < $minimum ) {
 		
 		        if( is_cart() ) {
 		
 		            wc_print_notice( 
 		                sprintf( 'You must have an order with a minimum of %s to place your order, your current order total is %s.' , 
 		                    wc_price( $minimum ), 
-		                    wc_price( WC()->cart->total )
+		                    wc_price( WC()->cart->cart_contents_total )
 		                ), 'error' 
 		            );
 		
@@ -65,7 +102,7 @@ if(!class_exists('CustomWoo')) {
 		            wc_add_notice( 
 		                sprintf( 'You must have an order with a minimum of %s to place your order, your current order total is %s.' , 
 		                    wc_price( $minimum ), 
-		                    wc_price( WC()->cart->total )
+		                    wc_price( WC()->cart->cart_contents_total )
 		                ), 'error' 
 		            );
 		

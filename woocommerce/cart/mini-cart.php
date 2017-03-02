@@ -96,7 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				
 					<p class="buttons">
 						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="button wc-forward"><?php _e( 'View Cart', 'woocommerce' ); ?></a>
-						<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="button checkout wc-forward"><?php _e( 'Checkout', 'woocommerce' ); ?></a>
+						<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="button checkout wc-forward <?php echo (get_option('minimum_amount') > 0 && WC()->cart->cart_contents_total < get_option('minimum_amount') ? 'disabled' : '') ?> "><?php _e( 'Checkout', 'woocommerce' ); ?></a>
 					</p>
 				
 				<?php endif; ?>		

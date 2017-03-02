@@ -30,6 +30,7 @@
 		    function front_scripts(){
 		    	
 		    	//Styles	    			    
+				wp_enqueue_style( 'bootstrap.modal', get_template_directory_uri() . '/css/bootstrap.css', array(), false, '');	
 				wp_enqueue_style( 'font-awesome');
 				wp_enqueue_style( 'wyswyg');
 				wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/css/woocommerce.css', array(), false, '');	
@@ -52,7 +53,7 @@
 			   //Scripts
 			   wp_enqueue_script( 'jquery');			    
 			   wp_enqueue_script( 'jquery-ui-tooltip');			    
-			   wp_enqueue_script( 'bootstrap-basic');			    
+   
 			   wp_enqueue_script( 'jquery-cookie');			    
 
 			   wp_enqueue_script( 'jquery.isotope', get_template_directory_uri() . '/js/jquery.isotope.js', array('jquery'), '1.0.0', true );			    
@@ -62,7 +63,18 @@
 			   wp_enqueue_script( 'jquery.easing.1.3', get_template_directory_uri() . '/js/jquery.easing.1.3.js', array('jquery'), '1.0.0', true );			    
 			   wp_enqueue_script( 'superfish', get_template_directory_uri() . '/js/superfish.js', array('jquery'), '1.0.0', true );			    
 			   wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true );
-			   wp_localize_script( 'scripts', 'texts', array('not_enough' => __('Díszdoboz csak teljes készlethez érhető el', 'blackcrystal')) );			   			    		    
+				wp_localize_script( 
+					'scripts', 'texts', 
+					array(
+						'not_enough' => __('Díszdoboz csak teljes készlethez érhető el', 'blackcrystal'),
+						'low_order_amount_title' => __("Checkout error", 'blackcrystal'),
+						'low_order_amount' => sprintf( __('You must have an order with a minimum of %s to place your order, your current order total is %s.', 'blackcrystal') , 
+		                    	wc_price( get_option('minimum_amount') ), 
+								wc_price( WC()->cart->cart_contents_total 
+							)
+						),
+					) 
+				);			   			    		    
 			   wp_enqueue_script( 'camera', get_template_directory_uri() . '/js/camera.js', array('jquery'), '1.0.0', true );			    		    
 			    
 			   //wp_enqueue_script( 'init', get_template_directory_uri() . '/js/init.js', array('jquery'), '1.0.0', true );			    
