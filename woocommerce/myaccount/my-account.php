@@ -36,45 +36,36 @@ wc_print_notices(); ?>
 	?>
 </p>
 <?php if (SIMPLE_SHOP == false):?>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/on-off-switch.js'?>"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/on-off-switch-onload.js'?>"></script>
-
-	    <span class="show_price_switch_label">Eladási árak megjelenítése? </span><input type="hidden" id="on-off-switch-custom" value="1">
+		<span class="show_price_switch_label">Eladási árak megjelenítése? </span>
+		<div class="onoffswitch">
+		    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" value="<?php echo get_user_meta( get_current_user_id(), '_show_customer_price', true ) ?>" id="myonoffswitch" <?php echo (get_user_meta( get_current_user_id(), '_show_customer_price', true ) == false ? "" : "checked")?>>
+		    <label class="onoffswitch-label" for="myonoffswitch">
+		        <span class="onoffswitch-inner"></span>
+		        <span class="onoffswitch-switch"></span>
+		    </label>
+		</div>	    
     <script type="text/javascript">
-        new DG.OnOffSwitch({
-            el: '#on-off-switch-custom',
-            height: 30,
-            trackColorOn:'#F57C00',
-            trackColorOff:'#666',
-            trackBorderColor:'#555',
-            textColorOff:'#fff',
-            textOn:'Igen',
-            textOff:'Nem'
-        });
-        
-        jQuery('#on-off-switch-custom + .on-off-switch').on('click', function(){
+       
+        jQuery('.onoffswitch-checkbox').on('change', function(){
 			var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' )?>';
+			var val = jQuery(this).val()
 			jQuery.post(
 			    ajaxurl, 
 			    {
 			        'action': 'display_price_action',
-			        'data':   jQuery('#on-off-switch-custom').val()
+			        'data':   val
 			    }, 
 			    function(response){
 					location.reload();
 			    }
 			);
         })
-        <?php if (get_user_meta( get_current_user_id(), '_show_customer_price', true ) == false):?>
-       		DG.switches["#on-off-switch-custom"].uncheck();
-        <?php endif;?>
+       
     </script>
 </div>
 <?php endif?>
 
 <?php do_action( 'woocommerce_before_my_account' ); ?>
-
-<?php wc_get_template( 'myaccount/my-downloads.php' ); ?>
 
 <?php wc_get_template( 'myaccount/my-orders.php', array( 'order_count' => $order_count ) ); ?>
 
