@@ -172,9 +172,9 @@ span.sku_wrapper{
 	background-color: rgba(0,0,0,.8);
 	color: white;
 	position: absolute;
-	left: 0;
+	right: 0;
 	font-size: 14px;
-	top: 0;
+	bottom: 0;
 	padding: 8px;
 	text-decoration: none
 }
