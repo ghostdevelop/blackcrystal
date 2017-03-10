@@ -48,7 +48,7 @@ global $post, $woocommerce, $product;
 	
 			}
 		?>
-		<span class="sku_wrapper mobile"><?php _e( 'SKU:', 'woocommerce' ); ?> <span class="sku" itemprop="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?></span></span>
+		<span class="sku_wrapper"><?php _e( 'SKU:', 'woocommerce' ); ?> <span class="sku" itemprop="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?></span></span>
 	</div>
 	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
 </div>

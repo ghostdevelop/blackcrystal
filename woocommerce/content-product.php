@@ -54,10 +54,12 @@ $classes[] = 'item span3';
 	<?php if (has_post_thumbnail()):?>
 		<a href="<?php the_permalink()?>" class="product-image">
 			<?php the_post_thumbnail('shop_catalog')?>
+			<span class="sku_wrapper"><?php _e( 'SKU:', 'woocommerce' ); ?> <span class="sku" itemprop="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?></span></span>
 		</a>
 	<?php else: ?>
 		<a href="<?php the_permalink()?>" class="product-image">
 			<img src="<?php bloginfo('template_url')?>/images/default-no-image.png" />
+			<span class="sku_wrapper"><?php _e( 'SKU:', 'woocommerce' ); ?> <span class="sku" itemprop="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?></span></span>			
 		</a>
 	<?php endif; ?>
 	<h3 class="product-name">

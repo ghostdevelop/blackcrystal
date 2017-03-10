@@ -1236,6 +1236,7 @@ tr.summary-details-excluded { font-style:italic; }
 	    justify-content: center;
 	align-items: center;
 	background: white;	
+	position: relative;
 	height: 222px;
  }
  
@@ -1250,6 +1251,7 @@ tr.summary-details-excluded { font-style:italic; }
 	    justify-content: center;
 	background: white;	
 	height: 300px;	 
+	position: relative;
 	width: 300px;	 
  }
  .cart-item-image .remove{
