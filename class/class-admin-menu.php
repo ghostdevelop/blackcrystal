@@ -4,7 +4,7 @@
 	    class ADMIN_MENU {
 	    
 		    public function __construct(){	
-			    add_action( 'admin_menu', array(&$this, 'remove_menus' ));	
+			   //add_action( 'admin_menu', array(&$this, 'remove_menus' ));	
 			    add_action( 'admin_menu', array(&$this, 'menu_labels' ));	
 			    add_action( 'init', array(&$this, 'change_post_object_label' ));
 		    }	
