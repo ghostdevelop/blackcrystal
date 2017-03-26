@@ -93,7 +93,7 @@ function image_list($tag = '0000', $local = false, $path = ""){
 	for ($i = 1; $i <= 2; $i++) {
 
 		if ($local){
-			$url = '/kepek/' . $path;
+			$url = '/images/' . $path;
 			if ($i == 1){
 				$url = $url.$tag.".jpg";
 			} else {

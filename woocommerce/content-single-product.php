@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div><!-- .summary -->
 	<?php woocommerce_upsell_display()?>
-	<?php if (get_post_meta(get_the_ID(), '_video_id', true) != "" and get_post_meta(get_the_ID(), '_video_id', true) != 0):?>
+	<?php if (get_post_meta(get_the_ID(), '_video_id', true) != ""):?>
 		<div class="video-box box-collateral">
 			<h2><?php _e('Video', 'woocommerce')?></h2>
 			<div class="box-collateral-content">
