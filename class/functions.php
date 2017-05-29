@@ -146,12 +146,12 @@ function import_get_price($price){
 function import_get_sale_price($price, $sale_price){
 	global $wpdb;
 	
-	$return_price = "";	
+	$return_price = $sale_price;	
 	
 	$sale_percent = (int) get_option('sale_percent');	
 	$decimals = get_option('woocommerce_price_num_decimals');
 	
-	if ($sale_price > 0){
+	if ($sale_price > 0 && SIMPLE_SHOP){
 		$exchange_rate = (int) get_option( 'exchange_rate');
 		
 		$return_price = round($sale_price / $exchange_rate);
