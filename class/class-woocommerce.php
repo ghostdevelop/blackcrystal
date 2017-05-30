@@ -501,7 +501,7 @@ if(!class_exists('CustomWoo')) {
 						'orders', 
 						array( 
 							'date' => $order->order_date,
-							'orderid' => $order->id,
+							'orderid' => $shop_id . "-" . $order->id,
 							'customerid' => $user['userID'],
 							'country' => $user['country'],
 							'region' => $user['region'],
@@ -547,7 +547,7 @@ if(!class_exists('CustomWoo')) {
 						$wpdb->insert( 
 							'order_items', 
 							array( 
-								'orderid' => $order->id,
+								'orderid' => $shop_id . "-" . $order->id,
 								'productcode' => $product_code,
 								'productname' => $order_item['name'],
 								'quantity' => $quantity,
