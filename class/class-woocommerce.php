@@ -501,7 +501,7 @@ if(!class_exists('CustomWoo')) {
 						'orders', 
 						array( 
 							'date' => $order->order_date,
-							'orderid' => $shop_id . "-" . $order->id,
+							'orderid' => "WEB-" . $shop_id . "-" . $order->id,
 							'customerid' => $user['userID'],
 							'country' => $user['country'],
 							'region' => $user['region'],
@@ -547,7 +547,7 @@ if(!class_exists('CustomWoo')) {
 						$wpdb->insert( 
 							'order_items', 
 							array( 
-								'orderid' => $shop_id . "-" . $order->id,
+								'orderid' => "WEB-" . $shop_id . "-" . $order->id,
 								'productcode' => $product_code,
 								'productname' => $order_item['name'],
 								'quantity' => $quantity,
@@ -575,7 +575,7 @@ if(!class_exists('CustomWoo')) {
 					$wpdb->insert( 
 						'order_items', 
 						array( 
-							'orderid' => $order->id,
+							'orderid' => "WEB-" . $shop_id . "-" . $order->id,
 							'productcode' => '0001',
 							'quantity' => 1,
 							'unipricenet' =>$order->get_total_shipping(),
