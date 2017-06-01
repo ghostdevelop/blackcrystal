@@ -31,7 +31,7 @@ if (!current_user_can('manage_options')) {
 			<tr valign="top">
 				<td>
 					<label for="header_text_2">Google analytics</label>
-					<textarea name="writeus_form" ><?php echo get_option('google_analytics') ?></textarea>
+					<textarea name="google_analytics" ><?php echo get_option('google_analytics') ?></textarea>
 				</td>				
 			</tr>
 		</table> 			
