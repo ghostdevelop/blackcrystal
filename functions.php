@@ -55,6 +55,7 @@ if(!class_exists('ThemeFramework')) {
 			register_setting('theme-group', 'writeus_form'); 	
 			register_setting('theme-group', 'kh_logo'); 	
 			register_setting('theme-group', 'video_form'); 	
+			register_setting('theme-group', 'google_analytics'); 	
 		}	
 		
 		public function images_setup(){		

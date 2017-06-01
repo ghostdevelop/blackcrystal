@@ -23,7 +23,18 @@ if (!current_user_can('manage_options')) {
 					</div>
 				</td>				
 			</tr>
-		</table> 		
+		</table> 	
+		<table class="webcon_admin_table widefat">
+			<tr>
+				<th>Beágyazókódok</th>
+			</tr>
+			<tr valign="top">
+				<td>
+					<label for="header_text_2">Google analytics</label>
+					<textarea name="writeus_form" ><?php echo get_option('google_analytics') ?></textarea>
+				</td>				
+			</tr>
+		</table> 			
 		<table class="webcon_admin_table widefat">
 			<tr>
 				<th><?php _e('Oldalak', 'blackcrystal')?></th>
