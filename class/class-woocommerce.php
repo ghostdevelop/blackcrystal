@@ -432,9 +432,9 @@ if(!class_exists('CustomWoo')) {
 			
 			if (!$order->has_status( 'failed' ) && !$order->has_status( 'cancelled' )){
 				
-				$customer = new WC_Customer($order_id);
 				$shop_id = get_option('shop_id');
 				$test = false;
+				$order_data = $order->get_data();
 				
 				if ($order->get_user_id() != 0){
 					$user_id = $shop_id . "-" .  $order->get_user_id();
@@ -442,36 +442,35 @@ if(!class_exists('CustomWoo')) {
 					$user_id = $shop_id . '-NOREG-' . $order_id;
 				}
 				
-	
 				$user = array(
 					'userID' => $user_id,
-					'name'	=>	$order->billing_first_name . ' ' . $order->billing_last_name,
-					'country' => $customer->get_country(),
-					'region' => $customer->get_state(),
-					'zip' => $customer->get_postcode(),
-					'city' => $customer->get_city(),
-					'street' => $customer->get_address() . $customer->get_address_2(),
-					'mailcountry' => $customer->get_shipping_country(),
-					'mailregion' => $customer->get_shipping_state(),
-					'mailzip' => $customer->get_shipping_postcode(),
-					'mailcity' => $customer->get_shipping_city(),
-					'mailstreet' => $customer->get_shipping_address() . $customer->get_shipping_address_2(),
-					'email' => $order->billing_email,
-					'phone' => $order->billing_phone,
+					'name'	=>	$order_data['billing']['first_name'] . ' ' . $order_data['billing']['last_name'],
+					'country' => $order_data['billing']['country'],
+					'region' => $order_data['billing']['region'],
+					'zip' => $order_data['billing']['postcode'],
+					'city' => $order_data['billing']['city'],
+					'street' => $order_data['billing']['address_1'] . $order_data['billing']['address_2'],
+					'mailcountry' => $order_data['shipping']['country'],
+					'mailregion' => $order_data['shipping']['region'],
+					'mailzip' => $order_data['shipping']['postcode'],
+					'mailcity' => $order_data['shipping']['city'],
+					'mailstreet' => $order_data['shipping']['address_1'] . $order_data['shipping']['address_2'],
+					'email' => $order_data['billing']['email'],
+					'phone' => $order_data['billing']['phone'],
 				);   
+			
 				if ($test != true){
+				
 					$wpdb->insert( 
 						'customers', 
 						array( 
 							'userID' => $user['userID'],
 							'name' => $user['name'],
 							'country' => $user['country'],
-							'region' => $user['region'],
 							'zip' => $user['zip'],
 							'city' => $user['city'],
 							'street' => $user['street'],
 							'mailcountry' => $user['mailcountry'],
-							'mailregion' => $user['mailregion'],
 							'mailzip' => $user['mailzip'],
 							'mailcity' => $user['mailcity'],
 							'mailstreet' => $user['mailstreet'],
@@ -483,12 +482,10 @@ if(!class_exists('CustomWoo')) {
 							'%s', 
 							'%s', 
 							'%s', 
-							'%d', 
 							'%s', 
 							'%s', 
 							'%s', 
 							'%s', 
-							'%d', 
 							'%s', 
 							'%s', 
 							'%s', 
@@ -501,10 +498,9 @@ if(!class_exists('CustomWoo')) {
 						'orders', 
 						array( 
 							'date' => $order->order_date,
-							'orderid' => "WEB-" . $shop_id . "-" . $order->id,
+							'orderid' => $shop_id . "-" . $order->id,
 							'customerid' => $user['userID'],
 							'country' => $user['country'],
-							'region' => $user['region'],
 							'zip' => $user['zip'],
 							'city' => $user['city'],
 							'street' => $user['street'],				
@@ -513,17 +509,16 @@ if(!class_exists('CustomWoo')) {
 							'paymentmethod' => $order->payment_method_title,
 							'comment' => $order->customer_message,
 							),
-						array( 
-							'%s', 
-							'%d', 
+						array(  
 							'%s', 
 							'%s', 
 							'%s', 
-							'%d', 
 							'%s', 
 							'%s', 
 							'%s', 
-							'%d', 
+							'%s', 
+							'%s', 
+							'%s', 
 							'%s', 
 							'%s'
 						) 				
@@ -547,7 +542,7 @@ if(!class_exists('CustomWoo')) {
 						$wpdb->insert( 
 							'order_items', 
 							array( 
-								'orderid' => "WEB-" . $shop_id . "-" . $order->id,
+								'orderid' => $shop_id . "-" . $order->id,
 								'productcode' => $product_code,
 								'productname' => $order_item['name'],
 								'quantity' => $quantity,
@@ -556,7 +551,7 @@ if(!class_exists('CustomWoo')) {
 								'grossvalue' => round($grossvalue),
 								),
 							array(  
-								'%d', 
+								'%s', 
 								'%s', 
 								'%s', 
 								'%d', 
@@ -575,7 +570,7 @@ if(!class_exists('CustomWoo')) {
 					$wpdb->insert( 
 						'order_items', 
 						array( 
-							'orderid' => "WEB-" . $shop_id . "-" . $order->id,
+							'orderid' => $shop_id . "-" . $order->id,
 							'productcode' => '0001',
 							'quantity' => 1,
 							'unipricenet' =>$order->get_total_shipping(),
@@ -583,7 +578,7 @@ if(!class_exists('CustomWoo')) {
 							'grossvalue' => $order->get_total_shipping(),
 							),
 						array(  
-							'%d', 
+							'%s', 
 							'%s', 
 							'%d', 
 							'%f',
