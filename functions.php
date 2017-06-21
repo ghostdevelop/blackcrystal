@@ -59,6 +59,9 @@ if(!class_exists('ThemeFramework')) {
 		}	
 		
 		public function images_setup(){		
+			add_theme_support( 'wc-product-gallery-zoom' );
+			add_theme_support( 'wc-product-gallery-lightbox' );
+			add_theme_support( 'wc-product-gallery-slider' );		
 			add_theme_support( 'post-thumbnails' );			
 		
 			//Add image sizes

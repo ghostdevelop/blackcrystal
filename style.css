@@ -7,6 +7,15 @@ Author: Petya
 Author URI: 
 */
 
+.landing-thumbnail-holder img{
+	display: block;
+	width: 200px;
+	height: auto;
+	float: left;
+	margin-right: 20px;	
+	margin-bottom: 20px;
+}
+
 .onoffswitch {
     position: relative; width: 90px;
     display: inline-block;

@@ -15,7 +15,9 @@
 									<?php if (have_posts()): the_post();?>
 										<h2 class="page-title"><strong><?php the_title()?></strong></h2>	
 						                <?php if (has_post_thumbnail()):?>
-											<?php the_post_thumbnail(array(848))?>
+						                	<div class="landing-thumbnail-holder">
+												<?php the_post_thumbnail(array(848))?>
+						                	</div>
 						                <?php endif;?>																				
 										<div class="entry-content">
 											<?php the_content();?>
@@ -27,6 +29,20 @@
 									
 									<?php if (!empty($products)): ?>
 										<?php $args = array('post__in' => $products, 'post_type' => 'product') ?>
+									<?php else: ?>
+										<?php $args = array(
+											'post__in' => $products, 
+											'post_type' => 'product',
+										   'tax_query'             => array(
+										        array(
+										            'taxonomy'      => 'product_cat',
+										            'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+										            'terms'         => $product_cats,
+										            'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+										        )
+										    )											
+										)?>
+										
 									<?php endif; ?>
 									
 									<?php $loop = new WP_Query($args)?>

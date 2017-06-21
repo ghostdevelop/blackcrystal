@@ -34,8 +34,8 @@
 			    remove_meta_box('postcustom', 'post', 'core');
 			    remove_meta_box('postcustom', 'page', 'core');
 			    remove_meta_box('trackbacksdiv', 'post', 'core');
-			    remove_meta_box('slugdiv', 'post', 'core');
-			    remove_meta_box('slugdiv', 'page', 'core');
+//			    remove_meta_box('slugdiv', 'post', 'core');
+//			    remove_meta_box('slugdiv', 'page', 'core');
 			    remove_meta_box('authordiv', 'post', 'core');
 			    remove_meta_box('authordiv', 'page', 'core');
 			    remove_meta_box('revisionsdiv', 'page', 'core');
