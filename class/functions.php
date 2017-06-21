@@ -151,6 +151,7 @@ function import_get_sale_price($price, $sale_price){
 	$decimals = get_option('woocommerce_price_num_decimals');
 	
 	if ($sale_price > 0 && SIMPLE_SHOP){
+		$return_price = $sale_price;	
 		$exchange_rate = (int) get_option( 'exchange_rate');
 		
 		$return_price = round($sale_price / $exchange_rate);
