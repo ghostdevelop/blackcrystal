@@ -146,7 +146,6 @@ function import_get_price($price){
 function import_get_sale_price($price, $sale_price){
 	global $wpdb;
 	
-	$return_price = $sale_price;	
 	
 	$sale_percent = (int) get_option('sale_percent');	
 	$decimals = get_option('woocommerce_price_num_decimals');
