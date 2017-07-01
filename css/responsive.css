@@ -951,6 +951,7 @@ display: block; }
 	
 	.entry-content img{
 		width: 98%;
+		height: auto;		
 	}
 	
 	.logo.mobile a,

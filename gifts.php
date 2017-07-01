@@ -23,7 +23,6 @@
 										<ul class="gifts-list">
 											<?php foreach ($terms as $term):?>
 												<li class="clearfix">
-													<?php $img = get_the_post_thumbnail(get_woocommerce_term_meta($term->term_id, 'thumbnail_id'), 'large', array('class' => 'list-bg'))?>
 													<?php taxonomy_featured_image($term->term_id)?>
 													<a class="gift-name" href="<?php echo get_term_link($term)?>"><?php echo $term->name?></a>
 												</li>
