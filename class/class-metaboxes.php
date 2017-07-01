@@ -9,7 +9,7 @@
 			    add_action( 'admin_menu', array(&$this, 'remove_meta_boxes'), 999);		
 				add_action( 'add_meta_boxes_page', array(&$this, 'select_product_metabox' ));	
 				add_action( 'save_post', array(&$this, 'product_select_save' ));					
-				add_action( 'wp_ajax_my_ajax', array(&$this, 'products_select_get_products' ));						        
+				add_action( 'wp_ajax_products_select_get_products', array(&$this, 'products_select_get_products' ));						        
 		    }
 		    	
 			function dashboard_columns() {
@@ -46,10 +46,10 @@
 			
 			public function add_meta_box( $post_type ) {
 			/*
-				add_meta_box('gallery_box',__( 'Galéria', 'webconcept_textdomain' ), 'GalleryMetabox::metabox' , 'page','normal'	,'low'	);
+				add_meta_box('gallery_box',__( 'GalÃ©ria', 'webconcept_textdomain' ), 'GalleryMetabox::metabox' , 'page','normal'	,'low'	);
 				add_meta_box('location_box',__( 'Hely', 'webconcept_textdomain' ), 'LocationMetabox::metabox' , 'page'	,'side'	,'low'	);
-				add_meta_box('description_box', __( 'Rövid leírás', 'webconcept_textdomain' ), 'DescriptionMetabox::metabox', 'page' ,'normal'	,'high'	);			
-				add_meta_box('youtube_box', __( 'Videók', 'webconcept_textdomain' ), 'YoutubeMetabox::metabox', 'page' ,'normal'	,'high'	);	
+				add_meta_box('description_box', __( 'RÃ¶vid leÃ­rÃ¡s', 'webconcept_textdomain' ), 'DescriptionMetabox::metabox', 'page' ,'normal'	,'high'	);			
+				add_meta_box('youtube_box', __( 'VideÃ³k', 'webconcept_textdomain' ), 'YoutubeMetabox::metabox', 'page' ,'normal'	,'high'	);	
 			*/		
 			}		
 			
@@ -58,7 +58,7 @@
 			    if ( 'landing.php' == get_post_meta( $post->ID, '_wp_page_template', true ) ) {
 					add_meta_box(
 	                 'product_meta', // $id
-	                 __('Kapcsolódó termékek', 'blackcrystal'), // $title
+	                 __('KapcsolÃ³dÃ³ termÃ©kek', 'blackcrystal'), // $title
 	                 array(&$this, 'display_product_information'), // $callback
 	                 'page', // $page
 	                 'normal', // $context
@@ -97,7 +97,8 @@
 				$args = array(
 				    'post_type' => 'product',
 				    's' => $_GET['q'],
-				    'posts_per_page' => -1,
+				    'posts_per_page' => 20,
+				    'offset' => $_GET['offset'],
 				    'post_status' => 'publish',
 				    'orderby'     => 'title', 
 				    'order'       => 'ASC'        

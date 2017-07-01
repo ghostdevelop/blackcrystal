@@ -1,46 +1,44 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <style>
-	span.select2.select2-container.select2-container--default{
-		width: 100%;
-		display: block;
-		margin: 20px 0 0;
-	}
-	
 	#product-select{
 		display: block;
 		width: 100%;
+		height: 300px;
 	}	
+	
+	#product-search{
+		margin: 20px 0;
+	}
 </style>
 <script type="text/javascript">
 	jQuery(document).ready(function($){
-		$('#product-select').select2({
-		 ajax: {
-		    url: "<?php echo admin_url('admin-ajax.php'); ?>",
-		    dataType: 'json',
-		    delay: 250,
-		    data: function (params) {
-		      return {
-		      	action: "my_ajax",
-		        q: params.term, // search term
-		      };
-		    },
-		    processResults: function (data, params) {
-		      // parse the results into the format expected by Select2
-		      // since we are using custom formatting functions we do not need to
-		      // alter the remote JSON data, except to indicate that infinite
-		      // scrolling can be used		
-		      return {
-		        results: data
-		      };
-		    },
-		    cache: true
-		  },	
-		  minimumInputLength: 4,		  	
+		$('#product-search').on('keyup', function(e){
+			if (e.target.value.length > 4){
+				var selectedItems = $('#product-select option:selected')
+				console.log(selectedItems)
+				$.ajax({
+				    url: "<?php echo admin_url('admin-ajax.php'); ?>",
+				    dataType: 'json',	
+				    data: {
+				      	action: "products_select_get_products",
+				        q: e.target.value, // search term
+						offset: 0				        
+				    },
+				    success: function (response){
+						var elements = jQuery.map( response, function( res ) {
+						  return ("<option value='" + res.id + "'>" + res.text + "</option>");
+						});				    
+						
+					    $('#product-select').html($.merge( elements, selectedItems))
+				    }			    				
+				})
+			}
+			console.log("e", e.target.value.length)
 		});
 	})
 </script>
 <?php  wp_nonce_field( 'product-select', 'product-select-nonce' ); ?>
+
+
 <div class="form-group">
 	<?php $args = array('taxonomy'  => 'product_cat', 'hierarchical' => 1, 'name' => 'product-cat-select', 'selected' => get_post_meta(get_the_ID(), 'product-cat-select', true), 'show_option_none'   => 'Válassz'); ?>
 	<label><?php _e('Kategória kiválasztása', 'blackcrystal')?></label>
@@ -51,6 +49,7 @@
 
 <div class="form-group">
 	<label><?php _e('Termékek kiválasztása', 'blackcrystal')?></label>
+	<input id="product-search" name="product-search" type="text" value="" placeholder="Termékek keresése"/>	
 	<select name="product-select[]" id="product-select" multiple="multiple" >
 		<?php if (!empty($products)):?>
 			<?php foreach($products as $product): ?>

@@ -40,6 +40,9 @@ function get_add_price_net($prod_id){
 	if ($exchange_rate > 0) $prices['normal'] = $prices['normal'] / $exchange_rate;
 	if ($exchange_rate > 0 && isset($prices['sale'])) $prices['sale'] = $prices['sale'] / $exchange_rate;
 	
+	if (isset($prices['sale'])) $prices['sale'] = round($prices['sale']);
+	if (isset($prices['normal'])) $prices['normal'] = round($prices['normal']);
+	
 	return $prices;
 }
 
@@ -146,12 +149,12 @@ function import_get_price($price){
 function import_get_sale_price($price, $sale_price){
 	global $wpdb;
 	
+	$return_price = "";
 	
 	$sale_percent = (int) get_option('sale_percent');	
 	$decimals = get_option('woocommerce_price_num_decimals');
 	
 	if ($sale_price > 0 && SIMPLE_SHOP){
-		$return_price = $sale_price;	
 		$exchange_rate = (int) get_option( 'exchange_rate');
 		
 		$return_price = round($sale_price / $exchange_rate);

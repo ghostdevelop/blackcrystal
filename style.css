@@ -1219,12 +1219,17 @@ div.summary.entry-summary{
 }
 
 .isotope-item {
-	max-height: 220px;
+	height: 220px;
 	overflow: hidden;
-	max-width: 33%;
+	width: 33%;
 }
 .isotope-item a{
 	display: inline-block;
+}
+
+.isotope-item a img{
+	width: 100%;
+	height: auto
 }
 
 .isotope-hidden.isotope-item {

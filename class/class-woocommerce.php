@@ -198,8 +198,10 @@ if(!class_exists('CustomWoo')) {
 		}
 		
 		function get_custom_price($price, $product) {
+			
 		    if (!is_user_logged_in()) return $price;
-		
+		    if ($product->get_sku() == "1000") return $price;
+			
 			if (get_user_meta(get_current_user_id(), '_show_customer_price', true) == true){
 				$pref = get_user_meta(get_current_user_id(), '_preference', true);
 				$cp = get_user_meta(get_current_user_id(), '_customer_price', true);
@@ -215,7 +217,7 @@ if(!class_exists('CustomWoo')) {
 			}
 		
 		            
-		    return $price;
+		    return round($price);
 		}
 	
 		function display_price_action_hook() {
@@ -532,7 +534,7 @@ if(!class_exists('CustomWoo')) {
 					$product = new WC_Product( $order_item['product_id'] );
 					$ipp = (int) get_post_meta($order_item['product_id'], '_item_per_pack', true);
 					$price = (int) $product->get_price();
-					if (get_post_meta($product->id, '_sku', true) == 1000) $price = $order_item['line_subtotal'];
+					if (get_post_meta($product->id, '_sku', true) == 1000) $price = $order_item['line_subtotal'] / $order_item['qty'];
 					if ($ipp > 0) $price = round($price / $ipp);
 						
 					$grossvalue = $order_item['line_subtotal'] + $order_item['line_subtotal_tax'];
