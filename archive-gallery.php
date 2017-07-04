@@ -4,7 +4,7 @@
 jQuery(window).load(function(){
     var $container = jQuery('.portfolioContainer');
     $container.isotope({
-        filter: '*',
+        filter: '<?php if (!empty($_GET['g_slug'])): ?>.<?php echo $_GET['g_slug']?><?php else : ?>*<?php endif; ?>',
       
         animationOptions: {
             duration: 750,
@@ -48,9 +48,9 @@ jQuery(window).load(function(){
 										<?php $terms = get_terms( 'gallery', array('hide_empty' => true));?>
 										<?php if (!empty($terms)):?>
 											<div class="portfolioFilter">
-												<a href="#" data-filter="*" class="current"><?php _e('Minden kategória', 'blackcrystal')?></a>
+												<a href="#" data-filter="*" <?php if ($_GET['g_slug'] == ""): ?>class="current"<?php endif; ?>><?php _e('Minden kategória', 'blackcrystal')?></a>
 												<?php foreach ($terms as $term):?>
-													<a href="#" data-filter=".<?php echo $term->slug?>"><?php echo $term->name?></a>
+													<a href="#" data-filter=".<?php echo $term->slug?>" <?php if ($_GET['g_slug'] == $term->slug): ?>class="current"<?php endif; ?>><?php echo $term->name?></a>
 												<?php endforeach;?>				
 											</div>		
 										<?php endif;?>			
