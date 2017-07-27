@@ -35,11 +35,11 @@ if ( ! woocommerce_products_will_display() )
 	$last     = min( $total, $wp_query->get( 'posts_per_page' ) * $paged );
 
 	if ( 1 === $total ) {
-		_e( 'Showing the single result', 'woocommerce' );
+		_e( 'Showing the single result', 'blackcrystal' );
 	} elseif ( $total <= $per_page || -1 === $per_page ) {
-		printf( __( 'Showing all %d results', 'woocommerce' ), $total );
+		printf( __( 'Showing all %d results', 'blackcrystal' ), $total );
 	} else {
-		printf( _x( 'Showing %1$d&ndash;%2$d of %3$d results', '%1$d = first, %2$d = last, %3$d = total', 'woocommerce' ), $first, $last, $total );
+		printf( _x( 'Showing %1$d&ndash;%2$d of %3$d results', '%1$d = first, %2$d = last, %3$d = total', 'blackcrystal' ), $first, $last, $total );
 	}
 	?>
 </p>

@@ -59,7 +59,7 @@
 									</ul>
 								</div>
 								<div class="page-title category-title">
-									<h1 class="subtitle"><?php _e('Featured Products', 'woocommerce')?></h1>
+									<h1 class="subtitle"><?php _e('Featured Products', 'blackcrystal')?></h1>
 								</div>
 								<?php echo do_shortcode('[featured_products per_page="12" columns="4"]');?>
 							</div>

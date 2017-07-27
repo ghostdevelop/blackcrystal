@@ -34,8 +34,6 @@
 			    $submenu['edit.php'][10][0] = 'Új hír';
 			    echo '';
 			    
-			    //Woocommerce 
-			    $menu[55.5][0] = 'Webshop';
 			    //Loco Translate 
 			    $menu[112][0] = 'Import';
 			}	

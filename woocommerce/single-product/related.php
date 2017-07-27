@@ -53,7 +53,7 @@ if ( $products->have_posts() ) : ?>
 
 	<div class="box-collateral box-up-sell related-carousel">
 		<div class="block-title clearfix">
-			<span class="line-title"><?php _e( 'Related Products', 'woocommerce' ); ?></span>
+			<span class="line-title"><?php _e( 'Related Products', 'blackcrystal' ); ?></span>
 		</div>
 		<ul class="products-ups">
 

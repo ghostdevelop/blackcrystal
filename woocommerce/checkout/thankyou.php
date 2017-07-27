@@ -28,36 +28,36 @@ if ( $order ) : ?>
 
 	<?php if ( $order->has_status( 'failed' ) ) : ?>
 
-		<p class="woocommerce-thankyou-order-failed"><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>
+		<p class="woocommerce-thankyou-order-failed"><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'blackcrystal' ); ?></p>
 
 		<p class="woocommerce-thankyou-order-failed-actions">
-			<a href="<?php echo esc_url( $order->get_checkout_payment_url() ); ?>" class="button pay"><?php _e( 'Pay', 'woocommerce' ) ?></a>
+			<a href="<?php echo esc_url( $order->get_checkout_payment_url() ); ?>" class="button pay"><?php _e( 'Pay', 'blackcrystal' ) ?></a>
 			<?php if ( is_user_logged_in() ) : ?>
-				<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="button pay"><?php _e( 'My Account', 'woocommerce' ); ?></a>
+				<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="button pay"><?php _e( 'My Account', 'blackcrystal' ); ?></a>
 			<?php endif; ?>
 		</p>
 
 	<?php else : ?>
 		<?php if (!isset($txid)):?>
-			<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
+			<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'blackcrystal' ), $order ); ?></p>
 		<?php endif;?>
 
 		<ul class="woocommerce-thankyou-order-details order_details">
 			<li class="order">
-				<?php _e( 'Order Number:', 'woocommerce' ); ?>
+				<?php _e( 'Order Number:', 'blackcrystal' ); ?>
 				<strong><?php echo $order->get_order_number(); ?></strong>
 			</li>
 			<li class="date">
-				<?php _e( 'Date:', 'woocommerce' ); ?>
+				<?php _e( 'Date:', 'blackcrystal' ); ?>
 				<strong><?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?></strong>
 			</li>
 			<li class="total">
-				<?php _e( 'Total:', 'woocommerce' ); ?>
+				<?php _e( 'Total:', 'blackcrystal' ); ?>
 				<strong><?php echo $order->get_formatted_order_total(); ?></strong>
 			</li>
 			<?php if ( $order->payment_method_title ) : ?>
 			<li class="method">
-				<?php _e( 'Payment Method:', 'woocommerce' ); ?>
+				<?php _e( 'Payment Method:', 'blackcrystal' ); ?>
 				<strong><?php echo $order->payment_method_title; ?></strong>
 			</li>
 			<?php endif; ?>
@@ -71,6 +71,6 @@ if ( $order ) : ?>
 
 <?php else : ?>
 
-	<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
+	<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'blackcrystal' ), null ); ?></p>
 
 <?php endif; ?>

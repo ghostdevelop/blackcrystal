@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php if ( ! WC()->cart->is_empty() ) : ?>
 		<div class="empty">
-			<?php echo WC()->cart->get_cart_contents_count()?> <?php _e('product', 'woocommerce')?> - <span class="price"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+			<?php echo WC()->cart->get_cart_contents_count()?> <?php _e('product', 'blackcrystal')?> - <span class="price"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
 			<div class="cart-content">
 			<span id="close_callback">x</span>
 			<ul class="mini-cart-products clearfix">
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 									'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
 									esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
-									__( 'Remove this item', 'woocommerce' ),
+									__( 'Remove this item', 'blackcrystal' ),
 									esc_attr( $product_id ),
 									esc_attr( $_product->get_sku() )
 								), $cart_item_key );
@@ -90,13 +90,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</ul>
 				<?php if ( ! WC()->cart->is_empty() ) : ?>
 				
-					<p class="total"><strong><?php _e( 'Subtotal', 'woocommerce' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+					<p class="total"><strong><?php _e( 'Subtotal', 'blackcrystal' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
 				
 					<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 				
 					<p class="buttons">
-						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="button wc-forward"><?php _e( 'View Cart', 'woocommerce' ); ?></a>
-						<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="button checkout wc-forward <?php echo (get_option('minimum_amount') > 0 && WC()->cart->cart_contents_total < get_option('minimum_amount') ? 'disabled' : '') ?> "><?php _e( 'Checkout', 'woocommerce' ); ?></a>
+						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="button wc-forward"><?php _e( 'View Cart', 'blackcrystal' ); ?></a>
+						<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="button checkout wc-forward <?php echo (get_option('minimum_amount') > 0 && WC()->cart->cart_contents_total < get_option('minimum_amount') ? 'disabled' : '') ?> "><?php _e( 'Checkout', 'blackcrystal' ); ?></a>
 					</p>
 				
 				<?php endif; ?>		
@@ -107,9 +107,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php else : ?>
 
 		<div class="empty">
-			<?php echo WC()->cart->get_cart_contents_count()?> <?php _e('product', 'woocommerce')?> - <span class="price"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+			<?php echo WC()->cart->get_cart_contents_count()?> <?php _e('product', 'blackcrystal')?> - <span class="price"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
 			 <div class="cart-content">
-				<?php _e( 'No products in the cart.', 'woocommerce' ); ?>
+				<?php _e( 'No products in the cart.', 'blackcrystal' ); ?>
 			 </div>
 		</div>
 

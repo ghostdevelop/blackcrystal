@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 14:31+0000\n"
+"POT-Creation-Date: 2017-07-27 15:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,6 +13,69 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
+
+#: header.php:32
+msgid "Kérjük adja meg nevét és telefonszámát, hogy visszahívhassuk Önt."
+msgstr ""
+
+#: functions.php:73
+msgid "Top menu"
+msgstr ""
+
+#: functions.php:74
+msgid "Header menu"
+msgstr ""
+
+#: functions.php:75
+msgid "Header nav menu"
+msgstr ""
+
+#: functions.php:83 woocommerce/checkout/thankyou.php:36
+msgid "My Account"
+msgstr ""
+
+#: functions.php:84
+msgid "Logout"
+msgstr ""
+
+#: functions.php:86
+msgid "Log in"
+msgstr ""
+
+#: functions.php:87 woocommerce/myaccount/form-login.php:79
+#: woocommerce/myaccount/form-login.php:123
+msgid "Register"
+msgstr ""
+
+#: functions.php:88
+msgid "Lost Password"
+msgstr ""
+
+#: header-simple.php:8
+#, php-format
+msgid "Keressen minket %s elérhetőségeinken %s vagy,"
+msgstr ""
+
+#: header-simple.php:10
+msgid "Akciós termékek"
+msgstr ""
+
+#: header-simple.php:13
+msgid "Kérjen Visszahívást"
+msgstr ""
+
+#. Name of the template
+#. Name of the template
+msgid "Home"
+msgstr ""
+
+#: archive-gallery.php:51
+msgid "Minden kategória"
+msgstr ""
+
+#: archive.php:28 home.php:28
+msgid "Megnézem"
+msgstr ""
 
 #. Name of the template
 msgid "Video kereső"
@@ -30,71 +93,8 @@ msgstr ""
 msgid "Keresés dekor alapján"
 msgstr ""
 
-#: functions.php:69
-msgid "Top menu"
-msgstr ""
-
-#: functions.php:70
-msgid "Header menu"
-msgstr ""
-
-#: functions.php:71
-msgid "Header nav menu"
-msgstr ""
-
-#: header-simple.php:8
-#, php-format
-msgid "Keressen minket %s elérhetőségeinken %s vagy,"
-msgstr ""
-
-#: header-simple.php:10
-msgid "Akciós termékek"
-msgstr ""
-
-#: header-simple.php:13
-msgid "Kérjen Visszahívást"
-msgstr ""
-
-#: admin-templates/theme-options.php:57
+#: admin-templates/theme-options.php:68
 msgid "Kapcsolat"
-msgstr ""
-
-#: header.php:32
-msgid "Kérjük adja meg nevét és telefonszámát, hogy visszahívhassuk Önt."
-msgstr ""
-
-#. Name of the template
-#. Name of the template
-msgid "Home"
-msgstr ""
-
-#: welcome.php:33 post-types/designs.php:43
-msgid "Dekorok"
-msgstr ""
-
-#: welcome.php:44
-msgid "Videók"
-msgstr ""
-
-#. Name of the template
-#: welcome.php:54 admin-templates/theme-options.php:69
-msgid "Ajándék ötletek"
-msgstr ""
-
-#: archive-gallery.php:51
-msgid "Minden kategória"
-msgstr ""
-
-#: footer.php:19
-msgid "Minden jog fentartva."
-msgstr ""
-
-#: footer.php:45
-msgid "Close"
-msgstr ""
-
-#: home.php:28 archive.php:28
-msgid "Megnézem"
 msgstr ""
 
 #: header-wholesale.php:11
@@ -109,8 +109,53 @@ msgstr ""
 msgid "Érdeklődjön itt"
 msgstr ""
 
+#. Name of the template
+msgid "Landing Page"
+msgstr ""
+
+#: welcome.php:33 post-types/designs.php:43
+msgid "Dekorok"
+msgstr ""
+
+#: welcome.php:44
+msgid "Videók"
+msgstr ""
+
+#. Name of the template
+#: welcome.php:54 admin-templates/theme-options.php:80
+msgid "Ajándék ötletek"
+msgstr ""
+
+#: welcome.php:62
+msgid "Featured Products"
+msgstr ""
+
+#: footer.php:19
+msgid "Minden jog fentartva."
+msgstr ""
+
+#: footer.php:45
+msgid "Close"
+msgstr ""
+
 #: single-design.php:26
 msgid "Termékek ezzel a dekorral"
+msgstr ""
+
+#: metaboxes/select-product.php:44
+msgid "Kategória kiválasztása"
+msgstr ""
+
+#: metaboxes/select-product.php:51
+msgid "Termékek kiválasztása"
+msgstr ""
+
+#: woocommerce/archive-product.php:68
+msgid "További termékeink"
+msgstr ""
+
+#: woocommerce/content-product.php:73
+msgid "Részletek"
 msgstr ""
 
 #: post-types/designs.php:33
@@ -181,59 +226,7 @@ msgstr ""
 msgid "Hirdetések"
 msgstr ""
 
-#: admin-templates/theme-options.php:8
-msgid "beállítások"
-msgstr ""
-
-#: admin-templates/theme-options.php:29
-msgid "Oldalak"
-msgstr ""
-
-#: admin-templates/theme-options.php:33
-msgid "Akciók"
-msgstr ""
-
-#: admin-templates/theme-options.php:45
-msgid "Videok"
-msgstr ""
-
-#: admin-templates/theme-options.php:81
-msgid "Aktualitások"
-msgstr ""
-
-#: admin-templates/theme-options.php:95
-msgid "Felirat leírás oldala"
-msgstr ""
-
-#: admin-templates/theme-options.php:107
-msgid "Szállítás leírás oldala"
-msgstr ""
-
-#: admin-templates/theme-options.php:120
-msgid "Űrlapok"
-msgstr ""
-
-#: admin-templates/theme-options.php:124
-msgid "Visszahívás kérése"
-msgstr ""
-
-#: admin-templates/theme-options.php:128
-msgid "Írjon nekünk"
-msgstr ""
-
-#: admin-templates/theme-options.php:132
-msgid "Video kérése"
-msgstr ""
-
-#: woocommerce/archive-product.php:67
-msgid "További termékeink"
-msgstr ""
-
-#: woocommerce/content-product.php:71
-msgid "Részletek"
-msgstr ""
-
-#: class/functions.php:73 class/class-woocommerce.php:244
+#: class/functions.php:76 class/class-woocommerce.php:246
 msgid "Jelentkezz be az árak megtekintéséhez"
 msgstr ""
 
@@ -241,7 +234,7 @@ msgstr ""
 msgid "Out of stock"
 msgstr ""
 
-#: class/class-woocommerce.php:53
+#: class/class-woocommerce.php:53 woocommerce/cart/cart.php:90
 msgid "Available on backorder"
 msgstr ""
 
@@ -289,92 +282,77 @@ msgstr ""
 msgid "(Termékkód: %s)"
 msgstr ""
 
-#: class/class-woocommerce.php:193 class/class-woocommerce.php:281
+#: class/class-woocommerce.php:193 class/class-woocommerce.php:283
 #, php-format
 msgid "Díszdoboz a %d kódszámú termékhez"
 msgstr ""
 
-#: class/class-woocommerce.php:315
+#: class/class-woocommerce.php:317
 msgid "Free"
 msgstr ""
 
-#: class/class-woocommerce.php:331 class/class-woocommerce.php:332
+#: class/class-woocommerce.php:333 class/class-woocommerce.php:334
 #: class/class-woocommerce-card-payment.php:80
 msgid "Bolt azonosító"
 msgstr ""
 
-#: class/class-woocommerce.php:338
+#: class/class-woocommerce.php:340
 msgid "Bolt azonosízó beállítása a raktárkezelőben történő azonosításhoz"
 msgstr ""
 
-#: class/class-woocommerce.php:342
+#: class/class-woocommerce.php:344
 msgid "Árfolyam"
 msgstr ""
 
-#: class/class-woocommerce.php:343
+#: class/class-woocommerce.php:345
 msgid "Aktuális árfolyam"
 msgstr ""
 
-#: class/class-woocommerce.php:349
+#: class/class-woocommerce.php:351
 msgid "Aktuális árfolyam beállítása forintról a bolt pénznemére"
 msgstr ""
 
-#: class/class-woocommerce.php:353
+#: class/class-woocommerce.php:355
 msgid "Árszorzó"
 msgstr ""
 
-#: class/class-woocommerce.php:354 class/class-woocommerce.php:360
-#: class/class-woocommerce.php:365 class/class-woocommerce.php:371
-#: class/class-woocommerce.php:382 class/class-woocommerce.php:393
-#: class/class-woocommerce.php:404
+#: class/class-woocommerce.php:356 class/class-woocommerce.php:362
+#: class/class-woocommerce.php:367 class/class-woocommerce.php:373
+#: class/class-woocommerce.php:384 class/class-woocommerce.php:395
+#: class/class-woocommerce.php:406
 msgid "A mindenkori nettó árat módosítja a megadott értékkel."
 msgstr ""
 
-#: class/class-woocommerce.php:364
+#: class/class-woocommerce.php:366
 msgid "Kedvezmény"
 msgstr ""
 
-#: class/class-woocommerce.php:375
+#: class/class-woocommerce.php:377
 msgid "Díszdoboz kedvezmény"
 msgstr ""
 
-#: class/class-woocommerce.php:376 class/class-woocommerce.php:387
+#: class/class-woocommerce.php:378 class/class-woocommerce.php:389
 msgid "A mindenkori nettó díszdoboz árat módosítja a megadott értékkel."
 msgstr ""
 
-#: class/class-woocommerce.php:386
+#: class/class-woocommerce.php:388
 msgid "Díszdoboz árszorzó"
 msgstr ""
 
-#: class/class-woocommerce.php:397
+#: class/class-woocommerce.php:399
 msgid "Mennyiségi kedvezmények"
 msgstr ""
 
-#: class/class-woocommerce.php:398
+#: class/class-woocommerce.php:400
 msgid "Megadja, hogy mekkora mennyiség eléréséhez mekkora kedvezmény tartozik."
 msgstr ""
 
-#: class/class-woocommerce.php:408
+#: class/class-woocommerce.php:410
 msgid "Minimum rendelési összeg"
 msgstr ""
 
-#: class/class-woocommerce.php:409 class/class-woocommerce.php:415
+#: class/class-woocommerce.php:411 class/class-woocommerce.php:417
 msgid "Megadja, hogy mekkora mennyi a minimum rendelési összeg."
-msgstr ""
-
-#: class/class-loader.php:69
-msgid "Díszdoboz csak teljes készlethez érhető el"
-msgstr ""
-
-#: class/class-loader.php:70
-msgid "Checkout error"
-msgstr ""
-
-#: class/class-loader.php:71
-#, php-format
-msgid ""
-"You must have an order with a minimum of %s to place your order, your "
-"current order total is %s."
 msgstr ""
 
 #: class/class-woocommerce-card-payment.php:12
@@ -482,50 +460,179 @@ msgstr ""
 msgid "Sikertelen tranzakció. Hibás adatokat adott meg."
 msgstr ""
 
+#. $id
+#: class/class-metaboxes.php:61
+msgid "Kapcsolódó termékek"
+msgstr ""
+
+#: class/class-loader.php:69
+msgid "Díszdoboz csak teljes készlethez érhető el"
+msgstr ""
+
+#: class/class-loader.php:70
+msgid "Checkout error"
+msgstr ""
+
+#: class/class-loader.php:71
+#, php-format
+msgid ""
+"You must have an order with a minimum of %s to place your order, your "
+"current order total is %s."
+msgstr ""
+
+#: admin-templates/theme-options.php:8
+msgid "beállítások"
+msgstr ""
+
+#: admin-templates/theme-options.php:40
+msgid "Oldalak"
+msgstr ""
+
+#: admin-templates/theme-options.php:44
+msgid "Akciók"
+msgstr ""
+
+#: admin-templates/theme-options.php:56
+msgid "Videok"
+msgstr ""
+
+#: admin-templates/theme-options.php:92
+msgid "Aktualitások"
+msgstr ""
+
+#: admin-templates/theme-options.php:106
+msgid "Felirat leírás oldala"
+msgstr ""
+
+#: admin-templates/theme-options.php:118
+msgid "Szállítás leírás oldala"
+msgstr ""
+
+#: admin-templates/theme-options.php:131
+msgid "Űrlapok"
+msgstr ""
+
+#: admin-templates/theme-options.php:135
+msgid "Visszahívás kérése"
+msgstr ""
+
+#: admin-templates/theme-options.php:139
+msgid "Írjon nekünk"
+msgstr ""
+
+#: admin-templates/theme-options.php:143
+msgid "Video kérése"
+msgstr ""
+
+#: woocommerce/cart/proceed-to-checkout-button.php:27
+msgid "Proceed to Checkout"
+msgstr ""
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:77
+#: woocommerce/order/order-details.php:31
+msgid "Product"
+msgstr ""
+
+#: woocommerce/cart/cart.php:36 woocommerce/cart/cart.php:95
+msgid "Price"
+msgstr ""
+
+#: woocommerce/cart/cart.php:37 woocommerce/cart/cart.php:101
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/cart/cart.php:38 woocommerce/cart/cart.php:118
+#: woocommerce/order/order-details.php:32
+msgid "Total"
+msgstr ""
+
+#: woocommerce/cart/cart.php:58 woocommerce/cart/mini-cart.php:55
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/cart/cart.php:136
+msgid "Coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:136
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/cart/cart.php:136
+msgid "Apply Coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:142
+msgid "Update Cart"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:32 woocommerce/cart/mini-cart.php:110
+msgid "product"
+msgstr ""
+
 #: woocommerce/cart/mini-cart.php:82
 msgid "(további termékek ...)"
 msgstr ""
 
-#: woocommerce/emails/customer-refunded-order.php:50
-#: woocommerce/emails/customer-completed-order.php:43
-msgid "Banki engedélyszám: "
+#: woocommerce/cart/mini-cart.php:93
+msgid "Subtotal"
 msgstr ""
 
-#: woocommerce/emails/customer-refunded-order.php:53
-#: woocommerce/emails/customer-completed-order.php:46
-msgid "Elfogadó cégszerű neve: "
+#: woocommerce/cart/mini-cart.php:98
+msgid "View Cart"
 msgstr ""
 
-#: woocommerce/emails/customer-refunded-order.php:54
-#: woocommerce/emails/customer-completed-order.php:47
-msgid "Novák Zoltán EV"
+#: woocommerce/cart/mini-cart.php:99
+msgid "Checkout"
 msgstr ""
 
-#: woocommerce/emails/customer-refunded-order.php:56
-#: woocommerce/emails/customer-completed-order.php:49
-msgid "Webáruház címe: "
+#: woocommerce/cart/mini-cart.php:112
+msgid "No products in the cart."
 msgstr ""
 
-#: woocommerce/emails/email-order-details.php:25
-msgid " (tranzakicó azonosító)"
+#: woocommerce/order/order-details.php:27
+msgid "Order Details"
 msgstr ""
 
-#: woocommerce/emails/customer-new-account.php:26
-#, php-format
-msgid ""
-"Thanks for creating an account on %s. Your username is <strong>%s</strong>."
+#: woocommerce/order/order-details-customer.php:22
+msgid "Customer Details"
 msgstr ""
 
-#: woocommerce/emails/customer-new-account.php:30
-#, php-format
-msgid "Your password has been automatically generated: <strong>%s</strong>"
+#: woocommerce/order/order-details-customer.php:27
+msgid "Note:"
 msgstr ""
 
-#: woocommerce/emails/customer-new-account.php:34
-#, php-format
-msgid ""
-"You can access your account area to view your orders and change your "
-"password here: %s."
+#: woocommerce/order/order-details-customer.php:34
+msgid "Email:"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:41
+msgid "Telephone:"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:57
+msgid "Billing Address"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:60
+#: woocommerce/order/order-details-customer.php:71
+msgid "N/A"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:68
+msgid "Shipping Address"
+msgstr ""
+
+#: woocommerce/single-product/price.php:28
+msgid "db"
+msgstr ""
+
+#: woocommerce/single-product/product-thumbnails.php:30
+msgid "További képek megtekintéséhez kattintson ide!"
+msgstr ""
+
+#: woocommerce/single-product/related.php:56
+msgid "Related Products"
 msgstr ""
 
 #: woocommerce/myaccount/form-login.php:32
@@ -558,11 +665,6 @@ msgstr ""
 msgid "Lost your password?"
 msgstr ""
 
-#: woocommerce/myaccount/form-login.php:79
-#: woocommerce/myaccount/form-login.php:123
-msgid "Register"
-msgstr ""
-
 #: woocommerce/myaccount/form-login.php:88
 msgid "Username"
 msgstr ""
@@ -588,12 +690,92 @@ msgid ""
 "account details</a>."
 msgstr ""
 
-#: woocommerce/single-product/price.php:28
-msgid "db"
+#: woocommerce/loop/result-count.php:38
+msgid "Showing the single result"
 msgstr ""
 
-#: woocommerce/single-product/product-thumbnails.php:30
-msgid "További képek megtekintéséhez kattintson ide!"
+#: woocommerce/loop/result-count.php:40
+#, php-format
+msgid "Showing all %d results"
+msgstr ""
+
+#: woocommerce/loop/result-count.php:42
+#, php-format
+msgctxt "%1$d = first, %2$d = last, %3$d = total"
+msgid "Showing %1$d&ndash;%2$d of %3$d results"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:31
+msgid ""
+"Unfortunately your order cannot be processed as the originating "
+"bank/merchant has declined your transaction. Please attempt your purchase "
+"again."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:34
+msgid "Pay"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:42 woocommerce/checkout/thankyou.php:74
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:47
+msgid "Order Number:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:51
+msgid "Date:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:55
+msgid "Total:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:60
+msgid "Payment Method:"
+msgstr ""
+
+#: woocommerce/emails/customer-new-account.php:26
+#, php-format
+msgid ""
+"Thanks for creating an account on %s. Your username is <strong>%s</strong>."
+msgstr ""
+
+#: woocommerce/emails/customer-new-account.php:30
+#, php-format
+msgid "Your password has been automatically generated: <strong>%s</strong>"
+msgstr ""
+
+#: woocommerce/emails/customer-new-account.php:34
+#, php-format
+msgid ""
+"You can access your account area to view your orders and change your "
+"password here: %s."
+msgstr ""
+
+#: woocommerce/emails/customer-refunded-order.php:50
+#: woocommerce/emails/customer-completed-order.php:43
+msgid "Banki engedélyszám: "
+msgstr ""
+
+#: woocommerce/emails/customer-refunded-order.php:53
+#: woocommerce/emails/customer-completed-order.php:46
+msgid "Elfogadó cégszerű neve: "
+msgstr ""
+
+#: woocommerce/emails/customer-refunded-order.php:54
+#: woocommerce/emails/customer-completed-order.php:47
+msgid "Novák Zoltán EV"
+msgstr ""
+
+#: woocommerce/emails/customer-refunded-order.php:56
+#: woocommerce/emails/customer-completed-order.php:49
+msgid "Webáruház címe: "
+msgstr ""
+
+#: woocommerce/emails/email-order-details.php:25
+msgid " (tranzakicó azonosító)"
 msgstr ""
 
 #: woocommerce/single-product/add-to-cart/simple.php:78

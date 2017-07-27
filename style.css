@@ -7,6 +7,10 @@ Author: Petya
 Author URI: 
 */
 
+form.login .button{
+	display: none !important
+}
+
 .landing-thumbnail-holder img{
 	display: block;
 	width: 200px;

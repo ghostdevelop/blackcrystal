@@ -24,5 +24,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="checkout-button checkout button alt wc-forward <?php echo (get_option('minimum_amount') > 0 && WC()->cart->cart_contents_total < get_option('minimum_amount') ? 'disabled' : '') ?>">
-	<?php echo __( 'Proceed to Checkout', 'woocommerce' ); ?>
+	<?php echo __( 'Proceed to Checkout', 'blackcrystal' ); ?>
 </a>

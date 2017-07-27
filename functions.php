@@ -80,12 +80,12 @@ if(!class_exists('ThemeFramework')) {
 		function loginout_menu_link( $items, $args ) {
 		   if ($args->theme_location == 'header-menu') {
 		      if (is_user_logged_in()) {
-		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'">'.__('My Account', 'woocommerce').'</a></li>';
-		         $items .= '<li class=""><a href="'. wp_logout_url(home_url()) .'">'.__('Logout', 'woocommerce').'</a></li>';
+		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'">'.__('My Account', 'blackcrystal').'</a></li>';
+		         $items .= '<li class=""><a href="'. wp_logout_url(home_url()) .'">'.__('Logout', 'blackcrystal').'</a></li>';
 		      } else {
-		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'?action=login">'.__('Log in', 'woocommerce').'</a></li>';
-		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'">'.__('Register', 'woocommerce').'</a></li>';
-		         $items .= '<li class=""><a href="'. wp_lostpassword_url() .'">'.__('Lost Password', 'woocommerce').'</a></li>';
+		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'?action=login">'.__('Log in', 'blackcrystal').'</a></li>';
+		         $items .= '<li class=""><a href="'. get_the_permalink(woocommerce_get_page_id('myaccount')) .'">'.__('Register', 'blackcrystal').'</a></li>';
+		         $items .= '<li class=""><a href="'. wp_lostpassword_url() .'">'.__('Lost Password', 'blackcrystal').'</a></li>';
 		      }
 		   }
 		   return $items;
