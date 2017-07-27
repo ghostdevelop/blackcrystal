@@ -7,10 +7,6 @@ Author: Petya
 Author URI: 
 */
 
-form.login .button{
-	display: none !important
-}
-
 .landing-thumbnail-holder img{
 	display: block;
 	width: 200px;
@@ -86,6 +82,11 @@ div.next-posts-link{
 .entry-content p{
 	margin: 14px 0;
 	line-height: 1.5;
+	text-align: justify;
+}
+
+.entry-content img{
+	margin: 5px 1.5em 0;
 }
 
 .page-title{

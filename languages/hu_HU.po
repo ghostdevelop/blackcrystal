@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 15:26+0000\n"
-"PO-Revision-Date: 2017-07-27 15:27+0000\n"
+"POT-Creation-Date: 2017-07-27 22:38+0000\n"
+"PO-Revision-Date: 2017-07-27 22:38+0000\n"
 "Last-Translator: Novák Zoltán <petyaxd@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu-HU\n"
@@ -508,9 +508,9 @@ msgstr ""
 msgid "További képek megtekintéséhez kattintson ide!"
 msgstr ""
 
-#: woocommerce/single-product/related.php:56
-msgid "Related Products"
-msgstr "Kapcsolódó termékek"
+#: woocommerce/myaccount/my-orders.php:42
+msgid "Recent Orders"
+msgstr "Korábbi rendelések"
 
 #: woocommerce/myaccount/form-login.php:55
 msgid "Csúsztasd el a bejelentkezéshez"
@@ -718,6 +718,10 @@ msgstr "Számlázási adatok"
 #: woocommerce/order/order-details-customer.php:68
 msgid "Shipping Address"
 msgstr "Szállítási adatok"
+
+#: woocommerce/single-product/related.php:56
+msgid "Related Products"
+msgstr "Kapcsolódó termékek"
 
 #: woocommerce/myaccount/form-login.php:32
 #: woocommerce/myaccount/form-login.php:59

@@ -956,11 +956,13 @@ display: block; }
 	
 	.entry-content .half{
 		width: 98%
+		margin: 10px 0;		
 	}
 	
 	.entry-content img{
 		width: 98%;
 		height: auto;		
+		margin: 10px 0;
 	}
 	
 	.logo.mobile a,

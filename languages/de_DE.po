@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 17:07+0000\n"
-"PO-Revision-Date: 2017-07-27 17:09+0000\n"
-"Last-Translator: Novák Zoltán <petyaxd@gmail.com>\n"
+"POT-Creation-Date: 2017-07-27 19:32+0000\n"
+"PO-Revision-Date: 2017-07-27 19:50+0000\n"
+"Last-Translator: Novák Zoltán <blackcrystal.office@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
@@ -370,7 +370,7 @@ msgstr ""
 
 #: woocommerce/cart/proceed-to-checkout-button.php:27
 msgid "Proceed to Checkout"
-msgstr ""
+msgstr "weiter zur Kasse"
 
 #: woocommerce/cart/cart.php:38 woocommerce/cart/cart.php:118
 #: woocommerce/order/order-details.php:32
@@ -395,11 +395,11 @@ msgstr ""
 
 #: woocommerce/order/order-details.php:27
 msgid "Order Details"
-msgstr ""
+msgstr "Bestelldetails"
 
 #: woocommerce/order/order-details-customer.php:22
 msgid "Customer Details"
-msgstr ""
+msgstr "Kundendetails"
 
 #: woocommerce/order/order-details-customer.php:27
 msgid "Note:"
@@ -411,11 +411,11 @@ msgstr ""
 
 #: woocommerce/order/order-details-customer.php:41
 msgid "Telephone:"
-msgstr ""
+msgstr "Telefon:"
 
 #: woocommerce/order/order-details-customer.php:57
 msgid "Billing Address"
-msgstr ""
+msgstr "Rechnungsadresse"
 
 #: woocommerce/order/order-details-customer.php:60
 #: woocommerce/order/order-details-customer.php:71
@@ -424,11 +424,11 @@ msgstr ""
 
 #: woocommerce/order/order-details-customer.php:68
 msgid "Shipping Address"
-msgstr ""
+msgstr "Lieferadresse"
 
 #: woocommerce/single-product/related.php:56
 msgid "Related Products"
-msgstr ""
+msgstr "Verbundene Produkte"
 
 #: woocommerce/myaccount/form-login.php:109
 msgid "Anti-spam"
@@ -466,7 +466,7 @@ msgstr ""
 
 #: woocommerce/checkout/thankyou.php:47
 msgid "Order Number:"
-msgstr ""
+msgstr "Bestellnummer:"
 
 #: woocommerce/checkout/thankyou.php:51
 msgid "Date:"
@@ -478,7 +478,7 @@ msgstr ""
 
 #: woocommerce/checkout/thankyou.php:60
 msgid "Payment Method:"
-msgstr ""
+msgstr "Zahlungsart"
 
 #: woocommerce/emails/customer-new-account.php:26
 #, php-format
@@ -754,7 +754,7 @@ msgstr "Passwort"
 
 #: woocommerce/myaccount/form-login.php:55
 msgid "Csúsztasd el a bejelentkezéshez"
-msgstr "Slide to login"
+msgstr "Scheiben zum Einloggen"
 
 #: woocommerce/myaccount/form-login.php:55
 msgid "Feloldva"
