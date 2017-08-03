@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blackcrystal 2016\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 19:32+0000\n"
-"PO-Revision-Date: 2017-07-27 19:50+0000\n"
+"POT-Creation-Date: 2017-07-31 17:36+0000\n"
+"PO-Revision-Date: 2017-08-01 19:55+0000\n"
 "Last-Translator: Novák Zoltán <blackcrystal.office@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -368,10 +368,6 @@ msgstr ""
 msgid "Írjon nekünk"
 msgstr ""
 
-#: woocommerce/cart/proceed-to-checkout-button.php:27
-msgid "Proceed to Checkout"
-msgstr "weiter zur Kasse"
-
 #: woocommerce/cart/cart.php:38 woocommerce/cart/cart.php:118
 #: woocommerce/order/order-details.php:32
 msgid "Total"
@@ -385,22 +381,6 @@ msgstr ""
 msgid "Coupon"
 msgstr ""
 
-#: woocommerce/cart/cart.php:136
-msgid "Apply Coupon"
-msgstr ""
-
-#: woocommerce/cart/mini-cart.php:99
-msgid "Checkout"
-msgstr ""
-
-#: woocommerce/order/order-details.php:27
-msgid "Order Details"
-msgstr "Bestelldetails"
-
-#: woocommerce/order/order-details-customer.php:22
-msgid "Customer Details"
-msgstr "Kundendetails"
-
 #: woocommerce/order/order-details-customer.php:27
 msgid "Note:"
 msgstr ""
@@ -409,26 +389,14 @@ msgstr ""
 msgid "Email:"
 msgstr ""
 
-#: woocommerce/order/order-details-customer.php:41
-msgid "Telephone:"
-msgstr "Telefon:"
-
-#: woocommerce/order/order-details-customer.php:57
-msgid "Billing Address"
-msgstr "Rechnungsadresse"
-
 #: woocommerce/order/order-details-customer.php:60
 #: woocommerce/order/order-details-customer.php:71
 msgid "N/A"
 msgstr ""
 
-#: woocommerce/order/order-details-customer.php:68
-msgid "Shipping Address"
-msgstr "Lieferadresse"
-
-#: woocommerce/single-product/related.php:56
-msgid "Related Products"
-msgstr "Verbundene Produkte"
+#: woocommerce/myaccount/my-orders.php:42
+msgid "Recent Orders"
+msgstr "Letzte Bestellung"
 
 #: woocommerce/myaccount/form-login.php:109
 msgid "Anti-spam"
@@ -436,17 +404,6 @@ msgstr ""
 
 #: woocommerce/loop/result-count.php:38
 msgid "Showing the single result"
-msgstr ""
-
-#: woocommerce/loop/result-count.php:40
-#, php-format
-msgid "Showing all %d results"
-msgstr ""
-
-#: woocommerce/loop/result-count.php:42
-#, php-format
-msgctxt "%1$d = first, %2$d = last, %3$d = total"
-msgid "Showing %1$d&ndash;%2$d of %3$d results"
 msgstr ""
 
 #: woocommerce/checkout/thankyou.php:31
@@ -460,30 +417,12 @@ msgstr ""
 msgid "Pay"
 msgstr ""
 
-#: woocommerce/checkout/thankyou.php:42 woocommerce/checkout/thankyou.php:74
-msgid "Thank you. Your order has been received."
-msgstr ""
-
-#: woocommerce/checkout/thankyou.php:47
-msgid "Order Number:"
-msgstr "Bestellnummer:"
-
 #: woocommerce/checkout/thankyou.php:51
 msgid "Date:"
 msgstr ""
 
 #: woocommerce/checkout/thankyou.php:55
 msgid "Total:"
-msgstr ""
-
-#: woocommerce/checkout/thankyou.php:60
-msgid "Payment Method:"
-msgstr "Zahlungsart"
-
-#: woocommerce/emails/customer-new-account.php:26
-#, php-format
-msgid ""
-"Thanks for creating an account on %s. Your username is <strong>%s</strong>."
 msgstr ""
 
 #: woocommerce/emails/customer-new-account.php:30
@@ -689,6 +628,10 @@ msgstr "Wichtige Nachrichten"
 msgid "Video kérése"
 msgstr "Video Anfrage"
 
+#: woocommerce/cart/proceed-to-checkout-button.php:27
+msgid "Proceed to Checkout"
+msgstr "weiter zur Kasse"
+
 #: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:77
 #: woocommerce/order/order-details.php:31
 msgid "Product"
@@ -705,6 +648,10 @@ msgstr "Anzahl"
 #: woocommerce/cart/cart.php:136
 msgid "Coupon code"
 msgstr "Coupon-Kode"
+
+#: woocommerce/cart/cart.php:136
+msgid "Apply Coupon"
+msgstr "Gutschein anwenden"
 
 #: woocommerce/cart/cart.php:142
 msgid "Update Cart"
@@ -726,9 +673,33 @@ msgstr "Gesamtpreis"
 msgid "View Cart"
 msgstr "Warenkorb anschauen"
 
+#: woocommerce/cart/mini-cart.php:99
+msgid "Checkout"
+msgstr "Kasse"
+
 #: woocommerce/cart/mini-cart.php:112
 msgid "No products in the cart."
 msgstr "Keine Artikel im Warenkorb."
+
+#: woocommerce/order/order-details.php:27
+msgid "Order Details"
+msgstr "Bestelldetails"
+
+#: woocommerce/order/order-details-customer.php:22
+msgid "Customer Details"
+msgstr "Kundendetails"
+
+#: woocommerce/order/order-details-customer.php:41
+msgid "Telephone:"
+msgstr "Telefon:"
+
+#: woocommerce/order/order-details-customer.php:57
+msgid "Billing Address"
+msgstr "Rechnungsadresse"
+
+#: woocommerce/order/order-details-customer.php:68
+msgid "Shipping Address"
+msgstr "Lieferadresse"
 
 #: woocommerce/single-product/price.php:28
 msgid "db"
@@ -737,6 +708,10 @@ msgstr "stck"
 #: woocommerce/single-product/product-thumbnails.php:30
 msgid "További képek megtekintéséhez kattintson ide!"
 msgstr "Weitere Bilder !"
+
+#: woocommerce/single-product/related.php:56
+msgid "Related Products"
+msgstr "Verbundene Produkte"
 
 #: woocommerce/myaccount/form-login.php:32
 #: woocommerce/myaccount/form-login.php:59
@@ -792,6 +767,37 @@ msgstr ""
 "Als angemeldeter/registrierter Kunde können Sie schneller kaufen, Ihre "
 "vorige Bestellungen verfolgen, und <a href=\"%s\"> Sie werden up-to-date "
 "betreffs Ihren Bestellungen sein </a>."
+
+#: woocommerce/loop/result-count.php:40
+#, php-format
+msgid "Showing all %d results"
+msgstr "Zeigt %d der Ergebnisse"
+
+#: woocommerce/loop/result-count.php:42
+#, php-format
+msgctxt "%1$d = first, %2$d = last, %3$d = total"
+msgid "Showing %1$d&ndash;%2$d of %3$d results"
+msgstr "Zeigt %1$d&ndash;%2$d  der Ergebnisse"
+
+#: woocommerce/checkout/thankyou.php:42 woocommerce/checkout/thankyou.php:74
+msgid "Thank you. Your order has been received."
+msgstr "Vielen Dank für die Bestellung! Die Bestellung ist unter Verarbeitung"
+
+#: woocommerce/checkout/thankyou.php:47
+msgid "Order Number:"
+msgstr "Bestellnummer:"
+
+#: woocommerce/checkout/thankyou.php:60
+msgid "Payment Method:"
+msgstr "Zahlungsart"
+
+#: woocommerce/emails/customer-new-account.php:26
+#, php-format
+msgid ""
+"Thanks for creating an account on %s. Your username is <strong>%s</strong>."
+msgstr ""
+"Danke, dass Sie bei uns registriert haben %s. Ihr Benutzername ist: <strong>"
+"%s</strong>."
 
 #: woocommerce/single-product/add-to-cart/simple.php:78
 msgid "Díszdoboz"
