@@ -16,13 +16,29 @@
 										<h2 class="page-title"><strong><?php the_title()?></strong></h2>	
 						                <?php if (has_post_thumbnail()):?>
 						                	<div class="landing-thumbnail-holder">
-												<?php the_post_thumbnail(array(848))?>
+												<?php the_post_thumbnail('large')?>
 						                	</div>
 						                <?php endif;?>																				
 										<div class="entry-content">
 											<?php the_content();?>
 										</div>
 									<?php endif;?>
+									
+									<?php 
+										$args = array(
+											'post_type' => array('page'),										
+											'meta_query' => array(
+												array(
+													'key'     => '_yoast_wpseo_focuskw',
+													'value'   => "",
+													'compare' => '!=',
+												),
+											),			
+											'posts_per_page' => -1							
+										);
+									
+										$docs = new WP_Query($args);
+									?>
 									
 									<?php $products = unserialize(get_post_meta(get_the_ID(), 'product-select', true))?>
 									<?php $product_cats = get_post_meta(get_the_ID(), 'product-cat-select', true)?>

@@ -48,7 +48,7 @@
 				register_sidebar( array(
 					'name' => 'Footer sidebar',
 					'id' => 'footer_sidebar',
-					'before_widget' 	=> '<div id="%1$s" class="footer-col" %2$s">',
+					'before_widget' 	=> '<div id="%1$s" class="footer-col %2$s">',
 					'after_widget' 		=> '</div></div>',
 					'before_title'		=> '<h4>',
 					'after_title' 		=> '</h4><div class="footer-col-content">',

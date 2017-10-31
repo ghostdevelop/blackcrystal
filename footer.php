@@ -5,6 +5,38 @@
 						<div class="footer">
 							<p id="back-top"><a href="#top"><span></span></a> </p>
 							<div class="footer-cols-wrapper">
+								<div id="our_products" class="footer-col">
+									<h4>Termékeinkről...</h4>
+									<div class="footer-col-content">
+										<?php 
+											$args = array(
+												'post_type' => array('page'),										
+												'meta_query' => array(
+													array(
+														'key'     => '_yoast_wpseo_focuskw',
+														'value'   => "",
+														'compare' => '!=',
+													),
+												),			
+												'posts_per_page' => -1							
+											);
+										
+											$docs = new WP_Query($args);
+										?>
+										<?php if ($docs->have_posts()): ?>
+											<div id="products-informations" class="box-collateral box-up-sell">
+												<ul class="products-information-list">
+													<?php while ($docs->have_posts()): $docs->the_post(); ?>
+														<li class="products-information-item">
+															<a href="<?php the_permalink()?>"><h3><?php the_title()?></h3></a>
+															<?php the_post_thumbnail('medium_large'); ?>
+														</li>
+													<?php endwhile;?>
+												</div>
+											</ul>
+										<?php endif; ?>									
+									</div>
+								</div>
 								<?php dynamic_sidebar('footer_sidebar')?>							
 							</div>
 						</div>
@@ -36,10 +68,10 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">Modal title</h4>
+	        <h4 class="modal-title"></h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>One fine body&hellip;</p>
+
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Close', 'blackcrystal')?></button>
