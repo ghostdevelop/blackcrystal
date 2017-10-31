@@ -7,13 +7,17 @@ Author: Petya
 Author URI: 
 */
 
+
+.woocommerce form .form-row label{
+	display: inline-block;
+}
+
 .landing-thumbnail-holder img{
 	display: block;
-	width: 200px;
+	width: 100%;
 	height: auto;
 	float: left;
-	margin-right: 20px;	
-	margin-bottom: 20px;
+	margin: 0 0 20px;
 }
 
 .onoffswitch {
@@ -87,6 +91,10 @@ div.next-posts-link{
 
 .entry-content img{
 	margin: 5px 1.5em 0;
+}
+
+.entry-content img.alignnone{
+	margin: 0;
 }
 
 .page-title{
@@ -577,13 +585,6 @@ span.item-per-pack{
 	padding-left: 5px;
 }
 
-.entry-content .wpcf7{
-	border: 1px solid rgba(112, 88, 64, 0.8);
-	text-align: center;
-	display: inline-block;
-	padding: 60px 0;
-}
-
 .entry-content .wpcf7 h3{
 	font-size: 22px;
 	margin: 0 0 40px;
@@ -765,8 +766,84 @@ form.video-search .search-field{
 #wpcf7-f217269-p217264-o2 .wpcf7-captcha{
 	float: left;
 	display: block;
-	margin-right: 30px;
 }
+
+#wpcf7-f217269-p217264-o2 .wpcf7-form-control-wrap{
+	margin: 0;
+	margin-left: 0;
+	margin-right: 1%;
+	display: block;
+	width: 49%;
+	float: left;
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-form-control-wrap:nth-child(odd){
+	margin-left: 1%;
+	margin-right: 0;
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-form-control-wrap input{
+	display: block;
+	padding: 20px;
+	box-sizing: border-box;
+	width: 100%;
+	background: #957c62;
+	color: #111;
+	text-transform: uppercase
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-submit{
+	border: 1px solid #525252;
+	background: #222;
+	color: #957c62;
+	padding: 20px 40px;	
+	-webkit-transition: all .4s linear;
+	-moz-transition: all .4s linear;
+	-o-transition: all .4s linear;
+	transition: all .4s linear;	
+	letter-spacing: 1px;
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-submit:hover{
+	background: #957c62;
+	color: #222;
+	border-color: transparent;
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-form-control-wrap input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #444;
+   	text-transform: uppercase;
+   	letter-spacing: 1px;
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-form-control-wrap input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #444;
+   opacity:  1;
+   letter-spacing: 1px;
+   text-transform: uppercase   
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-form-control-wrap input::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #444;
+   opacity:  1;
+   letter-spacing: 1px;
+   text-transform: uppercase    
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-form-control-wrap input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #444;
+   opacity:  1;
+   letter-spacing: 1px;
+   text-transform: uppercase    
+}
+
+#wpcf7-f217269-p217264-o2 .wpcf7-form-control-wrap input::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #444;
+   opacity:  1;
+   letter-spacing: 1px;
+   text-transform: uppercase   
+}
+
 
 .dekor-list-item{
 	clear: both;
@@ -826,10 +903,10 @@ ul.social-media li a{
 	padding: 6px 12px;
 	font-size: 20px;
 	border: 2px solid #957c62;  
-	-webkit-transition: all 1s ease-in-out;
-	-moz-transition: all 1s ease-in-out;
-	-o-transition: all 1s ease-in-out;
-	transition: all 1s ease-in-out;
+	-webkit-transition: all 1s linear;
+	-moz-transition: all 1s linear;
+	-o-transition: all 1s linear;
+	transition: all 1s linear;
 	
 }
 

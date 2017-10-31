@@ -17,6 +17,8 @@ if(!class_exists('CustomWoo')) {
 			add_filter( 'woocommerce_cart_item_name', array($this, 'add_sku_in_cart'), 20, 3);
 			add_filter( 'woocommerce_email_recipient_customer_refunded_order', array(&$this, 'refund_email_to_admin'), 10, 2);
 			
+			add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false' );
+			
 			
 			add_action( 'woocommerce_remove_cart_item', array(&$this, 'remove_additional_product'), 10, 2 );
 			add_filter( 'woocommerce_get_cart_item_from_session', array(&$this, 'get_cart_items_from_session'), 1, 3 );			
