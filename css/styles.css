@@ -1772,6 +1772,11 @@ tr.summary-details-excluded { font-style:italic; }
 .box-up-sell .box-tags .product-tags li.last {background:none;}
 
 .box-up-sell .jcarousel-clip {overflow:hidden;width:828px;}
+#products-informations.box-up-sell .jcarousel-clip {
+	overflow: hidden;
+	width: 100%;
+	border: 1px solid #272728;	
+}
 .box-up-sell .jcarousel-prev,
 .box-up-sell .jcarousel-next {display:block;position:absolute;height:31px;width:31px; top:16px; cursor:pointer;}
 .box-up-sell .jcarousel-prev {right:56px;}

@@ -18,7 +18,8 @@
 														'compare' => '!=',
 													),
 												),			
-												'posts_per_page' => -1							
+												'orderby' => 'rand',
+												'posts_per_page' => 5							
 											);
 										
 											$docs = new WP_Query($args);
@@ -32,8 +33,8 @@
 															<?php the_post_thumbnail('medium_large'); ?>
 														</li>
 													<?php endwhile;?>
-												</div>
-											</ul>
+												</ul>
+											</div>
 										<?php endif; ?>									
 									</div>
 								</div>
